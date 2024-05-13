@@ -1,0 +1,14 @@
+---
+title: "Current Sheet Theory"
+code-links:
+#   - repo
+  - text: Tana
+    href: https://app.tana.inc?nodeid=OzzX0sVA4_6X
+  - text: Zotero
+    href: zotero://select/library/collections/DZHNUFNV
+---
+
+
+## References
+
+- @steinhauerMultifluidModelOnedimensional2008

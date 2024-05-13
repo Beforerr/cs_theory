@@ -1,0 +1,16 @@
+project:
+  type: website
+  title: "Current Sheet Theory"
+
+website:
+  sidebar:
+    contents: auto
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Manuscript"
+        href: _manuscript/index.html
+
+bibliography:
+  - ../share/bibliography/research.bib

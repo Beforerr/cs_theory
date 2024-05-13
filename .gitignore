@@ -1,0 +1,12 @@
+.DS_Store
+
+__pycache__/
+
+_site
+_manuscript
+_docs
+_proc
+.quarto
+*_files/
+
+/.quarto/
