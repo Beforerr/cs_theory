@@ -1,12 +1,30 @@
 ---
 title: "Current Sheet Theory"
 code-links:
-#   - repo
+  - repo
   - text: Tana
     href: https://app.tana.inc?nodeid=OzzX0sVA4_6X
   - text: Zotero
     href: zotero://select/library/collections/DZHNUFNV
 ---
+
+One-dimensional geometry in which all variables depend only on the z (normal) coordinate.
+
+$$
+d B_y / d z=\sum_\alpha(-n_\alpha u_{\alpha x}+\Gamma_\alpha B_x / B_z)
+$$
+
+$$
+d B_x / d z=\sum_\alpha(n_\alpha u_{\alpha y}-\Gamma_\alpha B_y / B_z)
+$$
+
+$$
+\Gamma_e=\sum_\alpha n_\alpha u_{\alpha z}=\sum_\alpha \Gamma_\alpha
+$$
+
+We are interested in solution that have $d B_y / d z \neq 0$ 
+
+
 
 
 ## References
