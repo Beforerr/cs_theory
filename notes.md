@@ -1,3 +1,111 @@
+Ampere's law
+
+$$
+\begin{equation}
+d B_x / d z 
+= \sum_\alpha\left(n_\alpha u_{\alpha y}-\Gamma_\alpha B_y / B_z\right) \
+= n u_y-\Gamma_e B_y / B_z
+\end{equation}
+$$
+
+$$
+\begin{equation}
+d B_y / d z 
+= \sum_\alpha\left(-n_\alpha u_{\alpha x}+\Gamma_\alpha B_x / B_z\right) 
+= -n u_x+\Gamma_e B_x / B_z
+\end{equation}
+$$
+
+Asymptotic conditions
+
+$$
+{B_z}^2 = \sum \Gamma_{\alpha}^2/n_{\alpha}(\infty)
+$$
+
+## $\Gamma_e \neq 0$
+
+Assuming $n_2 = \alpha_n n_1$ and $u_2 = - u_1$.
+
+We have 
+
+$$
+n_e = n_1 + n_2 = (1 + \alpha_n) n_1
+\\
+\Gamma_e = \Gamma_1 + \Gamma_2 = (1 - \alpha_n) \Gamma_1
+$$
+
+The Ampere's law becomes
+
+$$
+\begin{equation}
+d_z B_x = n_1 u_{1y} + n_2 u_{2y} - \Gamma_e B_y / B_z
+    = (1 - \alpha_n) n_1 u_{1y} - \Gamma_e B_y / B_z
+\end{equation}
+$$
+
+$$
+\begin{equation}
+d_z B_y = - n_1 u_{1x} - n_2 u_{2x} + \Gamma_e B_x / B_z
+    = - (1 - \alpha_n) n_1 u_{1x} + \Gamma_e B_x / B_z
+\end{equation}
+$$
+
+The momentum equation becomes
+
+$$
+\begin{equation}
+\Gamma_1 \frac{d u_{1 x}}{d z}=n_1 u_{1 y} B_z-\Gamma_1 B_y
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\Gamma_1 \frac{d u_{1 y}}{d z}=\Gamma_1 B_x-n_1 u_{1 x} B_z
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\frac{d}{d z}\left(\frac{\Gamma_1^2}{n_1}+\frac{C n_1^\gamma}{2}\right) = {n_1}(u_{1x} B_y-u_{1y} B_x - \frac{T_e}{2n_e} \frac{d n_e}{dz})
+\end{equation}
+$$
+
+The asymptotic conditions become
+
+$$
+{B_z}^2 = \Gamma_1^2/n_1(\infty) + \Gamma_2^2/n_2(\infty) 
+= (1+\alpha_n) \Gamma_1^2/n_1(\infty)
+$$
+
+### Coding Part
+
+```{mathematica}
+(* Define the system of equations *)
+γ = 5/3;
+zmax = 10;
+eps = 0.01;
+
+GammaE := (1 - alphaN) Gamma1;
+n2 := alphaN n1[z];
+ne := (1 + alphaN) n1[z];
+u2x := -u1x[z];
+u2y := -u1y[z];
+
+n1Inf = 1 / (1 + alphaN);
+Gamma1 := - Bz Sqrt[n1Inf/(1 + alphaN)];
+
+eq1 = D[Bx[z], z] == n1[z] u1y[z] + n2 u2y - GammaE By[z]/Bz;
+eq2 = D[By[z], z] == -n1[z] u1x[z] - n2 u2x + GammaE Bx[z]/Bz;
+eq3 = Gamma1 D[u1x[z], z] == n1[z] u1y[z] Bz - Gamma1 By[z];
+eq4 = Gamma1 D[u1y[z], z] == Gamma1 Bx[z] - n1[z] u1x[z] Bz;
+eq5 = D[(Gamma1^2/n1[z] + C n1[z]^γ/2), z] == 
+   n1[z] (u1x[z] By[z] - u1y[z] Bx[z] - Te/(2 ne) D[ne, z]);
+```
+
+## $\Gamma_e = 0$
+
+### Coding Part
+
 In summary, we have five equations and five unknown $n, B_x, B_y, u_x, u_y$ which depend on $z$.
 
 $$
