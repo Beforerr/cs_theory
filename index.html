@@ -93,6 +93,9 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -174,13 +177,15 @@ window.Quarto = {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./_manuscript/index.html"> 
-<span class="menu-text">Manuscript</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://github.com/Beforerr/cs_theory" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -219,8 +224,20 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/Beforerr/cs_theory/" target="_blank"><i class="bi bi-github"></i>GitHub Repo</a></li><li><a href="https://app.tana.inc?nodeid=OzzX0sVA4_6X"><i class="bi bi-link-45deg"></i>Tana</a></li><li><a href="zotero://select/library/collections/DZHNUFNV"><i class="bi bi-link-45deg"></i>Zotero</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#plasma-field-equations-for-a-one-dimensional-multifluid" id="toc-plasma-field-equations-for-a-one-dimensional-multifluid" class="nav-link active" data-scroll-target="#plasma-field-equations-for-a-one-dimensional-multifluid">Plasma-Field Equations for a One-Dimensional Multifluid</a></li>
+  <li><a href="#force-free-current-sheet" id="toc-force-free-current-sheet" class="nav-link" data-scroll-target="#force-free-current-sheet">Force-free current sheet</a>
+  <ul class="collapse">
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://app.tana.inc?nodeid=OzzX0sVA4_6X"><i class="bi bi-link-45deg"></i>Tana</a></li><li><a href="zotero://select/library/collections/DZHNUFNV"><i class="bi bi-link-45deg"></i>Zotero</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -358,8 +375,8 @@ B_x &amp;\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\fr
 <p>For the simplest case <span class="math inline">\(λ_n = 1, λ_z = - 1\)</span>, from <a href="#eq-asym1" class="quarto-xref">Equation&nbsp;4</a>, we have <span class="math inline">\(Γ_1 = - B_z / \sqrt{2}\)</span>.</p>
 <p>We could also normalize the system length by <span class="math inline">\(\delta = 1\)</span>. So now the system could be fully determined by <span class="math inline">\(c, B_0\)</span>.</p>
 <p>Given <span class="math inline">\(c = 1/\sqrt{2}\)</span>, we have <span class="math inline">\(B_y \to 0\)</span> as <span class="math inline">\(z \to \infty\)</span>. Profiles are plotted below for <span class="math inline">\(B_0 = 2\)</span>.</p>
-<p><img src="figures/profiles.jpg" class="img-fluid"></p>
-<p><img src="figures/J_profiles.jpg" class="img-fluid"></p>
+<p><a href="figures/profiles.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figures/profiles.jpg" class="img-fluid"></a></p>
+<p><a href="figures/J_profiles.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figures/J_profiles.jpg" class="img-fluid"></a></p>
 <p>The multi-fluid effect is clearly demonstrated by <span class="math inline">\(Λ_y - 1\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica code-with-copy"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Manipulate</span><span class="op">[</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">Block</span><span class="op">[{</span>B0 <span class="ex">=</span> B0i<span class="op">,</span> <span class="fu">c</span> <span class="ex">=</span> ci<span class="op">},</span></span>
@@ -510,7 +527,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Beforerr\.github\.io\/cs_theory\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -839,6 +856,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
