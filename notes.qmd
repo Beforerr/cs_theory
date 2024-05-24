@@ -1,8 +1,13 @@
+---
+execute:
+  enabled: false
+---
+
 Ampere's law
 
 $$
 \begin{equation}
-d B_x / d z 
+d B_x / d z
 = \sum_\alpha\left(n_\alpha u_{\alpha y}-\Gamma_\alpha B_y / B_z\right) \
 = n u_y-\Gamma_e B_y / B_z
 \end{equation}
@@ -10,8 +15,8 @@ $$
 
 $$
 \begin{equation}
-d B_y / d z 
-= \sum_\alpha\left(-n_\alpha u_{\alpha x}+\Gamma_\alpha B_x / B_z\right) 
+d B_y / d z
+= \sum_\alpha\left(-n_\alpha u_{\alpha x}+\Gamma_\alpha B_x / B_z\right)
 = -n u_x+\Gamma_e B_x / B_z
 \end{equation}
 $$
@@ -22,31 +27,87 @@ $$
 {B_z}^2 = \sum \Gamma_{\alpha}^2/n_{\alpha}(\infty)
 $$
 
+## Force-free current sheet
+
+### Coding Part
+
+```{mathematica}
+(*Solve the system numerically*)
+
+
+Γe := Λz Γ1
+Λx := Λy
+Jxi := Λx n[z] u1x[z]
+Jyi := Λy n[z] u1y[z]
+Jxe := -((Γe Bx[z])/Bz)
+Jye := -((Γe By[z])/Bz)
+Jx := Jxi + Jxe
+Jy := Jyi + Jye
+
+Manipulate[
+ Block[{B0 = B0i, c = ci},
+  p1 = Plot[
+    Evaluate[{n[z], Bx[z], By[z], u1x[z], u1y[z],
+        Bx[z] u1y[z] - By[z] u1x[z]} /. sols //. rulesn], {z, -zmax,
+     zmax},
+    PlotLegends -> {"n", "\!\(\*SubscriptBox[\(B\), \(x\)]\)",
+      "\!\(\*SubscriptBox[\(B\), \(y\)]\)",
+      "\!\(\*SubscriptBox[\(u\), \(x\)]\)",
+      "\!\(\*SubscriptBox[\(u\), \(y\)]\)",
+      "\!\(\*SubscriptBox[\(B\), \(x\)]\)\!\(\*SubscriptBox[\(u\), \
+\(y\)]\)-\!\(\*SubscriptBox[\(B\), \(y\)]\)\!\(\*SubscriptBox[\(u\), \
+\(x\)]\)"}]
+  ],
+ {{ci, 0.5}, 0, 2},
+ {{B0i, 2}, 0.5, 2},
+ {{zmax, 10}, 5, 30}
+ ]
+
+Manipulate[
+ Block[{B0 = B0i, c = ci, Λz = Λz0},
+  p2 = Plot[
+    Evaluate[{Jxi, Jx, Jyi, Jy} /. sols //. rulesn], {z, -zmax, zmax},
+     PlotLegends -> {"Jxi", "Jx", "Jyi", "Jy"},
+		 PlotRange -> All
+		]
+  ],
+
+ {{ci, 0.5}, 0, 2},
+ {{B0i, 2}, 0.5, 2},
+ {Λz0, 0, 1},
+ {{zmax, 10}, 5, 30}
+ ]
+```
+
 ## $\Gamma_e \neq 0$
 
-Assuming $n_2 = \alpha_n n_1$ and $u_2 = - u_1$.
+Assuming $n_2 = \alpha_n n_1$ and $u_2 = - \alpha_u u_1$.
 
-We have 
+We have
 
 $$
 n_e = n_1 + n_2 = (1 + \alpha_n) n_1
 \\
-\Gamma_e = \Gamma_1 + \Gamma_2 = (1 - \alpha_n) \Gamma_1
+\Gamma_e = \Gamma_1 + \Gamma_2 = (1 - \alpha_n \alpha_u) \Gamma_1
 $$
+
+Denote $\Alpha = 1 - \alpha_n \alpha_u$.
 
 The Ampere's law becomes
 
 $$
 \begin{equation}
 d_z B_x = n_1 u_{1y} + n_2 u_{2y} - \Gamma_e B_y / B_z
-    = (1 - \alpha_n) n_1 u_{1y} - \Gamma_e B_y / B_z
+    = (1 - \alpha_n \alpha_u) n_1 u_{1y} - \Gamma_e B_y / B_z
+    = \Alpha n_1 u_{1y} - \Alpha \Gamma_1 B_y / B_z
 \end{equation}
 $$
 
 $$
 \begin{equation}
 d_z B_y = - n_1 u_{1x} - n_2 u_{2x} + \Gamma_e B_x / B_z
-    = - (1 - \alpha_n) n_1 u_{1x} + \Gamma_e B_x / B_z
+    = - (1 - \alpha_n \alpha_u) n_1 u_{1x} + \Gamma_e B_x / B_z
+    = - \Alpha n_1 u_{1x} + \Alpha \Gamma_1 B_x / B_z
 \end{equation}
 $$
 
@@ -73,33 +134,50 @@ $$
 The asymptotic conditions become
 
 $$
-{B_z}^2 = \Gamma_1^2/n_1(\infty) + \Gamma_2^2/n_2(\infty) 
-= (1+\alpha_n) \Gamma_1^2/n_1(\infty)
+{B_z}^2 = \Gamma_1^2/n_1(\infty) + \Gamma_2^2/n_2(\infty)
+= (1+\alpha_n \alpha_u^2) \Gamma_1^2/n_1(\infty)
 $$
+
+---
+
+Combing the first and third equations, we have
+
+$$
+\Alpha \Gamma u_x = B_z B_x + C_1
+$$
+
+Similarly, combining the second and fourth equations, we have
+
+$$
+\Alpha \Gamma u_y = B_z B_y + C_2
+$$
+
+Because the first constant of integration vanishes at the current sheet center yield $C_1 = 0$
 
 ### Coding Part
 
 ```{mathematica}
-(* Define the system of equations *)
+(*Solve the system numerically*)
 γ = 5/3;
 zmax = 10;
-eps = 0.01;
+eps = 0.001;
 
-GammaE := (1 - alphaN) Gamma1;
-n2 := alphaN n1[z];
-ne := (1 + alphaN) n1[z];
-u2x := -u1x[z];
-u2y := -u1y[z];
+(*Define the system of equations*)
+eq1 := D[Bx[z], z] == n1[z] u1y[z] + n2 u2y - GammaE By[z]/Bz;
+eq2 := D[By[z], z] == -n1[z] u1x[z] - n2 u2x + GammaE Bx[z]/Bz;
+eq3 := Gamma1 D[u1x[z], z] == n1[z] u1y[z] Bz - Gamma1 By[z];
+eq4 := Gamma1 D[u1y[z], z] == Gamma1 Bx[z] - n1[z] u1x[z] Bz;
+eq5 := D[(Gamma1^2/n1[z] + C1 n1[z]^γ/2), z] == n1[z] (u1x[z] By[z] - u1y[z] Bx[z] - Te/(2 ne) D[ne, z]);
 
-n1Inf = 1 / (1 + alphaN);
-Gamma1 := - Bz Sqrt[n1Inf/(1 + alphaN)];
+u2x := -αu u1x[z];
+u2y := -αu u1y[z];
 
-eq1 = D[Bx[z], z] == n1[z] u1y[z] + n2 u2y - GammaE By[z]/Bz;
-eq2 = D[By[z], z] == -n1[z] u1x[z] - n2 u2x + GammaE Bx[z]/Bz;
-eq3 = Gamma1 D[u1x[z], z] == n1[z] u1y[z] Bz - Gamma1 By[z];
-eq4 = Gamma1 D[u1y[z], z] == Gamma1 Bx[z] - n1[z] u1x[z] Bz;
-eq5 = D[(Gamma1^2/n1[z] + C n1[z]^γ/2), z] == 
-   n1[z] (u1x[z] By[z] - u1y[z] Bx[z] - Te/(2 ne) D[ne, z]);
+
+bc2 = n1[zmax] == n1Inf + eps;
+bc3 = Bx[zmax] == 1 - eps;
+bc4 = By[zmax] == ByInfinity;
+bc5 = u1x[zmax] == uxInfinity;
+bc6 = u1y[zmax] == uyInfinity;
 ```
 
 ## $\Gamma_e = 0$
@@ -126,10 +204,10 @@ $$
 
 And the boundary conditions:
 
-* when $z=0$ :  $B_x =0$
-* when $z \to \infty$ : $B_x \to 1, B_y \to a$, $n \to 1$
+- when $z=0$ : $B_x =0$
+- when $z \to \infty$ : $B_x \to 1, B_y \to a$, $n \to 1$
 
-  * As the derivatives also go to zero we have
+  - As the derivatives also go to zero we have
 
     $$
     u_x \to 0
