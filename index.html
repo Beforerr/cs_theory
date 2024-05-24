@@ -283,7 +283,7 @@ B_x B_z = \sum n_α u_{α,x} u_{α,z} = \sum Γ_α u_{α,x}
 </section>
 <section id="force-free-current-sheet" class="level2">
 <h2 class="anchored" data-anchor-id="force-free-current-sheet">Force-free current sheet</h2>
-<p>We are interested in solutions with <span class="math inline">\(B_x^2 + B_y^2 = B_0^2 = const\)</span> (force-free current sheet). From Ampere’s law (<a href="#eq-Jx" class="quarto-xref">Equation&nbsp;2</a>) and (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>), we have:</p>
+<p>We are interested in solutions with <span class="math inline">\(B_x^2 + B_y^2 = B_0^2 = const\)</span> (force-free current sheet). This provides another equation for the system, now we have 3*2+2+1=9 equations for 10 unknowns (the system is close to be fully determined). From Ampere’s law (<a href="#eq-Jx" class="quarto-xref">Equation&nbsp;2</a>) and (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>), we have:</p>
 <p><span class="math display">\[
 n (u_x B_y  - u_y B_x) = 0
 \]</span></p>
@@ -314,7 +314,7 @@ B_x = B_0 \cos θ, \quad B_y = B_0 \sin θ
 u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 \]</span></p>
 </div>
-<p><span class="math inline">\(C_1=0\)</span> immediately implies <span class="math inline">\(θ = θ_1 + k \pi\)</span> and <span class="math inline">\(Λ_x=Λ_y\)</span>. This provides another equation for the system, now with force-free condition, we have 3*2+2+2=10 equations for 10 unknowns. The system is fully determined.</p>
+<p><span class="math inline">\(C_1=0\)</span> immediately implies <span class="math inline">\(θ = θ_1 + k \pi\)</span> and <span class="math inline">\(Λ_x=Λ_y\)</span>. #TODO: Prove <span class="math inline">\(C_1=0\)</span> is like a boundary condition not a equation.</p>
 <p>The momentum equations (<a href="#eq-momentum" class="quarto-xref">Equation&nbsp;1</a>) become:</p>
 <p><span class="math display">\[
 - u_1 \sin θ_1 θ_1' = n_1 u_1 \sin θ_1 B_z / Γ_1 - B_0 \sin θ
@@ -344,6 +344,8 @@ B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
 <section id="solutions" class="level3">
 <h3 class="anchored" data-anchor-id="solutions">Solutions</h3>
 <p>Normalize the density by <span class="math inline">\(n_1(z=\infty) = 1\)</span> and the magnetic field by <span class="math inline">\(B_z = 1\)</span>.</p>
+<p>The system <span class="math inline">\(S\)</span> could be fully determined by <span class="math inline">\(λ_n, λ_z, c, B_0\)</span> parameters, provided <span class="math inline">\(n(z)\)</span> profiles.</p>
+<p><span class="math display">\[S=S(z; n(z); λ_n, λ_z, c, B_0)\]</span></p>
 <p>Assuming density profile <span class="math inline">\(n_1(z) \to \frac{c}{\left(\frac{z}{\delta }\right)^2+1}+1\)</span></p>
 <p>We have</p>
 <p><span class="math display">\[
@@ -353,10 +355,9 @@ B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
 B_x &amp;\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\frac{z}{\delta }\right)}{2 \Gamma _1}\right)
 \end{aligned}
 \]</span></p>
-<p>The system is fully determined by <span class="math inline">\(λ_n, λ_z, c, B_0\)</span> parameters.</p>
 <p>For the simplest case <span class="math inline">\(λ_n = 1, λ_z = - 1\)</span>, from <a href="#eq-asym1" class="quarto-xref">Equation&nbsp;4</a>, we have <span class="math inline">\(Γ_1 = - B_z / \sqrt{2}\)</span>.</p>
 <p>We could also normalize the system length by <span class="math inline">\(\delta = 1\)</span>. So now the system could be fully determined by <span class="math inline">\(c, B_0\)</span>.</p>
-<p>Given <span class="math inline">\(c = 1/\sqrt{2}\)</span>, we have <span class="math inline">\(B_y \to 0\)</span> as <span class="math inline">\(z \to \infty\)</span>. Profiles are plotted below.</p>
+<p>Given <span class="math inline">\(c = 1/\sqrt{2}\)</span>, we have <span class="math inline">\(B_y \to 0\)</span> as <span class="math inline">\(z \to \infty\)</span>. Profiles are plotted below for <span class="math inline">\(B_0 = 2\)</span>.</p>
 <p><img src="figures/profiles.jpg" class="img-fluid"></p>
 <p><img src="figures/J_profiles.jpg" class="img-fluid"></p>
 <p>The multi-fluid effect is clearly demonstrated by <span class="math inline">\(Λ_y - 1\)</span>.</p>
