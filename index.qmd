@@ -98,7 +98,7 @@ u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 $$
 :::
 
-$C_1=0$ immediately implies $θ = θ_1 + k \pi$ and $Λ_x=Λ_y$.
+$C_1=0$ immediately implies $θ = θ_1 + k \pi$ and $Λ_x=Λ_y$. This provides another equation for the system, now with force-free condition, we have 3*2+2+2=10 equations for 10 unknowns. The system is fully determined.
 
 The momentum equations (@eq-momentum) become:
 
