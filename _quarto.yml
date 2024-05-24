@@ -1,16 +1,28 @@
 project:
   type: website
   title: "Current Sheet Theory"
+  preview: 
+    port: 6007
 
 website:
+  reader-mode: true
   sidebar:
     contents: auto
   navbar:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Manuscript"
-        href: _manuscript/index.html
+    tools:
+      - icon: github
+        href: "https://github.com/Beforerr/cs_theory"
+
+format:
+  html:
+    toc: true
+    code-fold: true
+    lightbox: auto
 
 bibliography:
   - ../share/bibliography/research.bib
+
+wrap: preserve

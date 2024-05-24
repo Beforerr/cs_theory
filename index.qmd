@@ -1,7 +1,6 @@
 ---
 title: "Current Sheet Theory"
 code-links:
-  - repo
   - text: Tana
     href: https://app.tana.inc?nodeid=OzzX0sVA4_6X
   - text: Zotero
@@ -56,7 +55,7 @@ In the following, we will consider a system with two ion species.
 
 ## Force-free current sheet
 
-We are interested in solutions with $B_x^2 + B_y^2 = B_0^2 = const$ (force-free current sheet). From Ampere's law (@eq-Jx) and (@eq-Jy), we have:
+We are interested in solutions with $B_x^2 + B_y^2 = B_0^2 = const$ (force-free current sheet). This provides another equation for the system, now we have 3*2+2+1=9 equations for 10 unknowns (the system is close to be fully determined). From Ampere's law (@eq-Jx) and (@eq-Jy), we have:
 
 $$
 n (u_x B_y  - u_y B_x) = 0
@@ -98,7 +97,7 @@ u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 $$
 :::
 
-$C_1=0$ immediately implies $θ = θ_1 + k \pi$ and $Λ_x=Λ_y$. This provides another equation for the system, now with force-free condition, we have 3*2+2+2=10 equations for 10 unknowns. The system is fully determined.
+$C_1=0$ immediately implies $θ = θ_1 + k \pi$ and $Λ_x=Λ_y$. #TODO: Prove $C_1=0$ is like a boundary condition not a equation.
 
 The momentum equations (@eq-momentum) become:
 
@@ -114,8 +113,8 @@ $${#eq-theta1}
 - The derivative of $θ$ goes to zero at infinity, gives us a relation between $u_1$ and $B_0$:
 
   $$
-  u_1 = \pm \frac{B_0 Γ_1}{B_z n_1}
-  $$
+  u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
+  $${#eq-u1}
 
 The Ampere's law (@eq-Jx) become:
 
@@ -136,6 +135,10 @@ $$
 
 Normalize the density by $n_1(z=\infty) = 1$ and the magnetic field by $B_z = 1$.
 
+The system $S$ could be fully determined by $λ_n, λ_z, c, B_0$ parameters, provided $n(z)$ profiles.
+
+$$S=S(z; n(z); λ_n, λ_z, c, B_0)$$
+
 Assuming density profile $n_1(z) \to \frac{c}{\left(\frac{z}{\delta }\right)^2+1}+1$
 
 We have 
@@ -148,11 +151,13 @@ B_x &\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\frac{z
 \end{aligned}
 $$
 
+
+
 For the simplest case $λ_n = 1, λ_z = - 1$, from @eq-asym1, we have $Γ_1 = - B_z / \sqrt{2}$.
 
 We could also normalize the system length by $\delta = 1$. So now the system could be fully determined by $c, B_0$.
 
-Given $c = 1/\sqrt{2}$, we have $B_y \to 0$ as $z \to \infty$. Profiles are plotted below.
+Given $c = 1/\sqrt{2}$, we have $B_y \to 0$ as $z \to \infty$. Profiles are plotted below for $B_0 = 2$.
 
 ![](figures/profiles.jpg)
 
@@ -164,12 +169,12 @@ The multi-fluid effect is clearly demonstrated by $Λ_y - 1$.
 Manipulate[
  Block[{B0 = B0i, c = ci},
   p1 = Plot[
-    Evaluate[{n[z], Bx[z], By[z], u1x[z], u1y[z]} /. sols //. 
-      rulesn],
+    Evaluate[{n[z], Bx[z], By[z], u1x[z], u1y[z]} /. sols //. rulesn],
     {z, -zmax, zmax},
-    PlotLegends -> {n, Subscript[B, x], Subscript[B, y], Subscript[u, 
-      x], Subscript[u, y]}];
+    PlotLegends -> {n, Subscript[B, x], Subscript[B, y], Subscript[u, x], Subscript[u, y]}
+  ];
   Export["figures/profiles.jpg", p1];
+  p1
   ],
  
  {{ci, 1/Sqrt[2]}, 0, 2},
@@ -196,13 +201,6 @@ Manipulate[
  {{zmax, 10}, 5, 30}
 ]
 ```
-
-
-## Questions
-
-- Why not motionless electrons?
-
-
 
 ## References
 
