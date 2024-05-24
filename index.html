@@ -326,9 +326,9 @@ u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 <li><p>Note that <span class="math inline">\(θ_1, n_1\)</span> are dependent variables, and <span class="math inline">\(u_1, B_0, B_z, Γ_1\)</span> are constants determined by the system.</p></li>
 <li><p><strong>Given <span class="math inline">\(n_1\)</span>, we could solve <span class="math inline">\(θ_1\)</span> from the above equation.</strong></p></li>
 <li><p>The derivative of <span class="math inline">\(θ\)</span> goes to zero at infinity, gives us a relation between <span class="math inline">\(u_1\)</span> and <span class="math inline">\(B_0\)</span>:</p>
-<p><span class="math display">\[
-u_1 = \pm \frac{B_0 Γ_1}{B_z n_1}
-\]</span></p></li>
+<p><span id="eq-u1"><span class="math display">\[
+u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
+\tag{6}\]</span></span></p></li>
 </ul>
 <p>The Ampere’s law (<a href="#eq-Jx" class="quarto-xref">Equation&nbsp;2</a>) become:</p>
 <p><span class="math display">\[
@@ -336,7 +336,7 @@ B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
 \]</span><span id="eq-theta"><span class="math display">\[
 \Rightarrow
 θ' = \mp \frac{Λ_y n_1 u_1 }{B_0} + \frac{Λ_z Γ_1}{B_z}
-\tag{6}\]</span></span></p>
+\tag{7}\]</span></span></p>
 <p>By equating the above two equations, we could get a relation between <span class="math inline">\(n_1\)</span> and <span class="math inline">\(Λ_y\)</span>:</p>
 <p><span class="math display">\[
 Λ_y = Λ_y(n_1) = -\frac{B_0 \left(-n_1 u_1 B_z^2+B_0 \Gamma _1 B_z-\Gamma _1^2 u_1 \Lambda _z\right)}{\Gamma _1 n_1 u_1^2 B_z}
@@ -353,6 +353,7 @@ B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
 B_x &amp;\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\frac{z}{\delta }\right)}{2 \Gamma _1}\right)
 \end{aligned}
 \]</span></p>
+<p>The system is fully determined by <span class="math inline">\(λ_n, λ_z, c, B_0\)</span> parameters.</p>
 <p>For the simplest case <span class="math inline">\(λ_n = 1, λ_z = - 1\)</span>, from <a href="#eq-asym1" class="quarto-xref">Equation&nbsp;4</a>, we have <span class="math inline">\(Γ_1 = - B_z / \sqrt{2}\)</span>.</p>
 <p>We could also normalize the system length by <span class="math inline">\(\delta = 1\)</span>. So now the system could be fully determined by <span class="math inline">\(c, B_0\)</span>.</p>
 <p>Given <span class="math inline">\(c = 1/\sqrt{2}\)</span>, we have <span class="math inline">\(B_y \to 0\)</span> as <span class="math inline">\(z \to \infty\)</span>. Profiles are plotted below.</p>
