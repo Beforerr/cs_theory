@@ -1,5 +1,0 @@
-name: current_sheet
-dependencies:
-  - python
-  - ipykernel
-  - scipy
