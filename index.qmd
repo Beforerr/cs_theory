@@ -137,9 +137,11 @@ $$
 
 Normalize the density by $n_1(z=\infty) = 1$ and the magnetic field by $B_z = 1$.
 
-The system $S$ could be fully determined by $λ_n, λ_z, c, B_0$ parameters, provided $n(z)$ profiles.
+The system $S$ could be fully determined by $λ_n, λ_z, B_0$ parameters, provided $n(z)$ profiles.
 
-$$S=S(z; n(z); λ_n, λ_z, c, B_0)$$
+$$
+S=S(z; n(z); λ_n, λ_z, B_0)
+$$
 
 Assuming density profile $n_1(z) \to \frac{c}{\left(\frac{z}{\delta }\right)^2+1}+1$
 
