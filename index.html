@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.33">
+<meta name="generator" content="quarto-1.5.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -346,10 +346,11 @@ u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
 \tag{6}\]</span></span></p></li>
 </ul>
-<p>The Ampere’s law (<a href="#eq-Jx" class="quarto-xref">Equation&nbsp;2</a>) become:</p>
+<p>The Ampere’s law (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>) become:</p>
 <p><span class="math display">\[
-B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
-\]</span><span id="eq-theta"><span class="math display">\[
+- B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
+\]</span></p>
+<p><span id="eq-theta"><span class="math display">\[
 \Rightarrow
 θ' = \mp \frac{Λ_y n_1 u_1 }{B_0} + \frac{Λ_z Γ_1}{B_z}
 \tag{7}\]</span></span></p>
@@ -360,8 +361,10 @@ B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
 <section id="solutions" class="level3">
 <h3 class="anchored" data-anchor-id="solutions">Solutions</h3>
 <p>Normalize the density by <span class="math inline">\(n_1(z=\infty) = 1\)</span> and the magnetic field by <span class="math inline">\(B_z = 1\)</span>.</p>
-<p>The system <span class="math inline">\(S\)</span> could be fully determined by <span class="math inline">\(λ_n, λ_z, c, B_0\)</span> parameters, provided <span class="math inline">\(n(z)\)</span> profiles.</p>
-<p><span class="math display">\[S=S(z; n(z); λ_n, λ_z, c, B_0)\]</span></p>
+<p>The system <span class="math inline">\(S\)</span> could be fully determined by <span class="math inline">\(λ_n, λ_z, B_0\)</span> parameters, provided <span class="math inline">\(n(z)\)</span> profiles.</p>
+<p><span class="math display">\[
+S=S(z; n(z); λ_n, λ_z, B_0)
+\]</span></p>
 <p>Assuming density profile <span class="math inline">\(n_1(z) \to \frac{c}{\left(\frac{z}{\delta }\right)^2+1}+1\)</span></p>
 <p>We have</p>
 <p><span class="math display">\[
@@ -380,12 +383,12 @@ B_x &amp;\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\fr
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica code-with-copy"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Manipulate</span><span class="op">[</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">Block</span><span class="op">[{</span>B0 <span class="ex">=</span> B0i<span class="op">,</span> <span class="fu">c</span> <span class="ex">=</span> ci<span class="op">},</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ex">=</span> <span class="fu">Plot</span><span class="op">[</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Evaluate</span><span class="op">[{</span><span class="fu">n</span><span class="op">[</span><span class="fu">z</span><span class="op">],</span> Bx<span class="op">[</span><span class="fu">z</span><span class="op">],</span> By<span class="op">[</span><span class="fu">z</span><span class="op">],</span> u1x<span class="op">[</span><span class="fu">z</span><span class="op">],</span> u1y<span class="op">[</span><span class="fu">z</span><span class="op">]}</span> <span class="ot">/.</span> sols <span class="sc">/</span><span class="ot">/.</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      rulesn<span class="op">],</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="fu">z</span><span class="op">,</span> <span class="sc">-</span>zmax<span class="op">,</span> zmax<span class="op">},</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    PlotLegends <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">B</span><span class="op">,</span> <span class="fu">x</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">B</span><span class="op">,</span> <span class="fu">y</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">u</span><span class="op">,</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">x</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">u</span><span class="op">,</span> <span class="fu">y</span><span class="op">]}]</span>;</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Export</span><span class="op">[</span><span class="st">"figures/profiles.jpg"</span><span class="op">,</span> p1<span class="op">]</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Evaluate</span><span class="op">[{</span><span class="fu">n</span><span class="op">[</span><span class="fu">z</span><span class="op">],</span> Bx<span class="op">[</span><span class="fu">z</span><span class="op">],</span> By<span class="op">[</span><span class="fu">z</span><span class="op">],</span> u1x<span class="op">[</span><span class="fu">z</span><span class="op">],</span> u1y<span class="op">[</span><span class="fu">z</span><span class="op">]}</span> <span class="ot">/.</span> sols <span class="sc">/</span><span class="ot">/.</span> rulesn<span class="op">],</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="fu">z</span><span class="op">,</span> <span class="sc">-</span>zmax<span class="op">,</span> zmax<span class="op">},</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    PlotLegends <span class="ot">-&gt;</span> <span class="op">{</span><span class="fu">n</span><span class="op">,</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">B</span><span class="op">,</span> <span class="fu">x</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">B</span><span class="op">,</span> <span class="fu">y</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">u</span><span class="op">,</span> <span class="fu">x</span><span class="op">],</span> <span class="fu">Subscript</span><span class="op">[</span><span class="fu">u</span><span class="op">,</span> <span class="fu">y</span><span class="op">]}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span>;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Export</span><span class="op">[</span><span class="st">"figures/profiles.jpg"</span><span class="op">,</span> p1<span class="op">]</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  p1</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">],</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> <span class="op">{{</span>ci<span class="op">,</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">Sqrt</span><span class="op">[</span><span class="dv">2</span><span class="op">]},</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">},</span></span>
@@ -849,7 +852,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
