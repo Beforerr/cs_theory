@@ -116,11 +116,13 @@ $${#eq-theta1}
   u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
   $${#eq-u1}
 
-The Ampere's law (@eq-Jx) become:
+The Ampere's law (@eq-Jy) become:
 
 $$
-B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
-$$$$
+- B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
+$$
+
+$$
 \Rightarrow 
 θ' = \mp \frac{Λ_y n_1 u_1 }{B_0} + \frac{Λ_z Γ_1}{B_z}
 $${#eq-theta}
