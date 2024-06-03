@@ -1,5 +1,9 @@
 ---
 title: "Current Sheet Theory"
+format:
+  html: default
+  pptx:
+    shift-heading-level-by: -1
 code-links:
   - text: Tana
     href: https://app.tana.inc?nodeid=OzzX0sVA4_6X
@@ -10,6 +14,40 @@ code-links:
 :::{.hide}
 \newcommand{\vect}[1]{\mathbf{#1}}
 :::
+
+## Motivation
+
+In MHD theory, for rotational rotational discontinuity, we have this following relationship
+
+$$
+[[\vec{U}]]=\left(\frac{\xi \rho}{\mu_0}\right)^{1 / 2}\left[\left[\frac{\vec{B}}{\rho}\right]\right]
+$$
+
+where $\xi \equiv 1-\frac{p_{\parallel}-p_{\perp}}{B^2 / \mu_0}$.
+
+However, observations of solar wind discontinuities reveals discrepancies between
+
+- Alfven velocity and plasma velocity change across discontinuities
+- Anisotropic MHD theory-predicted and directly measured ion anisotropies
+
+Multifluid theory is proposed to address these discrepancies. The basic idea is that we could have zero bulk velocity with non zero pressure.
+
+### Previous Work
+
+On the extreme of multiple fluid theory, we have the kinetic Harris model for the current sheet.
+
+> Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005].
+
+@steinhauerMultifluidModelOnedimensional2008 built a multifluid model to study the steady state magnetotail current sheet.
+
+![Ion trajectories in model magnetic field.](figures/jgra18999-fig-0001.png)
+
+For the symmetric three-fluid system with $B_y=0$, 
+
+![Magnetic field, current density, ion density and out-of-plane flow for Bz = 0.1, βe = 0.5, βi = 1. Solid lines are fluid model results and dot symbols are from the Harris sheet solution.](figures/jgra18999-fig-0003.png)
+
+Here, we are interested in the case of a force-free current sheet and start from the simplest case of two ion species.
+
 
 ## Plasma-Field Equations for a One-Dimensional Multifluid
 
@@ -71,11 +109,11 @@ $$
 Express the quantities of the second ion species relative to the first species
 
 $$
-u_{2x} := λ_x u_{1x}, \quad u_{2y} := λ_y u_{1y}, \quad u_{2z} := λ_z u_{1z}, \quad n_2 := λ_n n_1
+u_{αx} := λ_{αx} u_{1x}, \quad u_{αy} := λ_{αy} u_{1y}, \quad u_{αz} := λ_{αz} u_{1z}, \quad n_α := λ_{αn} n_1
 $$
 
 $$
-Λ_x := 1 + λ_x λ_n, \quad Λ_y := 1 + λ_y λ_n, \quad Λ_z := 1 + λ_z λ_n
+Λ_x := 1 + \sum λ_{αx} λ_{αn}, \quad Λ_y := 1 + \sum λ_{αy} λ_{αn}, \quad Λ_z := \sum 1 + λ_{αz} λ_{αn}
 $$
 
 Notes
