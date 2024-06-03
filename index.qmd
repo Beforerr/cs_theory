@@ -1,9 +1,10 @@
 ---
-title: "Current Sheet Theory"
+title: "Multifluid model of a one-dimensional steady state force-free current sheet"
 format:
   html: default
   pptx:
-    shift-heading-level-by: -1
+    slide-level: 3
+    incremental: true
 code-links:
   - text: Tana
     href: https://app.tana.inc?nodeid=OzzX0sVA4_6X
@@ -15,7 +16,9 @@ code-links:
 \newcommand{\vect}[1]{\mathbf{#1}}
 :::
 
-## Motivation
+## Introduction
+
+### Motivation
 
 In MHD theory, for rotational rotational discontinuity, we have this following relationship
 
@@ -24,6 +27,8 @@ $$
 $$
 
 where $\xi \equiv 1-\frac{p_{\parallel}-p_{\perp}}{B^2 / \mu_0}$.
+
+---
 
 However, observations of solar wind discontinuities reveals discrepancies between
 
@@ -36,11 +41,17 @@ Multifluid theory is proposed to address these discrepancies. The basic idea is 
 
 On the extreme of multiple fluid theory, we have the kinetic Harris model for the current sheet.
 
-> Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005].
+- no normal field, $B_z = 0$
+- uniform cross-tail drift velocity, $u_y$
+- vanishing particle density far from the sheet
+
+<!-- > Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005]. -->
 
 @steinhauerMultifluidModelOnedimensional2008 built a multifluid model to study the steady state magnetotail current sheet.
 
 ![Ion trajectories in model magnetic field.](figures/jgra18999-fig-0001.png)
+
+---
 
 For the symmetric three-fluid system with $B_y=0$, 
 
@@ -72,6 +83,8 @@ $${#eq-Jx}
 $$
 d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
 $${#eq-Jy}
+
+---
 
 This is a system of $3N+2$ equations for $4N+2$ unknown dependent variables: $B_x$, $B_y$, and $N$ each of $n$, $p$ $u_x$, and $u_y$.
 
@@ -105,6 +118,8 @@ $$
 u_{αx}^2 + u_{αy}^2 = const
 $$
 
+---
+
 ::: {#def-1}
 Express the quantities of the second ion species relative to the first species
 
@@ -134,6 +149,8 @@ $$
 u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 $$
 :::
+
+---
 
 $C_1=0$ immediately implies $θ = θ_1 + k \pi$ and $Λ_x=Λ_y$. #TODO: Prove $C_1=0$ is like a boundary condition not a equation.
 
