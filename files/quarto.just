@@ -38,4 +38,4 @@ qrcode:
   # Format the GitHub Pages URL
   GH_PAGES_URL="https://$USERNAME.github.io/$REPO_NAME"
   # Generate the QR code
-  segno $GH_PAGES_URL -o=figures/qrcode.png --light transparent --scale 10
+  segno $GH_PAGES_URL -o=files/qrcode.png --light transparent --scale 10
