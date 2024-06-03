@@ -215,9 +215,26 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Force-free current sheet</span></a>
+ <span class="menu-text">Notes</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Presentations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./presentations/grp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group Meeting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -228,14 +245,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#plasma-field-equations-for-a-one-dimensional-multifluid" id="toc-plasma-field-equations-for-a-one-dimensional-multifluid" class="nav-link active" data-scroll-target="#plasma-field-equations-for-a-one-dimensional-multifluid">Plasma-Field Equations for a One-Dimensional Multifluid</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a>
+  <ul class="collapse">
+  <li><a href="#previous-work" id="toc-previous-work" class="nav-link" data-scroll-target="#previous-work">Previous Work</a></li>
+  </ul></li>
+  <li><a href="#plasma-field-equations-for-a-one-dimensional-multifluid" id="toc-plasma-field-equations-for-a-one-dimensional-multifluid" class="nav-link" data-scroll-target="#plasma-field-equations-for-a-one-dimensional-multifluid">Plasma-Field Equations for a One-Dimensional Multifluid</a></li>
   <li><a href="#force-free-current-sheet" id="toc-force-free-current-sheet" class="nav-link" data-scroll-target="#force-free-current-sheet">Force-free current sheet</a>
   <ul class="collapse">
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://app.tana.inc?nodeid=OzzX0sVA4_6X"><i class="bi bi-link-45deg"></i>Tana</a></li><li><a href="zotero://select/library/collections/DZHNUFNV"><i class="bi bi-link-45deg"></i>Zotero</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pptx"><i class="bi bi-file-slides"></i>Powerpoint</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://app.tana.inc?nodeid=OzzX0sVA4_6X"><i class="bi bi-link-45deg"></i>Tana</a></li><li><a href="zotero://select/library/collections/DZHNUFNV"><i class="bi bi-link-45deg"></i>Zotero</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -262,6 +283,42 @@ window.Quarto = {
 <div class="hide">
 
 </div>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>In MHD theory, for rotational rotational discontinuity, we have this following relationship</p>
+<p><span class="math display">\[
+[[\vec{U}]]=\left(\frac{\xi \rho}{\mu_0}\right)^{1 / 2}\left[\left[\frac{\vec{B}}{\rho}\right]\right]
+\]</span></p>
+<p>where <span class="math inline">\(\xi \equiv 1-\frac{p_{\parallel}-p_{\perp}}{B^2 / \mu_0}\)</span>.</p>
+<p>However, observations of solar wind discontinuities reveals discrepancies between</p>
+<ul>
+<li>Alfven velocity and plasma velocity change across discontinuities</li>
+<li>Anisotropic MHD theory-predicted and directly measured ion anisotropies</li>
+</ul>
+<p>Multifluid theory is proposed to address these discrepancies. The basic idea is that we could have zero bulk velocity with non zero pressure.</p>
+<section id="previous-work" class="level3">
+<h3 class="anchored" data-anchor-id="previous-work">Previous Work</h3>
+<p>On the extreme of multiple fluid theory, we have the kinetic Harris model for the current sheet.</p>
+<blockquote class="blockquote">
+<p>Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005].</p>
+</blockquote>
+<p><span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span> built a multifluid model to study the steady state magnetotail current sheet.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="figures/jgra18999-fig-0001.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Ion trajectories in model magnetic field."><img src="figures/jgra18999-fig-0001.png" class="img-fluid figure-img" alt="Ion trajectories in model magnetic field."></a></p>
+<figcaption>Ion trajectories in model magnetic field.</figcaption>
+</figure>
+</div>
+<p>For the symmetric three-fluid system with <span class="math inline">\(B_y=0\)</span>,</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="figures/jgra18999-fig-0003.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Magnetic field, current density, ion density and out-of-plane flow for Bz = 0.1, βe = 0.5, βi = 1. Solid lines are fluid model results and dot symbols are from the Harris sheet solution."><img src="figures/jgra18999-fig-0003.png" class="img-fluid figure-img" alt="Magnetic field, current density, ion density and out-of-plane flow for Bz = 0.1, βe = 0.5, βi = 1. Solid lines are fluid model results and dot symbols are from the Harris sheet solution."></a></p>
+<figcaption>Magnetic field, current density, ion density and out-of-plane flow for Bz = 0.1, βe = 0.5, βi = 1. Solid lines are fluid model results and dot symbols are from the Harris sheet solution.</figcaption>
+</figure>
+</div>
+<p>Here, we are interested in the case of a force-free current sheet and start from the simplest case of two ion species.</p>
+</section>
+</section>
 <section id="plasma-field-equations-for-a-one-dimensional-multifluid" class="level2">
 <h2 class="anchored" data-anchor-id="plasma-field-equations-for-a-one-dimensional-multifluid">Plasma-Field Equations for a One-Dimensional Multifluid</h2>
 <p>Consider a collisionless, steady state plasma composed of multiple fluid groups, and follow the notation in <span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span>, we have <span class="math inline">\(3N\)</span> equations for <span class="math inline">\(N\)</span> ion species:</p>
@@ -310,10 +367,10 @@ u_{αx}^2 + u_{αy}^2 = const
 <div id="def-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> Express the quantities of the second ion species relative to the first species</p>
 <p><span class="math display">\[
-u_{2x} := λ_x u_{1x}, \quad u_{2y} := λ_y u_{1y}, \quad u_{2z} := λ_z u_{1z}, \quad n_2 := λ_n n_1
+u_{αx} := λ_{αx} u_{1x}, \quad u_{αy} := λ_{αy} u_{1y}, \quad u_{αz} := λ_{αz} u_{1z}, \quad n_α := λ_{αn} n_1
 \]</span></p>
 <p><span class="math display">\[
-Λ_x := 1 + λ_x λ_n, \quad Λ_y := 1 + λ_y λ_n, \quad Λ_z := 1 + λ_z λ_n
+Λ_x := 1 + \sum λ_{αx} λ_{αn}, \quad Λ_y := 1 + \sum λ_{αy} λ_{αn}, \quad Λ_z := \sum 1 + λ_{αz} λ_{αn}
 \]</span></p>
 <p>Notes</p>
 <ul>
@@ -377,8 +434,8 @@ B_x &amp;\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\fr
 <p>For the simplest case <span class="math inline">\(λ_n = 1, λ_z = - 1\)</span>, from <a href="#eq-asym1" class="quarto-xref">Equation&nbsp;4</a>, we have <span class="math inline">\(Γ_1 = - B_z / \sqrt{2}\)</span>.</p>
 <p>We could also normalize the system length by <span class="math inline">\(\delta = 1\)</span>. So now the system could be fully determined by <span class="math inline">\(c, B_0\)</span>.</p>
 <p>Given <span class="math inline">\(c = 1/\sqrt{2}\)</span>, we have <span class="math inline">\(B_y \to 0\)</span> as <span class="math inline">\(z \to \infty\)</span>. Profiles are plotted below for <span class="math inline">\(B_0 = 2\)</span>.</p>
-<p><a href="figures/profiles.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figures/profiles.jpg" class="img-fluid"></a></p>
-<p><a href="figures/J_profiles.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figures/J_profiles.jpg" class="img-fluid"></a></p>
+<p><a href="figures/profiles.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figures/profiles.jpg" class="img-fluid"></a></p>
+<p><a href="figures/J_profiles.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figures/J_profiles.jpg" class="img-fluid"></a></p>
 <p>The multi-fluid effect is clearly demonstrated by <span class="math inline">\(Λ_y - 1\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mathematica code-with-copy"><code class="sourceCode mathematica"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Manipulate</span><span class="op">[</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">Block</span><span class="op">[{</span>B0 <span class="ex">=</span> B0i<span class="op">,</span> <span class="fu">c</span> <span class="ex">=</span> ci<span class="op">},</span></span>
@@ -523,7 +580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/Beforerr\.github\.io\/cs_theory\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -852,7 +909,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
