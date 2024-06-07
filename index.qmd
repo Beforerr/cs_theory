@@ -37,6 +37,18 @@ However, observations of solar wind discontinuities reveals discrepancies betwee
 
 Multifluid theory is proposed to address these discrepancies. The basic idea is that we could have zero bulk velocity with non zero pressure.
 
+#### MHD in a nutshell
+
+$$
+\begin{aligned}
+& \frac{\partial \rho}{\partial t}+(\vec{V} \cdot \nabla) \rho+\rho \nabla \cdot \vec{V}=0 \\
+& \rho\left[\frac{\partial \vec{V}}{\partial t}+(\vec{V} \cdot \nabla) \vec{V}\right]+\nabla p=\vec{J} \times \vec{B} \\
+& p=\alpha \rho^\gamma \\
+& \nabla \times \vec{B}=\mu_0 \vec{J} \\
+& \frac{\partial \vec{B}}{\partial t}=\nabla \times(\vec{V} \times \vec{B})
+\end{aligned}
+$$
+
 ### Previous Work
 
 On the extreme of multiple fluid theory, we have the kinetic Harris model for the current sheet.
@@ -261,6 +273,40 @@ Manipulate[
 ]
 ```
 
+For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.
+
+$$
+\text{cond}(n(z), λ_{n,∞}, λ_{z,∞}) = 0
+$$
+
+Here we set $B_y(z=\infty) = 1/2 B_y(z=0)$ and $B_0 = 2 B_z$, and fix $λ_{z,∞} = -1$. By varying $λ_{n,∞}$, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. We normalize the plasma velocity by asympotic Alfvén velocity $v_{A,∞} = B_0 / \sqrt{n}$, and the profiles are plotted below @fig-uxnorm. It could be seen that for $λ_{n,∞} = 1$, we have zero bulk velocity change across the current sheet in the asymptotic limit.
+
+
+::: {.column-screen-inset}
+::: {#fig-profiles layout-nrow="1" }
+
+![Magnetic field, ion density, and out ion bulk velocity for $λ_{n,∞}=1$ and $λ_{z,∞}=-1$.](figures/profiles_ratio=0.5.svg){#fig-profiles_ratio}
+
+![Normalized Plasma Velocity $U_x$ Profiles for Different $λ_{n,∞}$.](figures/UxNorm.svg){#fig-uxnorm}
+
+![Normalized Plasma Velocity $U_y$ Profiles for Different $λ_{n,∞}$.](figures/UyNorm.svg){#fig-uynorm}
+
+:::
+:::
+
+
+![](figures/vRatios.svg)
+
+
 ## References
 
 - @steinhauerMultifluidModelOnedimensional2008
+
+```mathematica
+conf = {ratio -> 1/2}
+TextString[conf]
+<!-- Convert a dict-like configuration to a string -->
+saveName[c_] := StringJoin[ToString /@ c]
+```
+
+
