@@ -1,8 +1,0 @@
----
-title: Group Meeting
-format: 
-  pptx: default
-  dashboard:
-    nav-buttons: [github]
-date: "2024-06"
----

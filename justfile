@@ -9,3 +9,4 @@ ensure_env:
 pptx:
   quarto render index.qmd --to pptx
   cp _site/index.pptx presentations/
+  open presentations/index.pptx
