@@ -1,4 +1,4 @@
-overleaf_repo := ""
+overleaf_repo := "https://git@git.overleaf.com/668273f5d14067a22517615cj"
 
 clone-overleaf:
   git clone {{overleaf_repo}} overleaf

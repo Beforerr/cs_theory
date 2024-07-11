@@ -10,6 +10,9 @@ code-links:
     href: https://app.tana.inc?nodeid=OzzX0sVA4_6X
   - text: Zotero
     href: zotero://select/library/collections/DZHNUFNV
+  - text: Overleaf
+    href: https://www.overleaf.com/project/668273f5d14067a22517615c
+abstract: "Solar wind plasma flow is filled by intense large-amplitude current sheets, so-called solar wind discontinuities, that are believed to be important regions for magnetic reconnection, solar wind ion heating, and energetic particle scattering. Although solar wind discontinuities share many properties of the classical MHD model of rotational discontinuity, their characteristics are more complicated and include many kinetic properties, going beyond such model. One of the most puzzling discontinuity properties is their Alvenicity: relation between Alfven and plasma velocity jumps across discontinuities. The high correlation of these jumps indicates the rotational nature of discontinuities, but the significant difference in jump amplitudes demonstrates that kinetic mechanisms are needed to describe the stress balance in discontinuities. Spacecraft observations demonstrate that plasma thermal anisotropy may not be sufficient to describe this difference and provide stress balance. In this study we show a theoretical model where this difference is explained by kinetics of interpenetrating ion beams crossing the discontinuity. The model successfully describes the observed discontinuity properties within the inner heliosphere."
 ---
 
 :::{.hide}
