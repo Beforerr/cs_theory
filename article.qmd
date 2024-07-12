@@ -1,0 +1,5 @@
+---
+title: On a Alvenicity of solar wind discontinuities
+authors:
+  - Sergey Kamaletdinov
+---
