@@ -12,6 +12,8 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Manuscript"
+        href: article.qmd
     tools:
       - icon: github
         href: "https://github.com/Beforerr/cs_theory"
