@@ -1,5 +1,113 @@
 ---
 title: On a Alvenicity of solar wind discontinuities
 authors:
+  - Zijin Zhang
+  - Xiaofei Shi
   - Sergey Kamaletdinov
+  - name: Anton V. Artemyev
+    email: aartemyev@igpp.ucla.edu
+    orcid: 0000-0001-8823-4474
+    affiliation: University of California, Los Angeles
+  - name: Vassilis Angelopoulos
+    orcid: 0000-0001-7024-1561
+    affiliation: University of California, Los Angeles
+code-links:
+  - text: Overleaf
+    href: https://www.overleaf.com/project/668273f5d14067a22517615c
+abstract: "Solar wind plasma flow is characterized by intense, large-amplitude current sheets, also known as solar wind discontinuities. These regions are believed to play a crucial role in magnetic reconnection, solar wind ion heating, and energetic particle scattering. Although solar wind discontinuities share several properties with the classical MHD model of rotational discontinuities, they exhibit more complex characteristics that include many kinetic properties, going beyond this model. One of the most puzzling properties of these discontinuities is their Alvenicity, which describes the relationship between Alfvén and plasma velocity jumps across discontinuities. Although the high correlation of these jumps suggests the rotational nature of discontinuities, the significant differences in jump amplitudes indicate the necessity of kinetic mechanisms to describe the stress balance within discontinuities. Spacecraft observations show that plasma thermal anisotropy alone may not sufficiently explain this difference and achieve stress balance. In this study, we present a theoretical model in which this difference is explained by the kinetics of interpenetrating ion beams crossing the discontinuity. Our model successfully describes the observed properties of discontinuities within the inner heliosphere."
 ---
+
+:::{.hide}
+\newcommand{\vect}[1]{\mathbf{#1}}
+:::
+
+# Introduction
+
+# Plasma-Field Equations for Force-free current sheet
+
+Following @steinhauerMultifluidModelOnedimensional2008, we consider a one-dimensional force-free current sheet where $B_x^2 + B_y^2 = B_0^2 = \text{const}$, with all variables dependent solely on $z$. The system comprises multiple steady-state ion species (fluid groups) and a background electron fluid. 
+
+Electron motion is along the field lines $\vect{u_e} = Γ_e \vect{B} / (n_e B_z)$. And the conservation of fluid mass $d(n_α u_{αz})/dz = 0$ integrate to a constant parameters $Γ_α = n_α u_{αz}$. The momentum equations for each ion species are given by
+
+$$
+\begin{aligned}
+Γ_α \frac{d u_{α x}}{d z} &= n_α u_{α y} B_z - Γ_α B_y
+\\
+Γ_α \frac{d u_{α y}}{d z} &= Γ_α B_x-n_α u_{α x} B_z
+\\
+Γ_α \frac{d u_{α z}}{d z} &= -\frac{1}{2} \frac{d p_α}{d z}-n_α \frac{d \phi}{d z}+n_α u_{α x} B_y-n_α u_{α y} B_x
+\end{aligned}
+$${#eq-momentum}
+
+Ampere’s law connects the fields and the flow components
+
+$$
+d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x+\Gamma_e B_x / B_z
+$${#eq-Jx}
+
+$$
+d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
+$${#eq-Jy}
+
+And the Gauss's law for magnetism gives another constant parameter $B_{z} = \text{const}$.
+
+This is a system of $3N+2$ equations for $4N+2$ unknown dependent variables: $B_x$, $B_y$, and $N$ each of $n$, $p$, $u_x$, and $u_y$. Since we are interested in force-free solutions with $B_x^2 + B_y^2 = B_0^2 = \text{const}$, this condition provides an additional equation for the system.
+
+A scalar pressure model, which provides another N equations connecting $p$ and $n$, was attempted as per @steinhauerMultifluidModelOnedimensional2008, but no solution was found (the system was overdetermined). Therefore, the system is considered with free parameters. For a system with two ion species, there are 9 equations for 10 unknowns. The system can be solved by setting one of the parameters to have a specific profile and solving the rest of the system.
+
+The force-free condition let us express the magnetic field in terms of the rotation angle $θ$ as $B_x = B_0 \cos θ$ and $B_y = B_0 \sin θ$. From Ampere's law (@eq-Jx) and (@eq-Jy), we have:
+
+$$
+n (u_x B_y  - u_y B_x) = 0
+$$
+
+And express the density and bulk velocity in terms of every ion species: $n_α u_{αx} B_y = n_α u_{αy} B_x + C_α$. This above equation can be rewritten as $\sum_α C_α =0$. The simplest case is to set $C_α=0$ for all species, which is the case we will consider in this study.
+
+$$
+n_α (u_{αx} B_y - n_α u_{αy} B_x) = 0
+$${#eq-alpha}
+
+Combining the above equation with the first two equations in (@eq-momentum), we have:
+
+$$
+u_{αx}^2 + u_{αy}^2 = const
+$$
+
+This would let us express the bulk velocity in terms of the rotation angle $θ_α$ as $u_{αx} = u_{α0} \cos θ_α$ and $u_{αy} = u_{α0} \sin θ_α$. And substituting the above expression into the our assumption (@eq-alpha), we have:
+
+$$
+\tan θ = \tan θ_α
+$$
+
+__#TODO#__ Here we consider the case where $θ_α = θ$ for all species, but the same procedure can be applied to the case where $θ_α = θ + \pi$ and it would give the same results.
+
+The first momentum equation (@eq-momentum) after substituting the above expression becomes:
+
+$$
+- u_α \sin θ_α θ_α' = n_α u_α \sin θ_α B_z / Γ_α - B_0 \sin θ
+$$
+
+$$
+\Rightarrow 
+θ_α' = - \frac{n_α B_z}{Γ_α} + \frac{B_0}{u_α}
+$${#eq-theta1}
+
+Note that $θ_α, n_α$ are dependent variables, and $u_α, B_0, B_z, Γ_α$ are constants determined by the system. So given the profile of $n_α$, we could solve the above equation to get the profile of $θ_α$, thus the profile of $u_α$.
+
+
+# Results
+
+For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.
+
+$$
+\text{cond}(n(z), λ_{n,∞}, λ_{z,∞}) = 0
+$$
+
+Here we set $B_y(z=\infty) = 1/2 B_y(z=0)$ and $B_0 = 2 B_z$, and fix $λ_{z,∞} = -1$. By varying $λ_{n,∞}$, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. We normalize the plasma velocity by asympotic Alfvén velocity $v_{A,∞} = B_0 / \sqrt{n}$, and the profiles are plotted below @fig-uxnorm. It could be seen that for $λ_{n,∞} = 1$, we have zero bulk velocity change across the current sheet in the asymptotic limit.
+
+![](figures/vRatios.svg)
+
+
+# References
+
+- @steinhauerMultifluidModelOnedimensional2008
