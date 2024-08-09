@@ -49,6 +49,10 @@ $$
 d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
 $${#eq-Jy}
 
+$$
+d B_z / d z = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z-\Gamma_e
+$${#eq-Jz}
+
 And the Gauss's law for magnetism gives another constant parameter $B_{z} = \text{const}$.
 
 This is a system of $3N+2$ equations for $4N+2$ unknown dependent variables: $B_x$, $B_y$, and $N$ each of $n$, $p$, $u_x$, and $u_y$. Since we are interested in force-free solutions with $B_x^2 + B_y^2 = B_0^2 = \text{const}$, this condition provides an additional equation for the system.
@@ -61,7 +65,7 @@ $$
 n (u_x B_y  - u_y B_x) = 0
 $$
 
-And express the density and bulk velocity in terms of every ion species: $n_α u_{αx} B_y = n_α u_{αy} B_x + C_α$. This above equation can be rewritten as $\sum_α C_α =0$. The simplest case is to set $C_α=0$ for all species, which is the case we will consider in this study.
+And we could express the density and bulk velocity in terms of every ion species: $n_α u_{αx} B_y = n_α u_{αy} B_x + C_α$. This above equation can be rewritten as $\sum_α C_α =0$. The simplest case is to set $C_α=0$ for all species, which is the case we will consider in this study.
 
 $$
 n_α (u_{αx} B_y - n_α u_{αy} B_x) = 0
@@ -73,7 +77,7 @@ $$
 u_{αx}^2 + u_{αy}^2 = const
 $$
 
-This would let us express the bulk velocity in terms of the rotation angle $θ_α$ as $u_{αx} = u_{α0} \cos θ_α$ and $u_{αy} = u_{α0} \sin θ_α$. And substituting the above expression into the our assumption (@eq-alpha), we have:
+This would let us express the bulk velocity in terms of the rotation angle $θ_α$ as $u_{αx} = u_{α} \cos θ_α$ and $u_{αy} = u_{α} \sin θ_α$. And substituting the above expression into the our assumption (@eq-alpha), we have:
 
 $$
 \tan θ = \tan θ_α
@@ -92,18 +96,104 @@ $$
 θ_α' = - \frac{n_α B_z}{Γ_α} + \frac{B_0}{u_α}
 $${#eq-theta1}
 
-Note that $θ_α, n_α$ are dependent variables, and $u_α, B_0, B_z, Γ_α$ are constants determined by the system. So given the profile of $n_α$, we could solve the above equation to get the profile of $θ_α$, thus the profile of $u_α$.
+Note that $θ_α, n_α$ are dependent variables, and $u_α, B_0, B_z, Γ_α$ are constants pre-determined by the system. So given the profile of $n_α$ and the boundary condition, we could solve the above equation to get the profile of $θ_α$, thus the profile of $u_α$.
+
+The Ampere's law (@eq-Jy) after substitution becomes:
+
+$$
+- B_0 \sin θ θ' = \sum n_α u_{α} \sin θ_α - Γ_e B_0 \sin θ / B_z
+% Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
+$$
+
+$$
+\Rightarrow 
+θ' = - \frac{ \sum n_α u_{α} }{B_0} + \frac{Γ_e}{B_z}
+$${#eq-theta}
+
+The above equation relates the rotation angle $θ$ to the plasma bulk velocity $n u \equiv \sum n_α u_{α}$. By equating the above two equations of $θ'$, we could get a equation relating the plasma bulk velocity to one specific species:  
+
+$$
+n u = B_0 \left(\frac{Γ_e}{B_z}+\frac{n_α B_z}{Γ_α}-\frac{B_0}{u_α}\right)
+$$
+
+In the asymptotic region, as all variables approach constant values, the derivatives must vanish. For @eq-theta1, this means $θ_α(∞)' = 0 = - \frac{n_α(∞) B_z}{Γ_α} + \frac{B_0}{u_α}$. This relates the velocity of each species to the asymptotic density. Rewriting the @eq-theta1 in terms of asymptotic values, we have:
+
+$$
+θ_α' = \frac{B_z}{Γ_α} (n_α - n_α(∞))
+$${#eq-theta1-asym}
+
+Conveniently, the center of the current sheet is chosen as the origin $z = 0$, which corresponds to the lower boundary of @eq-theta1. As a result, the boundary condition for the rotation angle is given by  $\theta_\alpha(0) = \pi/2$.
+
+Combine momentum equation (x) (@eq-momentum) and Ampere's law (y) (@eq-Jy) with condition that the constant of integration vanishes at the current sheet center yield
+
+$$
+B_x B_z = \sum n_α u_{α,x} u_{α,z} = \sum Γ_α u_{α,x}
+$$
+
+Evaluate the above equation in the asymptotic limit, we have
+
+$$
+{B_z}^2 = \sum Γ_{α}^2/n_{α}(∞)
+$${#eq-asym1}
+
+To simplify the analysis, it is useful to employ a dimensionless system by normalizing the variables with their asymptotic values: in this study, the magnetic field is normalized by $B_{\text{ref}} = B_z$ , and the density is normalized by $n_{\text{ref}} = n(∞)$. Other reference values derived from these two are displayed in the table below.
+
+
+| Variable | Reference Value |
+| --- | --- |
+| Frequency (ion plasma frequency) | $\omega_{pi} = \sqrt{\frac{n_{\text{ref}} e^2}{m_i \varepsilon_0}}$ |
+| Length (ion inertial length) | $L_{\text{ref}} = c / \omega_{pi}$ |
+| Velocity (Alfvén velocity) | $V_{\text{ref}} = B_{\text{ref}} / \sqrt{\mu_0 m_i n_{\text{ref}}}$ |
 
 
 # Results
 
+TODO: define and compare current sheet thickness
+
+TODO: compare with Harris current sheet solution with same thickness
+
+The multifluid model developed above is used here to study a specific example and the effects of model parameters: assume a density profile for one species taking the form of a Gaussian function
+
+$$
+n_1(z) \to n_1 (∞) (\frac{c_1}{\frac{z}{\delta_1 }^2+1}+1)
+$$
+
+Solving the @eq-theta1-asym analytically, we have the rotation angle profile as
+
+$$
+\theta (z)\to \frac{\pi  \Gamma _1-2 c_1 \delta _1 B_z n_1(\infty ) \tan ^{-1}\left(\frac{z}{\delta _1}\right)}{2 \Gamma _1}
+$$
+
+For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $c_1$, $δ_1$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($δ_1=1, c_1=1/\sqrt{2}, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
+
+::: {.column-page}
+::: {#fig-profiles layout-nrow="1" }
+
+![](figures/profiles_sym.svg)
+
+![](figures/J_profiles_sym.svg)
+
+(a). Magnetic field, ion density, and ion bulk velocity for $n_1 = n_2, u_1 = -u_2$ and $δ_1=1, c_1=1/\sqrt{2}, B_0 = 2$. (b). Current density profiles for the same case.
+:::
+:::
+
 For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.
 
-$$
-\text{cond}(n(z), λ_{n,∞}, λ_{z,∞}) = 0
-$$
+Here we set $B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z$, and let two ion species have the opposite bulk velocity but this time with different densities. By varying $n_1 (∞)$, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. 
 
-Here we set $B_y(z=\infty) = 1/2 B_y(z=0)$ and $B_0 = 2 B_z$, and fix $λ_{z,∞} = -1$. By varying $λ_{n,∞}$, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. We normalize the plasma velocity by asympotic Alfvén velocity $v_{A,∞} = B_0 / \sqrt{n}$, and the profiles are plotted below @fig-uxnorm. It could be seen that for $λ_{n,∞} = 1$, we have zero bulk velocity change across the current sheet in the asymptotic limit.
+We normalize the plasma velocity by asympotic Alfvén velocity $v_{A,∞} = B_0 / \sqrt{n}$, and the profiles are plotted below @fig-uxnorm. It could be seen that for $λ_{n,∞} = 1$, we have zero bulk velocity change across the current sheet in the asymptotic limit.
+
+::: {.column-screen-inset}
+::: {#fig-profiles layout-nrow="1" }
+
+![Magnetic field, ion density, and ion bulk velocity for $λ_{n,∞}=1$ and $λ_{z,∞}=-1$.](figures/profiles_ratio=0.5.svg){#fig-profiles_ratio}
+
+![Normalized Plasma Velocity $U_x$ Profiles for Different $λ_{n,∞}$.](figures/UxNorm.svg){#fig-uxnorm}
+
+![Normalized Plasma Velocity $U_y$ Profiles for Different $λ_{n,∞}$.](figures/UyNorm.svg){#fig-uynorm}
+
+:::
+:::
 
 ![](figures/vRatios.svg)
 
