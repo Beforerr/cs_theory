@@ -148,10 +148,6 @@ To simplify the analysis, it is useful to employ a dimensionless system by norma
 
 # Results
 
-TODO: define and compare current sheet thickness
-
-TODO: compare with Harris current sheet solution with same thickness
-
 The multifluid model developed above is used here to study a specific example and the effects of model parameters: assume a density profile for one species taking the form of a Gaussian function
 
 $$
@@ -177,26 +173,58 @@ For the simplest situation where we have two group of ions of the same density b
 :::
 :::
 
+## Alfvenicity
+
 For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.
 
-Here we set $B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z$, and let two ion species have the opposite bulk velocity but this time with different densities. By varying $n_1 (∞)$, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. 
+Here we set $B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z$, and let two ion species have the opposite bulk velocity but this time with different densities. By varying $n_1(∞)$, we find that the magnetic field profiles are exactly the same, while plasma density and velocity  profiles vary.
 
-We normalize the plasma velocity by asympotic Alfvén velocity $v_{A,∞} = B_0 / \sqrt{n}$, and the profiles are plotted below @fig-uxnorm. It could be seen that for $λ_{n,∞} = 1$, we have zero bulk velocity change across the current sheet in the asymptotic limit.
+We normalize the plasma velocity by asympotic Alfvén velocity $v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}$, and the profiles are plotted below @fig-profilesC. It could be seen that for $n_1(∞) = 0.5$, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with $n_1(∞)$ decreasing to zero @fig-uxnorm. The normalized plasma velocity $U_y$ in the aympotic limit decreases with $n_1(∞)$ decreasing to zero @fig-uynorm.
 
-::: {.column-screen-inset}
-::: {#fig-profiles layout-nrow="1" }
+::: {.column-page}
+::: {#fig-profilesC layout-nrow="1" }
 
-![Magnetic field, ion density, and ion bulk velocity for $λ_{n,∞}=1$ and $λ_{z,∞}=-1$.](figures/profiles_ratio=0.5.svg){#fig-profiles_ratio}
+![Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities.](figures/profiles_ratio=0.5.svg){#fig-profiles_ratio}
 
-![Normalized Plasma Velocity $U_x$ Profiles for Different $λ_{n,∞}$.](figures/UxNorm.svg){#fig-uxnorm}
+![Plasma velocity $U_x$ profiles normalized by aysmpotic Alfvén velocity for different $n_1(∞)$.](figures/UxNormB0.svg){#fig-uxnorm}
 
-![Normalized Plasma Velocity $U_y$ Profiles for Different $λ_{n,∞}$.](figures/UyNorm.svg){#fig-uynorm}
+![Plasma velocity $U_y$ profiles normalized by aysmpotic Alfvén velocity for different $n_1(∞)$.](figures/UyNormB0.svg){#fig-uynorm}
 
 :::
 :::
 
-![](figures/vRatios.svg)
 
+Normalized by Alfvén velocity $v_{A,x}$ and $v_{A,y}$, the plasma velocity profiles are plotted below @fig-uxNormBx and @fig-uyNormBy. The normalized plasma velocity profiles are exactly the same for $U_x/v_{A,x}$ and $U_y/v_{A,y}$ for same $n_1(∞)$. When $n_1(∞)$ decreases to zero, the normalized plasma velocity would approach one in the asymptotic limit, indicating the Alvenicity of the current sheet.
+
+::: {.column-page}
+::: {#fig-uProfilesNorm layout-nrow="1" }
+![Plasma velocity $U_x$ profiles normalized by $v_{A,x}$ for different $n_1(∞)$.](figures/UxNormBx.svg){#fig-uxNormBx}
+
+![Plasma velocity $U_y$ profiles normalized by $v_{A,y}$ for different $n_1(∞)$.](figures/UyNormBy.svg){#fig-uyNormBy}
+:::
+:::
+
+The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below @fig-vRatios and @fig-vRatiosEx2 for the case of $\lambda_{z,2} = - 1$ (two groups of opposite velocity in z direction) and $\lambda_{z,2} = - 1/2$ respectively. For the case of $\lambda_{z,2} = - 1$ as shown in @fig-vRatiosEx1, the normalized velocity reaches zero when $n_1(∞) = 0.5$. The bulk velocity of each species is the same in the asymptotic limit and does not depend on $n_1(∞)$. However, this does not generally hold when $\lambda_{z,2} \neq - 1$ as shown in @fig-vRatiosEx2 for the case of $\lambda_{z,2} = - 1/2$.. The normalized velocity reaches zero when $n_1(∞) = 1/3$, and the bulk velocity of each species differs in the asymptotic limit and depends on $n_1(∞)$.
+
+::: {.column-page}
+::: {#fig-vRatios layout-nrow="1" }
+![](figures/vRatios.svg){#fig-vRatiosEx1}
+
+![](figures/vRatiosEx2.svg){#fig-vRatiosEx2}
+
+Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of $\lambda_{z,2} = - 1$ (a) and $\lambda_{z,2} = - 1/2$ (b).
+:::
+:::
+
+## Current Sheet Thickness
+
+TODO: define and compare current sheet thickness
+
+TODO: compare with Harris current sheet solution with same thickness
+
+## Density Peaking
+
+# Summary
 
 # References
 
