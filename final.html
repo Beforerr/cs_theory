@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Current Sheet Theory – Notes</title>
+<title>Current Sheet Theory – EPSS M263A, Spring 2024. Final Exam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notes.html">Notes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./final.html">EPSS M263A, Spring 2024. Final Exam</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -157,7 +157,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes.html" class="sidebar-item-text sidebar-link active">
+  <a href="./final.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">EPSS M263A, Spring 2024. Final Exam</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notes</span></a>
   </div>
 </li>
@@ -188,17 +194,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#force-free-current-sheet" id="toc-force-free-current-sheet" class="nav-link active" data-scroll-target="#force-free-current-sheet">Force-free current sheet</a>
+  <li><a href="#d-mhd-flows" id="toc-d-mhd-flows" class="nav-link active" data-scroll-target="#d-mhd-flows">2-D MHD flows</a>
   <ul class="collapse">
-  <li><a href="#coding-part" id="toc-coding-part" class="nav-link" data-scroll-target="#coding-part">Coding Part</a></li>
-  </ul></li>
-  <li><a href="#gamma_e-neq-0" id="toc-gamma_e-neq-0" class="nav-link" data-scroll-target="#gamma_e-neq-0"><span class="math inline">\(\Gamma_e \neq 0\)</span></a>
-  <ul class="collapse">
-  <li><a href="#coding-part-1" id="toc-coding-part-1" class="nav-link" data-scroll-target="#coding-part-1">Coding Part</a></li>
-  </ul></li>
-  <li><a href="#gamma_e-0" id="toc-gamma_e-0" class="nav-link" data-scroll-target="#gamma_e-0"><span class="math inline">\(\Gamma_e = 0\)</span></a>
-  <ul class="collapse">
-  <li><a href="#coding-part-2" id="toc-coding-part-2" class="nav-link" data-scroll-target="#coding-part-2">Coding Part</a></li>
+  <li><a href="#a-mathbfj-jx-y-t-hatk" id="toc-a-mathbfj-jx-y-t-hatk" class="nav-link" data-scroll-target="#a-mathbfj-jx-y-t-hatk">a) <span class="math inline">\(\mathbf{J} = J(x, y, t) \hat{k}\)</span></a></li>
+  <li><a href="#b-mathbfe-ex-y-t-hatk" id="toc-b-mathbfe-ex-y-t-hatk" class="nav-link" data-scroll-target="#b-mathbfe-ex-y-t-hatk">b) <span class="math inline">\(\mathbf{E} = E(x, y, t) \hat{k}\)</span></a></li>
+  <li><a href="#c-show-that-in-the-mhd-approximation-and-in-steady-state-ex-y-textconstant" id="toc-c-show-that-in-the-mhd-approximation-and-in-steady-state-ex-y-textconstant" class="nav-link" data-scroll-target="#c-show-that-in-the-mhd-approximation-and-in-steady-state-ex-y-textconstant">c) Show that in the MHD approximation and in steady state <span class="math inline">\(E(x, y) = \text{constant}\)</span></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -208,7 +208,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notes</h1>
+<h1 class="title">EPSS M263A, Spring 2024. Final Exam</h1>
 </div>
 
 
@@ -225,271 +225,63 @@ window.Quarto = {
 </header>
 
 
-<p>Ampere’s law</p>
+<section id="d-mhd-flows" class="level2">
+<h2 class="anchored" data-anchor-id="d-mhd-flows">2-D MHD flows</h2>
+<p>Show the following properties of 2-D MHD flows.</p>
+<p>Assuming:</p>
+<p>B=Bx(x,y,t) x + By(x,y,t) y
+V=Vx(x,y,t) x + Vy(x,y,t) y
+ρ=ρ(x,y,t)
+p=p(x,y,t)</p>
+<p>Show that:</p>
+<ol type="a">
+<li>J=J(x,y,t) z</li>
+<li>In the MHD approximation (E=-VxB), E = E(x,y,t) z</li>
+<li>In the MHD approximation and in steady state: E(x,y)=constant</li>
+</ol>
+<section id="a-mathbfj-jx-y-t-hatk" class="level3">
+<h3 class="anchored" data-anchor-id="a-mathbfj-jx-y-t-hatk">a) <span class="math inline">\(\mathbf{J} = J(x, y, t) \hat{k}\)</span></h3>
+<p>The current density <span class="math inline">\(\mathbf{J}\)</span> in magnetohydrodynamics (MHD) is given by Ampere’s law (in the absence of displacement current):</p>
 <p><span class="math display">\[
-\begin{equation}
-d B_x / d z
-= \sum_\alpha\left(n_\alpha u_{\alpha y}-\Gamma_\alpha B_y / B_z\right) \
-= n u_y-\Gamma_e B_y / B_z
-\end{equation}
+\mathbf{J} = \frac{1}{\mu_0} (\nabla \times \mathbf{B})
 \]</span></p>
+<p>Given <span class="math inline">\(\mathbf{B} = B_x(x, y, t) \hat{i} + B_y(x, y, t) \hat{j}\)</span></p>
 <p><span class="math display">\[
-\begin{equation}
-d B_y / d z
-= \sum_\alpha\left(-n_\alpha u_{\alpha x}+\Gamma_\alpha B_x / B_z\right)
-= -n u_x+\Gamma_e B_x / B_z
-\end{equation}
+\nabla \times \mathbf{B} = \left( \frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y} \right) \hat{k}
 \]</span></p>
-<p>Asymptotic conditions</p>
-<p><span class="math display">\[
-{B_z}^2 = \sum \Gamma_{\alpha}^2/n_{\alpha}(\infty)
-\]</span></p>
-<section id="force-free-current-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="force-free-current-sheet">Force-free current sheet</h2>
-<section id="coding-part" class="level3">
-<h3 class="anchored" data-anchor-id="coding-part">Coding Part</h3>
-<pre class="{mathematica}"><code>(*Solve the system numerically*)
-
-
-Γe := Λz Γ1
-Λx := Λy
-Jxi := Λx n[z] u1x[z]
-Jyi := Λy n[z] u1y[z]
-Jxe := -((Γe Bx[z])/Bz)
-Jye := -((Γe By[z])/Bz)
-Jx := Jxi + Jxe
-Jy := Jyi + Jye
-
-Manipulate[
- Block[{B0 = B0i, c = ci},
-  p1 = Plot[
-    Evaluate[{n[z], Bx[z], By[z], u1x[z], u1y[z],
-        Bx[z] u1y[z] - By[z] u1x[z]} /. sols //. rulesn], {z, -zmax,
-     zmax},
-    PlotLegends -&gt; {"n", "\!\(\*SubscriptBox[\(B\), \(x\)]\)",
-      "\!\(\*SubscriptBox[\(B\), \(y\)]\)",
-      "\!\(\*SubscriptBox[\(u\), \(x\)]\)",
-      "\!\(\*SubscriptBox[\(u\), \(y\)]\)",
-      "\!\(\*SubscriptBox[\(B\), \(x\)]\)\!\(\*SubscriptBox[\(u\), \
-\(y\)]\)-\!\(\*SubscriptBox[\(B\), \(y\)]\)\!\(\*SubscriptBox[\(u\), \
-\(x\)]\)"}]
-  ],
- {{ci, 0.5}, 0, 2},
- {{B0i, 2}, 0.5, 2},
- {{zmax, 10}, 5, 30}
- ]
-
-Manipulate[
- Block[{B0 = B0i, c = ci, Λz = Λz0},
-  p2 = Plot[
-    Evaluate[{Jxi, Jx, Jyi, Jy} /. sols //. rulesn], {z, -zmax, zmax},
-     PlotLegends -&gt; {"Jxi", "Jx", "Jyi", "Jy"},
-         PlotRange -&gt; All
-        ]
-  ],
-
- {{ci, 0.5}, 0, 2},
- {{B0i, 2}, 0.5, 2},
- {Λz0, 0, 1},
- {{zmax, 10}, 5, 30}
- ]</code></pre>
+<p>Thus, <span class="math inline">\(\mathbf{J} = J(x, y, t) \hat{k}\)</span>, where <span class="math inline">\(J(x, y, t) = \frac{1}{\mu_0} \left( \frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y} \right)\)</span>.</p>
 </section>
+<section id="b-mathbfe-ex-y-t-hatk" class="level3">
+<h3 class="anchored" data-anchor-id="b-mathbfe-ex-y-t-hatk">b) <span class="math inline">\(\mathbf{E} = E(x, y, t) \hat{k}\)</span></h3>
+<p>In the MHD approximation, the electric field <span class="math inline">\(\mathbf{E}\)</span> is given by:</p>
+<p><span class="math display">\[
+\mathbf{E} = -\mathbf{V} \times \mathbf{B}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{V} \times \mathbf{B} = \begin{vmatrix}
+\hat{i} &amp; \hat{j} &amp; \hat{k} \\
+V_x &amp; V_y &amp; 0 \\
+B_x &amp; B_y &amp; 0
+\end{vmatrix} = (0 - 0) \hat{i} - (0 - 0) \hat{j} + (V_x B_y - V_y B_x) \hat{k}
+\]</span></p>
+<p>Therefore, <span class="math inline">\(\mathbf{E}\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{E} = - (V_x B_y - V_y B_x) \hat{k} = E(x, y, t) \hat{k}
+\]</span></p>
+<p>Where <span class="math inline">\(E(x, y, t) = - (V_x B_y - V_y B_x)\)</span>.</p>
 </section>
-<section id="gamma_e-neq-0" class="level2">
-<h2 class="anchored" data-anchor-id="gamma_e-neq-0"><span class="math inline">\(\Gamma_e \neq 0\)</span></h2>
-<p>Assuming <span class="math inline">\(n_2 = \alpha_n n_1\)</span> and <span class="math inline">\(u_2 = - \alpha_u u_1\)</span>.</p>
-<p>We have</p>
+<section id="c-show-that-in-the-mhd-approximation-and-in-steady-state-ex-y-textconstant" class="level3">
+<h3 class="anchored" data-anchor-id="c-show-that-in-the-mhd-approximation-and-in-steady-state-ex-y-textconstant">c) Show that in the MHD approximation and in steady state <span class="math inline">\(E(x, y) = \text{constant}\)</span></h3>
+<p>In steady state, all time derivatives are zero. In the MHD approximation, <span class="math inline">\(\mathbf{E} = -\mathbf{V} \times \mathbf{B}\)</span>. From part (b), we know:</p>
 <p><span class="math display">\[
-n_e = n_1 + n_2 = (1 + \alpha_n) n_1
-\\
-\Gamma_e = \Gamma_1 + \Gamma_2 = (1 - \alpha_n \alpha_u) \Gamma_1
+\mathbf{E} = - (V_x B_y - V_y B_x) \hat{k}
 \]</span></p>
-<p>Denote <span class="math inline">\(\Alpha = 1 - \alpha_n \alpha_u\)</span>.</p>
-<p>The Ampere’s law becomes</p>
+<p>For <span class="math inline">\(\mathbf{E}\)</span> to be constant in steady state, <span class="math inline">\(E(x, y)\)</span> should not vary with <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span>. This implies that:</p>
 <p><span class="math display">\[
-\begin{equation}
-d_z B_x = n_1 u_{1y} + n_2 u_{2y} - \Gamma_e B_y / B_z
-    = (1 - \alpha_n \alpha_u) n_1 u_{1y} - \Gamma_e B_y / B_z
-    = \Alpha n_1 u_{1y} - \Alpha \Gamma_1 B_y / B_z
-\end{equation}
+\frac{\partial E}{\partial x} = 0 \quad \text{and} \quad \frac{\partial E}{\partial y} = 0
 \]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-d_z B_y = - n_1 u_{1x} - n_2 u_{2x} + \Gamma_e B_x / B_z
-    = - (1 - \alpha_n \alpha_u) n_1 u_{1x} + \Gamma_e B_x / B_z
-    = - \Alpha n_1 u_{1x} + \Alpha \Gamma_1 B_x / B_z
-\end{equation}
-\]</span></p>
-<p>The momentum equation becomes</p>
-<p><span class="math display">\[
-\begin{equation}
-\Gamma_1 \frac{d u_{1 x}}{d z}=n_1 u_{1 y} B_z-\Gamma_1 B_y
-\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-\Gamma_1 \frac{d u_{1 y}}{d z}=\Gamma_1 B_x-n_1 u_{1 x} B_z
-\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-\frac{d}{d z}\left(\frac{\Gamma_1^2}{n_1}+\frac{C n_1^\gamma}{2}\right) = {n_1}(u_{1x} B_y-u_{1y} B_x - \frac{T_e}{2n_e} \frac{d n_e}{dz})
-\end{equation}
-\]</span></p>
-<p>The asymptotic conditions become</p>
-<p><span class="math display">\[
-{B_z}^2 = \Gamma_1^2/n_1(\infty) + \Gamma_2^2/n_2(\infty)
-= (1+\alpha_n \alpha_u^2) \Gamma_1^2/n_1(\infty)
-\]</span></p>
-<hr>
-<p>Combing the first and third equations, we have</p>
-<p><span class="math display">\[
-\Alpha \Gamma u_x = B_z B_x + C_1
-\]</span></p>
-<p>Similarly, combining the second and fourth equations, we have</p>
-<p><span class="math display">\[
-\Alpha \Gamma u_y = B_z B_y + C_2
-\]</span></p>
-<p>Because the first constant of integration vanishes at the current sheet center yield <span class="math inline">\(C_1 = 0\)</span></p>
-<section id="coding-part-1" class="level3">
-<h3 class="anchored" data-anchor-id="coding-part-1">Coding Part</h3>
-<pre class="{mathematica}"><code>(*Solve the system numerically*)
-γ = 5/3;
-zmax = 10;
-eps = 0.001;
-
-(*Define the system of equations*)
-eq1 := D[Bx[z], z] == n1[z] u1y[z] + n2 u2y - GammaE By[z]/Bz;
-eq2 := D[By[z], z] == -n1[z] u1x[z] - n2 u2x + GammaE Bx[z]/Bz;
-eq3 := Gamma1 D[u1x[z], z] == n1[z] u1y[z] Bz - Gamma1 By[z];
-eq4 := Gamma1 D[u1y[z], z] == Gamma1 Bx[z] - n1[z] u1x[z] Bz;
-eq5 := D[(Gamma1^2/n1[z] + C1 n1[z]^γ/2), z] == n1[z] (u1x[z] By[z] - u1y[z] Bx[z] - Te/(2 ne) D[ne, z]);
-
-u2x := -αu u1x[z];
-u2y := -αu u1y[z];
-
-
-bc2 = n1[zmax] == n1Inf + eps;
-bc3 = Bx[zmax] == 1 - eps;
-bc4 = By[zmax] == ByInfinity;
-bc5 = u1x[zmax] == uxInfinity;
-bc6 = u1y[zmax] == uyInfinity;</code></pre>
-</section>
-</section>
-<section id="gamma_e-0" class="level2">
-<h2 class="anchored" data-anchor-id="gamma_e-0"><span class="math inline">\(\Gamma_e = 0\)</span></h2>
-<section id="coding-part-2" class="level3">
-<h3 class="anchored" data-anchor-id="coding-part-2">Coding Part</h3>
-<p>In summary, we have five equations and five unknown <span class="math inline">\(n, B_x, B_y, u_x, u_y\)</span> which depend on <span class="math inline">\(z\)</span>.</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{aligned}
-d_z B_y  &amp;= - n u_x
-\\
-d_z B_x &amp;= n u_y
-\\
-d_z u_x &amp;= B_y (n - 1)
-\\
-d_z u_y &amp;= B_x (1 - n)
-\\
-d_z n &amp;= \frac{n (u_x B_y - u_y B_x)}{(-B_z^2/n^2 + \beta_i \gamma n^{\gamma-1} + T_e)}
-\end{aligned}
-\end{equation}
-\]</span></p>
-<p>And the boundary conditions:</p>
-<ul>
-<li><p>when <span class="math inline">\(z=0\)</span> : <span class="math inline">\(B_x =0\)</span></p></li>
-<li><p>when <span class="math inline">\(z \to \infty\)</span> : <span class="math inline">\(B_x \to 1, B_y \to a\)</span>, <span class="math inline">\(n \to 1\)</span></p>
-<ul>
-<li><p>As the derivatives also go to zero we have</p>
-<p><span class="math display">\[
-u_x \to 0
-\\
-u_y \to 0
-\]</span></p></li>
-</ul></li>
-</ul>
-<p>Combining the first equation and the third equation, we have</p>
-<p><span class="math display">\[
-n u_x^2 - (n - 1) B_y^2 = C_1
-\]</span></p>
-<p>Using the boundary conditions, we have <span class="math inline">\(C_1 = - (n - 1) a^2\)</span>. So</p>
-<p><span class="math display">\[
-u_x^2 = (n-1)(B_y^2 - a^2) / n
-\]</span></p>
-<p>Similarly, combining the second equation and the fourth equation, we have</p>
-<p><span class="math display">\[
-n u_y^2  + (n-1) B_x^2 = C_2 = (n-1)
-\]</span></p>
-<p><span class="math display">\[
-u_y^2 = (n - 1) (1 - B_x^2) / n
-\]</span></p>
-<pre class="{mathematica}"><code>(* Define the system of equations *)
-eq1 = D[By[z], z] == -n[z] ux[z];
-eq2 = D[Bx[z], z] == n[z] uy[z];
-eq3 = D[ux[z], z] == By[z] (n[z] - 1);
-eq4 = D[uy[z], z] == Bx[z] (1 - n[z]);
-eq5 = D[n[z], z] == (n[z] (ux[z] By[z] - uy[z] Bx[z])) / (- Bz^2/n[z]^2 + betaI gamma n[z]^(gamma - 1));
-
-
-Bz = 0.1;
-ByInfinity = 0.3;
-betaI = 1;
-gamma = 5/3;
-
-zmax = 10;
-
-(* Boundary conditions *)
-bc1 = Bx[0] == 0;
-bc2 = n[zmax] == 1;
-bc3 = Bx[zmax] == 1;
-bc4 = By[zmax] == ByInfinity;
-bc5 = ux[zmax] == 0;
-bc6 = uy[zmax] == 0;
-
-
-(* Solve the system numerically *)
-sol = NDSolve[{eq1, eq2, eq3, eq4, eq5, bc2, bc3, bc4, bc5, bc6}, {Bx, By, ux, uy, n}, {z, 0, 10}];
-
-(* Plot the solutions *)
-Plot[Evaluate[{Bx[z], By[z], ux[z], uy[z], n[z]} /. sol], {z, 0, 10}, PlotLegends -&gt; {"Bx[z]", "By[z]", "ux[z]", "uy[z]", "n[z]"}]</code></pre>
-<pre class="{julia}"><code>using BoundaryValueDiffEq
-using DifferentialEquations
-
-function system!(du, u, p, t)
-    n, Bx, By, ux, uy = u
-
-    dBy = -n * ux
-    dBx = n * uy
-    dux = By * (n - 1)
-    duy = Bx * (1 - n)
-    dn = n * (ux * By - uy * Bx) / (- Bz^2/n^2 + betaI * gamma * n^(gamma - 1))
-
-    du .= [dn, dBx, dBy, dux, duy]
-end
-
-function bc2a!(resid_a, u, p)
-    resid_a[1] = u[2]
-    resid_a[2] = u[4] # ux
-end
-
-function bc2b!(resid_b, u, p)
-    resid_b[1] = u[1]
-    resid_b[2] = u[2] - 1
-    resid_b[3] = u[3]
-    resid_b[4] = u[4]
-    resid_b[5] = u[5]
-end
-
-span = (0.0, 10.0)
-Bz = 0.1
-betaI = 1
-gamma = 5/3
-
-u0 = [1.3, 0.0, 1.0, 0.0, 1]
-
-bvp = TwoPointBVProblem(system!, (bc2a!, bc2b!), u0, span; bcresid_prototype = (zeros(2), zeros(5)))
-sol2 = solve(bvp, MIRK4(), dt = 0.05)</code></pre>
+<p>Thus, <span class="math inline">\(E(x, y) = \text{constant}\)</span>.</p>
+<p>So, in steady state, the electric field in the MHD approximation is a constant.</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Current Sheet Theory – article</title>
+<title>Current Sheet Theory – On a Alvenicity of solar wind discontinuities</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -39,6 +59,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,6 +90,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -91,6 +143,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./article.html" aria-current="page"> 
+<span class="menu-text">Manuscript</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -108,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./article.html">Article</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./article.html">On a Alvenicity of solar wind discontinuities</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -123,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./article.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Article</span></a>
+ <span class="menu-text">On a Alvenicity of solar wind discontinuities</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,8 +199,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presentations/grp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Group Meeting</span></a>
+  <a href="./presentations/AGU24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AGU24</span></a>
   </div>
 </li>
       </ul>
@@ -154,19 +210,386 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#plasma-field-equations-for-force-free-current-sheet" id="toc-plasma-field-equations-for-force-free-current-sheet" class="nav-link" data-scroll-target="#plasma-field-equations-for-force-free-current-sheet">Plasma-Field Equations for Force-free current sheet</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#alfvenicity" id="toc-alfvenicity" class="nav-link" data-scroll-target="#alfvenicity">Alfvenicity</a></li>
+  <li><a href="#current-sheet-thickness" id="toc-current-sheet-thickness" class="nav-link" data-scroll-target="#current-sheet-thickness">Current Sheet Thickness</a></li>
+  <li><a href="#density-peaking" id="toc-density-peaking" class="nav-link" data-scroll-target="#density-peaking">Density Peaking</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://www.overleaf.com/project/668273f5d14067a22517615c"><i class="bi bi-link-45deg"></i>Overleaf</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">On a Alvenicity of solar wind discontinuities</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Zijin Zhang </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Xiaofei Shi </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Sergey Kamaletdinov </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Anton V. Artemyev <a href="mailto:aartemyev@igpp.ucla.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0001-8823-4474" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of California, Los Angeles
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Vassilis Angelopoulos <a href="https://orcid.org/0000-0001-7024-1561" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of California, Los Angeles
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    Solar wind plasma flow is characterized by intense, large-amplitude current sheets, also known as solar wind discontinuities. These regions are believed to play a crucial role in magnetic reconnection, solar wind ion heating, and energetic particle scattering. Although solar wind discontinuities share several properties with the classical MHD model of rotational discontinuities, they exhibit more complex characteristics that include many kinetic properties, going beyond this model. One of the most puzzling properties of these discontinuities is their Alvenicity, which describes the relationship between Alfvén and plasma velocity jumps across discontinuities. Although the high correlation of these jumps suggests the rotational nature of discontinuities, the significant differences in jump amplitudes indicate the necessity of kinetic mechanisms to describe the stress balance within discontinuities. Spacecraft observations show that plasma thermal anisotropy alone may not sufficiently explain this difference and achieve stress balance. In this study, we present a theoretical model in which this difference is explained by the kinetics of interpenetrating ion beams crossing the discontinuity. Our model successfully describes the observed properties of discontinuities within the inner heliosphere.
+  </div>
+</div>
+
+
+</header>
+
+
+<div class="hide">
+
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+</section>
+<section id="plasma-field-equations-for-force-free-current-sheet" class="level1">
+<h1>Plasma-Field Equations for Force-free current sheet</h1>
+<p>Following <span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span>, we consider a one-dimensional force-free current sheet where <span class="math inline">\(B_x^2 + B_y^2 = B_0^2 = \text{const}\)</span>, with all variables dependent solely on <span class="math inline">\(z\)</span>. The system comprises multiple steady-state ion species (fluid groups) and a background electron fluid.</p>
+<p>Electron motion is along the field lines <span class="math inline">\(\mathbf{u_e} = Γ_e \mathbf{B} / (n_e B_z)\)</span>. And the conservation of fluid mass <span class="math inline">\(d(n_α u_{αz})/dz = 0\)</span> integrate to a constant parameters <span class="math inline">\(Γ_α = n_α u_{αz}\)</span>. The momentum equations for each ion species are given by</p>
+<p><span id="eq-momentum"><span class="math display">\[
+\begin{aligned}
+Γ_α \frac{d u_{α x}}{d z} &amp;= n_α u_{α y} B_z - Γ_α B_y
+\\
+Γ_α \frac{d u_{α y}}{d z} &amp;= Γ_α B_x-n_α u_{α x} B_z
+\\
+Γ_α \frac{d u_{α z}}{d z} &amp;= -\frac{1}{2} \frac{d p_α}{d z}-n_α \frac{d \phi}{d z}+n_α u_{α x} B_y-n_α u_{α y} B_x
+\end{aligned}
+\tag{1}\]</span></span></p>
+<p>Ampere’s law connects the fields and the flow components</p>
+<p><span id="eq-Jx"><span class="math display">\[
+d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x+\Gamma_e B_x / B_z
+\tag{2}\]</span></span></p>
+<p><span id="eq-Jy"><span class="math display">\[
+d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
+\tag{3}\]</span></span></p>
+<p><span id="eq-Jz"><span class="math display">\[
+d B_z / d z = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z-\Gamma_e
+\tag{4}\]</span></span></p>
+<p>And the Gauss’s law for magnetism gives another constant parameter <span class="math inline">\(B_{z} = \text{const}\)</span>.</p>
+<p>This is a system of <span class="math inline">\(3N+2\)</span> equations for <span class="math inline">\(4N+2\)</span> unknown dependent variables: <span class="math inline">\(B_x\)</span>, <span class="math inline">\(B_y\)</span>, and <span class="math inline">\(N\)</span> each of <span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(u_x\)</span>, and <span class="math inline">\(u_y\)</span>. Since we are interested in force-free solutions with <span class="math inline">\(B_x^2 + B_y^2 = B_0^2 = \text{const}\)</span>, this condition provides an additional equation for the system.</p>
+<p>A scalar pressure model, which provides another N equations connecting <span class="math inline">\(p\)</span> and <span class="math inline">\(n\)</span>, was attempted as per <span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span>, but no solution was found (the system was overdetermined). Therefore, the system is considered with free parameters. For a system with two ion species, there are 9 equations for 10 unknowns. The system can be solved by setting one of the parameters to have a specific profile and solving the rest of the system.</p>
+<p>The force-free condition let us express the magnetic field in terms of the rotation angle <span class="math inline">\(θ\)</span> as <span class="math inline">\(B_x = B_0 \cos θ\)</span> and <span class="math inline">\(B_y = B_0 \sin θ\)</span>. From Ampere’s law (<a href="#eq-Jx" class="quarto-xref">Equation&nbsp;2</a>) and (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>), we have:</p>
+<p><span class="math display">\[
+n (u_x B_y  - u_y B_x) = 0
+\]</span></p>
+<p>And we could express the density and bulk velocity in terms of every ion species: <span class="math inline">\(n_α u_{αx} B_y = n_α u_{αy} B_x + C_α\)</span>. This above equation can be rewritten as <span class="math inline">\(\sum_α C_α =0\)</span>. The simplest case is to set <span class="math inline">\(C_α=0\)</span> for all species, which is the case we will consider in this study.</p>
+<p><span id="eq-alpha"><span class="math display">\[
+n_α (u_{αx} B_y - n_α u_{αy} B_x) = 0
+\tag{5}\]</span></span></p>
+<p>Combining the above equation with the first two equations in (<a href="#eq-momentum" class="quarto-xref">Equation&nbsp;1</a>), we have:</p>
+<p><span class="math display">\[
+u_{αx}^2 + u_{αy}^2 = const
+\]</span></p>
+<p>This would let us express the bulk velocity in terms of the rotation angle <span class="math inline">\(θ_α\)</span> as <span class="math inline">\(u_{αx} = u_{α} \cos θ_α\)</span> and <span class="math inline">\(u_{αy} = u_{α} \sin θ_α\)</span>. And substituting the above expression into the our assumption (<a href="#eq-alpha" class="quarto-xref">Equation&nbsp;5</a>), we have:</p>
+<p><span class="math display">\[
+\tan θ = \tan θ_α
+\]</span></p>
+<p><strong>#TODO#</strong> Here we consider the case where <span class="math inline">\(θ_α = θ\)</span> for all species, but the same procedure can be applied to the case where <span class="math inline">\(θ_α = θ + \pi\)</span> and it would give the same results.</p>
+<p>The first momentum equation (<a href="#eq-momentum" class="quarto-xref">Equation&nbsp;1</a>) after substituting the above expression becomes:</p>
+<p><span class="math display">\[
+- u_α \sin θ_α θ_α' = n_α u_α \sin θ_α B_z / Γ_α - B_0 \sin θ
+\]</span></p>
+<p><span id="eq-theta1"><span class="math display">\[
+\Rightarrow
+θ_α' = - \frac{n_α B_z}{Γ_α} + \frac{B_0}{u_α}
+\tag{6}\]</span></span></p>
+<p>Note that <span class="math inline">\(θ_α, n_α\)</span> are dependent variables, and <span class="math inline">\(u_α, B_0, B_z, Γ_α\)</span> are constants pre-determined by the system. So given the profile of <span class="math inline">\(n_α\)</span> and the boundary condition, we could solve the above equation to get the profile of <span class="math inline">\(θ_α\)</span>, thus the profile of <span class="math inline">\(u_α\)</span>.</p>
+<p>The Ampere’s law (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>) after substitution becomes:</p>
+<p><span class="math display">\[
+- B_0 \sin θ θ' = \sum n_α u_{α} \sin θ_α - Γ_e B_0 \sin θ / B_z
+% Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
+\]</span></p>
+<p><span id="eq-theta"><span class="math display">\[
+\Rightarrow
+θ' = - \frac{ \sum n_α u_{α} }{B_0} + \frac{Γ_e}{B_z}
+\tag{7}\]</span></span></p>
+<p>The above equation relates the rotation angle <span class="math inline">\(θ\)</span> to the plasma bulk velocity <span class="math inline">\(n u \equiv \sum n_α u_{α}\)</span>. By equating the above two equations of <span class="math inline">\(θ'\)</span>, we could get a equation relating the plasma bulk velocity to one specific species:</p>
+<p><span class="math display">\[
+n u = B_0 \left(\frac{Γ_e}{B_z}+\frac{n_α B_z}{Γ_α}-\frac{B_0}{u_α}\right)
+\]</span></p>
+<p>In the asymptotic region, as all variables approach constant values, the derivatives must vanish. For <a href="#eq-theta1" class="quarto-xref">Equation&nbsp;6</a>, this means <span class="math inline">\(θ_α(∞)' = 0 = - \frac{n_α(∞) B_z}{Γ_α} + \frac{B_0}{u_α}\)</span>. This relates the velocity of each species to the asymptotic density. Rewriting the <a href="#eq-theta1" class="quarto-xref">Equation&nbsp;6</a> in terms of asymptotic values, we have:</p>
+<p><span id="eq-theta1-asym"><span class="math display">\[
+θ_α' = \frac{B_z}{Γ_α} (n_α - n_α(∞))
+\tag{8}\]</span></span></p>
+<p>Conveniently, the center of the current sheet is chosen as the origin <span class="math inline">\(z = 0\)</span>, which corresponds to the lower boundary of <a href="#eq-theta1" class="quarto-xref">Equation&nbsp;6</a>. As a result, the boundary condition for the rotation angle is given by <span class="math inline">\(\theta_\alpha(0) = \pi/2\)</span>.</p>
+<p>Combine momentum equation (x) (<a href="#eq-momentum" class="quarto-xref">Equation&nbsp;1</a>) and Ampere’s law (y) (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>) with condition that the constant of integration vanishes at the current sheet center yield</p>
+<p><span class="math display">\[
+B_x B_z = \sum n_α u_{α,x} u_{α,z} = \sum Γ_α u_{α,x}
+\]</span></p>
+<p>Evaluate the above equation in the asymptotic limit, we have</p>
+<p><span id="eq-asym1"><span class="math display">\[
+{B_z}^2 = \sum Γ_{α}^2/n_{α}(∞)
+\tag{9}\]</span></span></p>
+<p>To simplify the analysis, it is useful to employ a dimensionless system by normalizing the variables with their asymptotic values: in this study, the magnetic field is normalized by <span class="math inline">\(B_{\text{ref}} = B_z\)</span> , and the density is normalized by <span class="math inline">\(n_{\text{ref}} = n(∞)\)</span>. Other reference values derived from these two are displayed in the table below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Reference Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frequency (ion plasma frequency)</td>
+<td><span class="math inline">\(\omega_{pi} = \sqrt{\frac{n_{\text{ref}} e^2}{m_i \varepsilon_0}}\)</span></td>
+</tr>
+<tr class="even">
+<td>Length (ion inertial length)</td>
+<td><span class="math inline">\(L_{\text{ref}} = c / \omega_{pi}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Velocity (Alfvén velocity)</td>
+<td><span class="math inline">\(V_{\text{ref}} = B_{\text{ref}} / \sqrt{\mu_0 m_i n_{\text{ref}}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="results" class="level1 page-columns page-full">
+<h1>Results</h1>
+<p>The multifluid model developed above is used here to study a specific example and the effects of model parameters: assume a density profile for one species taking the form of a Gaussian function</p>
+<p><span class="math display">\[
+n_1(z) \to n_1 (∞) (\frac{c_1}{\frac{z}{\delta_1 }^2+1}+1)
+\]</span></p>
+<p>Solving the <a href="#eq-theta1-asym" class="quarto-xref">Equation&nbsp;8</a> analytically, we have the rotation angle profile as</p>
+<p><span class="math display">\[
+\theta (z)\to \frac{\pi  \Gamma _1-2 c_1 \delta _1 B_z n_1(\infty ) \tan ^{-1}\left(\frac{z}{\delta _1}\right)}{2 \Gamma _1}
+\]</span></p>
+<p>For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span>, the system could be determined given <span class="math inline">\(c_1\)</span>, <span class="math inline">\(δ_1\)</span>, and <span class="math inline">\(B_0\)</span>. The system profile of magnetic field, plasma density, and plasma velocity for one specific case (<span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>) is plotted below <a href="#fig-profiles" class="quarto-xref">Figure&nbsp;1</a>. The specific profiles are chosen to have zero electron current across the current sheet and zero <span class="math inline">\(B_y\)</span> in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.</p>
+<div class="page-columns page-full">
+<div id="fig-profiles" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row column-page">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="figures/profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/profiles_sym.svg" class="img-fluid figure-img"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="figures/J_profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/J_profiles_sym.svg" class="img-fluid figure-img"></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span> and <span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>. (b). Current density profiles for the same case.
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="alfvenicity" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="alfvenicity">Alfvenicity</h2>
+<p>For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.</p>
+<p>Here we set <span class="math inline">\(B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z\)</span>, and let two ion species have the opposite bulk velocity but this time with different densities. By varying <span class="math inline">\(n_1(∞)\)</span>, we find that the magnetic field profiles are exactly the same, while plasma density and velocity profiles vary.</p>
+<p>We normalize the plasma velocity by asympotic Alfvén velocity <span class="math inline">\(v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}\)</span>, and the profiles are plotted below <a href="#fig-profilesC" class="quarto-xref">Figure&nbsp;2</a>. It could be seen that for <span class="math inline">\(n_1(∞) = 0.5\)</span>, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uxnorm" class="quarto-xref">Figure&nbsp;2 (b)</a>. The normalized plasma velocity <span class="math inline">\(U_y\)</span> in the aympotic limit decreases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uynorm" class="quarto-xref">Figure&nbsp;2 (c)</a>.</p>
+<div class="page-columns page-full">
+<div id="fig-profilesC" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row column-page">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-profiles_ratio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/profiles_ratio=0.5.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;2&nbsp;(a): Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities."><img src="figures/profiles_ratio=0.5.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-uxnorm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/UxNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;2&nbsp;(b): Plasma velocity U_x profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UxNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-uynorm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/UyNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;2&nbsp;(c): Plasma velocity U_y profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UyNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Normalized by Alfvén velocity <span class="math inline">\(v_{A,x}\)</span> and <span class="math inline">\(v_{A,y}\)</span>, the plasma velocity profiles are plotted below <a href="#fig-uxNormBx" class="quarto-xref">Figure&nbsp;3 (a)</a> and <a href="#fig-uyNormBy" class="quarto-xref">Figure&nbsp;3 (b)</a>. The normalized plasma velocity profiles are exactly the same for <span class="math inline">\(U_x/v_{A,x}\)</span> and <span class="math inline">\(U_y/v_{A,y}\)</span> for same <span class="math inline">\(n_1(∞)\)</span>. When <span class="math inline">\(n_1(∞)\)</span> decreases to zero, the normalized plasma velocity would approach one in the asymptotic limit, indicating the Alvenicity of the current sheet.</p>
+<div class="page-columns page-full">
+<div id="fig-uProfilesNorm" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-uProfilesNorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row column-page">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-uProfilesNorm" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-uxNormBx" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-uxNormBx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/UxNormBx.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;3&nbsp;(a): Plasma velocity U_x profiles normalized by v_{A,x} for different n_1(∞)."><img src="figures/UxNormBx.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxNormBx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by <span class="math inline">\(v_{A,x}\)</span> for different <span class="math inline">\(n_1(∞)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-uProfilesNorm" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-uyNormBy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-uyNormBy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/UyNormBy.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;3&nbsp;(b): Plasma velocity U_y profiles normalized by v_{A,y} for different n_1(∞)."><img src="figures/UyNormBy.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uyNormBy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by <span class="math inline">\(v_{A,y}\)</span> for different <span class="math inline">\(n_1(∞)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-uProfilesNorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below <a href="#fig-vRatios" class="quarto-xref">Figure&nbsp;4</a> and <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;4 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (two groups of opposite velocity in z direction) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> respectively. For the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> as shown in <a href="#fig-vRatiosEx1" class="quarto-xref">Figure&nbsp;4 (a)</a>, the normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 0.5\)</span>. The bulk velocity of each species is the same in the asymptotic limit and does not depend on <span class="math inline">\(n_1(∞)\)</span>. However, this does not generally hold when <span class="math inline">\(\lambda_{z,2} \neq - 1\)</span> as shown in <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;4 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span>.. The normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 1/3\)</span>, and the bulk velocity of each species differs in the asymptotic limit and depends on <span class="math inline">\(n_1(∞)\)</span>.</p>
+<div class="page-columns page-full">
+<div id="fig-vRatios" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-vRatios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row column-page">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-vRatios" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-vRatiosEx1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-vRatiosEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/vRatios.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;4&nbsp;(a): "><img src="figures/vRatios.svg" id="fig-vRatiosEx1" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-vRatiosEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-vRatios" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-vRatiosEx2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-vRatiosEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/vRatiosEx2.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;4&nbsp;(b): "><img src="figures/vRatiosEx2.svg" id="fig-vRatiosEx2" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-vRatiosEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vRatios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (a) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> (b).
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="current-sheet-thickness" class="level2">
+<h2 class="anchored" data-anchor-id="current-sheet-thickness">Current Sheet Thickness</h2>
+<p>TODO: define and compare current sheet thickness</p>
+<p>TODO: compare with Harris current sheet solution with same thickness</p>
+</section>
+<section id="density-peaking" class="level2">
+<h2 class="anchored" data-anchor-id="density-peaking">Density Peaking</h2>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span></li>
+</ul>
 
 
 
+</section>
 
-
-
-
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-steinhauerMultifluidModelOnedimensional2008" class="csl-entry" role="listitem">
+Steinhauer, L. C., M. P. McCarthy, and E. C. Whipple. 2008. <span>“Multifluid Model of a One-Dimensional Steady State Magnetotail Current Sheet.”</span> <em>Journal of Geophysical Research: Space Physics</em> 113 (A4). <a href="https://doi.org/10.1029/2007JA012578">https://doi.org/10.1029/2007JA012578</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -259,7 +682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Beforerr\.github\.io\/cs_theory\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -588,6 +1011,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

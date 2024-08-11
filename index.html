@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Current Sheet Theory</title>
+<title>Current Sheet Theory – Multifluid model of a one-dimensional steady state force-free current sheet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -177,6 +177,10 @@ window.Quarto = {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./article.html"> 
+<span class="menu-text">Manuscript</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -194,7 +198,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Current Sheet Theory</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Multifluid model of a one-dimensional steady state force-free current sheet</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -209,7 +213,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./article.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Article</span></a>
+ <span class="menu-text">On a Alvenicity of solar wind discontinuities</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -229,8 +233,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./presentations/grp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Group Meeting</span></a>
+  <a href="./presentations/AGU24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AGU24</span></a>
   </div>
 </li>
       </ul>
@@ -245,8 +249,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#previous-work" id="toc-previous-work" class="nav-link" data-scroll-target="#previous-work">Previous Work</a></li>
   </ul></li>
   <li><a href="#plasma-field-equations-for-a-one-dimensional-multifluid" id="toc-plasma-field-equations-for-a-one-dimensional-multifluid" class="nav-link" data-scroll-target="#plasma-field-equations-for-a-one-dimensional-multifluid">Plasma-Field Equations for a One-Dimensional Multifluid</a></li>
@@ -254,16 +259,16 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#different-normalization" id="toc-different-normalization" class="nav-link" data-scroll-target="#different-normalization">Different normalization</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pptx"><i class="bi bi-file-slides"></i>Powerpoint</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://app.tana.inc?nodeid=OzzX0sVA4_6X"><i class="bi bi-link-45deg"></i>Tana</a></li><li><a href="zotero://select/library/collections/DZHNUFNV"><i class="bi bi-link-45deg"></i>Zotero</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Current Sheet Theory</h1>
+<h1 class="title">Multifluid model of a one-dimensional steady state force-free current sheet</h1>
 </div>
 
 
@@ -283,25 +288,44 @@ window.Quarto = {
 <div class="hide">
 
 </div>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="motivation" class="level3">
+<h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
 <p>In MHD theory, for rotational rotational discontinuity, we have this following relationship</p>
 <p><span class="math display">\[
 [[\vec{U}]]=\left(\frac{\xi \rho}{\mu_0}\right)^{1 / 2}\left[\left[\frac{\vec{B}}{\rho}\right]\right]
 \]</span></p>
 <p>where <span class="math inline">\(\xi \equiv 1-\frac{p_{\parallel}-p_{\perp}}{B^2 / \mu_0}\)</span>.</p>
+<hr>
 <p>However, observations of solar wind discontinuities reveals discrepancies between</p>
 <ul>
 <li>Alfven velocity and plasma velocity change across discontinuities</li>
 <li>Anisotropic MHD theory-predicted and directly measured ion anisotropies</li>
 </ul>
 <p>Multifluid theory is proposed to address these discrepancies. The basic idea is that we could have zero bulk velocity with non zero pressure.</p>
+<section id="mhd-in-a-nutshell" class="level4">
+<h4 class="anchored" data-anchor-id="mhd-in-a-nutshell">MHD in a nutshell</h4>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \frac{\partial \rho}{\partial t}+(\vec{V} \cdot \nabla) \rho+\rho \nabla \cdot \vec{V}=0 \\
+&amp; \rho\left[\frac{\partial \vec{V}}{\partial t}+(\vec{V} \cdot \nabla) \vec{V}\right]+\nabla p=\vec{J} \times \vec{B} \\
+&amp; p=\alpha \rho^\gamma \\
+&amp; \nabla \times \vec{B}=\mu_0 \vec{J} \\
+&amp; \frac{\partial \vec{B}}{\partial t}=\nabla \times(\vec{V} \times \vec{B})
+\end{aligned}
+\]</span></p>
+</section>
+</section>
 <section id="previous-work" class="level3">
 <h3 class="anchored" data-anchor-id="previous-work">Previous Work</h3>
 <p>On the extreme of multiple fluid theory, we have the kinetic Harris model for the current sheet.</p>
-<blockquote class="blockquote">
-<p>Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005].</p>
-</blockquote>
+<ul>
+<li>no normal field, <span class="math inline">\(B_z = 0\)</span></li>
+<li>uniform cross-tail drift velocity, <span class="math inline">\(u_y\)</span></li>
+<li>vanishing particle density far from the sheet</li>
+</ul>
+<!-- > Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005]. -->
 <p><span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span> built a multifluid model to study the steady state magnetotail current sheet.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -309,6 +333,7 @@ window.Quarto = {
 <figcaption>Ion trajectories in model magnetic field.</figcaption>
 </figure>
 </div>
+<hr>
 <p>For the symmetric three-fluid system with <span class="math inline">\(B_y=0\)</span>,</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -338,6 +363,7 @@ d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x+\Gamma_e B_
 <p><span id="eq-Jy"><span class="math display">\[
 d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
 \tag{3}\]</span></span></p>
+<hr>
 <p>This is a system of <span class="math inline">\(3N+2\)</span> equations for <span class="math inline">\(4N+2\)</span> unknown dependent variables: <span class="math inline">\(B_x\)</span>, <span class="math inline">\(B_y\)</span>, and <span class="math inline">\(N\)</span> each of <span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span> <span class="math inline">\(u_x\)</span>, and <span class="math inline">\(u_y\)</span>.</p>
 <ul>
 <li><p><span class="math inline">\(B_z, Γ_α\)</span> are constant.</p></li>
@@ -354,7 +380,7 @@ B_x B_z = \sum n_α u_{α,x} u_{α,z} = \sum Γ_α u_{α,x}
 </ul>
 <p>In the following, we will consider a system with two ion species.</p>
 </section>
-<section id="force-free-current-sheet" class="level2">
+<section id="force-free-current-sheet" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="force-free-current-sheet">Force-free current sheet</h2>
 <p>We are interested in solutions with <span class="math inline">\(B_x^2 + B_y^2 = B_0^2 = const\)</span> (force-free current sheet). This provides another equation for the system, now we have 3*2+2+1=9 equations for 10 unknowns (the system is close to be fully determined). From Ampere’s law (<a href="#eq-Jx" class="quarto-xref">Equation&nbsp;2</a>) and (<a href="#eq-Jy" class="quarto-xref">Equation&nbsp;3</a>), we have:</p>
 <p><span class="math display">\[
@@ -364,6 +390,7 @@ n (u_x B_y  - u_y B_x) = 0
 <p><span class="math display">\[
 u_{αx}^2 + u_{αy}^2 = const
 \]</span></p>
+<hr>
 <div id="def-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> Express the quantities of the second ion species relative to the first species</p>
 <p><span class="math display">\[
@@ -387,17 +414,19 @@ B_x = B_0 \cos θ, \quad B_y = B_0 \sin θ
 u_{1x} = u_{1} \cos θ_1, \quad u_{1y} = u_{1} \sin θ_1
 \]</span></p>
 </div>
+<hr>
 <p><span class="math inline">\(C_1=0\)</span> immediately implies <span class="math inline">\(θ = θ_1 + k \pi\)</span> and <span class="math inline">\(Λ_x=Λ_y\)</span>. #TODO: Prove <span class="math inline">\(C_1=0\)</span> is like a boundary condition not a equation.</p>
-<p>The momentum equations (<a href="#eq-momentum" class="quarto-xref">Equation&nbsp;1</a>) become:</p>
+<p>The first momentum equation (<a href="#eq-momentum" class="quarto-xref">Equation&nbsp;1</a>) after substituting the above expression becomes:</p>
 <p><span class="math display">\[
-- u_1 \sin θ_1 θ_1' = n_1 u_1 \sin θ_1 B_z / Γ_1 - B_0 \sin θ
-\]</span><span id="eq-theta1"><span class="math display">\[
+- u_α \sin θ_α θ_α' = n_α u_α \sin θ_α B_z / Γ_α - B_0 \sin θ
+\]</span></p>
+<p><span id="eq-theta1"><span class="math display">\[
 \Rightarrow
-θ' = - \frac{n_1 B_z}{Γ_1} \pm \frac{B_0}{u_1}
+θ_α' = - \frac{n_α B_z}{Γ_α} \pm \frac{B_0}{u_α}
 \tag{5}\]</span></span></p>
 <ul>
-<li><p>Note that <span class="math inline">\(θ_1, n_1\)</span> are dependent variables, and <span class="math inline">\(u_1, B_0, B_z, Γ_1\)</span> are constants determined by the system.</p></li>
-<li><p><strong>Given <span class="math inline">\(n_1\)</span>, we could solve <span class="math inline">\(θ_1\)</span> from the above equation.</strong></p></li>
+<li><p>Note that <span class="math inline">\(θ_α, n_α\)</span> are dependent variables, and <span class="math inline">\(u_α, B_0, B_z, Γ_α\)</span> are constants determined by the system.</p></li>
+<li><p><strong>So given the profile of <span class="math inline">\(n_α\)</span>, we could solve the above equation to get the profile of <span class="math inline">\(θ_α\)</span>, thus the profile of <span class="math inline">\(u_α\)</span>.</strong></p></li>
 <li><p>The derivative of <span class="math inline">\(θ\)</span> goes to zero at infinity, gives us a relation between <span class="math inline">\(u_1\)</span> and <span class="math inline">\(B_0\)</span>:</p>
 <p><span id="eq-u1"><span class="math display">\[
 u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
@@ -415,7 +444,7 @@ u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
 <p><span class="math display">\[
 Λ_y = Λ_y(n_1) = -\frac{B_0 \left(-n_1 u_1 B_z^2+B_0 \Gamma _1 B_z-\Gamma _1^2 u_1 \Lambda _z\right)}{\Gamma _1 n_1 u_1^2 B_z}
 \]</span></p>
-<section id="solutions" class="level3">
+<section id="solutions" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="solutions">Solutions</h3>
 <p>Normalize the density by <span class="math inline">\(n_1(z=\infty) = 1\)</span> and the magnetic field by <span class="math inline">\(B_z = 1\)</span>.</p>
 <p>The system <span class="math inline">\(S\)</span> could be fully determined by <span class="math inline">\(λ_n, λ_z, B_0\)</span> parameters, provided <span class="math inline">\(n(z)\)</span> profiles.</p>
@@ -471,13 +500,82 @@ B_x &amp;\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\fr
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a> <span class="op">{</span>Λz0<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a> <span class="op">{{</span>zmax<span class="op">,</span> <span class="dv">10</span><span class="op">},</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">30</span><span class="op">}</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.</p>
+<p><span class="math display">\[
+\text{cond}(n(z), λ_{n,∞}, λ_{z,∞}) = 0
+\]</span></p>
+<p>Here we set <span class="math inline">\(B_y(z=\infty) = 1/2 B_y(z=0)\)</span> and <span class="math inline">\(B_0 = 2 B_z\)</span>, and fix <span class="math inline">\(λ_{z,∞} = -1\)</span>. By varying <span class="math inline">\(λ_{n,∞}\)</span>, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. We normalize the plasma velocity by asympotic Alfvén velocity <span class="math inline">\(v_{A,∞} = B_0 / \sqrt{n}\)</span>, and the profiles are plotted below <a href="#fig-uxnorm" class="quarto-xref">Figure&nbsp;1 (b)</a>. It could be seen that for <span class="math inline">\(λ_{n,∞} = 1\)</span>, we have zero bulk velocity change across the current sheet in the asymptotic limit.</p>
+<div class="page-columns page-full">
+<div id="fig-profiles" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row column-screen-inset">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profiles" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-profiles_ratio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/profiles_ratio=0.5.svg" class="lightbox" data-gallery="fig-profiles" title="Figure&nbsp;1&nbsp;(a): Magnetic field, ion density, and ion bulk velocity for λ_{n,∞}=1 and λ_{z,∞}=-1."><img src="figures/profiles_ratio=0.5.svg" class="img-fluid figure-img" data-ref-parent="fig-profiles"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Magnetic field, ion density, and ion bulk velocity for <span class="math inline">\(λ_{n,∞}=1\)</span> and <span class="math inline">\(λ_{z,∞}=-1\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profiles" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-uxnorm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/UxNorm.svg" class="lightbox" data-gallery="fig-profiles" title="Figure&nbsp;1&nbsp;(b): Normalized Plasma Velocity U_x Profiles for Different λ_{n,∞}."><img src="figures/UxNorm.svg" class="img-fluid figure-img" data-ref-parent="fig-profiles"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Normalized Plasma Velocity <span class="math inline">\(U_x\)</span> Profiles for Different <span class="math inline">\(λ_{n,∞}\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profiles" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-uynorm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/UyNorm.svg" class="lightbox" data-gallery="fig-profiles" title="Figure&nbsp;1&nbsp;(c): Normalized Plasma Velocity U_y Profiles for Different λ_{n,∞}."><img src="figures/UyNorm.svg" class="img-fluid figure-img" data-ref-parent="fig-profiles"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Normalized Plasma Velocity <span class="math inline">\(U_y\)</span> Profiles for Different <span class="math inline">\(λ_{n,∞}\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+<p><a href="figures/vRatios.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="figures/vRatios.svg" class="img-fluid"></a></p>
 </section>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ul>
-<li><span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span></li>
-</ul>
+<section id="different-normalization" class="level2">
+<h2 class="anchored" data-anchor-id="different-normalization">Different normalization</h2>
+<p>Normalized the quantities of the ion species</p>
+<p><span class="math display">\[
+n_α := λ_{αn} n_e
+\\
+u_{αx} := λ_{αu} B_z / \sqrt{n_{e,\infty}}
+\\
+u_{αy} := λ_{αu} B_z / \sqrt{n_{e,\infty}}
+\\
+u_{αz} := λ_{αu} B_z / \sqrt{n_{e,\infty}}
+\]</span></p>
+<p><span class="math display">\[
+θ' = \mp \frac{Λ_u}{B_0} + Γ_e
+\]</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mathematica code-with-copy"><code class="sourceCode mathematica"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>conf <span class="ex">=</span> <span class="op">{</span>ratio <span class="ot">-&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="op">}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>TextString<span class="op">[</span>conf<span class="op">]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&lt;!<span class="sc">--</span> Convert <span class="fu">a</span> dict<span class="sc">-</span>like configuration to <span class="fu">a</span> <span class="fu">string</span> <span class="sc">-</span><span class="ot">-&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>saveName<span class="op">[</span><span class="at">c_</span><span class="op">]</span> <span class="ex">:=</span> <span class="fu">StringJoin</span><span class="op">[</span><span class="fu">ToString</span> <span class="sc">/</span>@ <span class="fu">c</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
@@ -580,7 +678,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Beforerr\.github\.io\/cs_theory\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -909,7 +1007,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
