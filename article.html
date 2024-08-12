@@ -216,6 +216,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#multifluid-model" id="toc-multifluid-model" class="nav-link" data-scroll-target="#multifluid-model">Multifluid Model</a></li>
   <li><a href="#plasma-field-equations-for-force-free-current-sheet" id="toc-plasma-field-equations-for-force-free-current-sheet" class="nav-link" data-scroll-target="#plasma-field-equations-for-force-free-current-sheet">Plasma-Field Equations for Force-free current sheet</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
@@ -297,6 +298,21 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
+<ol type="1">
+<li>Observation features of solar wind discontinuities</li>
+<li>The necessity of kinetic models to describe solar wind discontinuities</li>
+<li>Current theoretical models of solar wind discontinuities and their limitations</li>
+</ol>
+<ul>
+<li>Harris current sheet <span class="citation" data-cites="harrisPlasmaSheathSeparating1962">Harris (<a href="#ref-harrisPlasmaSheathSeparating1962" role="doc-biblioref">1962</a>)</span></li>
+</ul>
+<p>Force-free <span class="citation" data-cites="harrisonRemarksOnedimensionalForcefree2009">Harrison and Neukirch (<a href="#ref-harrisonRemarksOnedimensionalForcefree2009" role="doc-biblioref">2009</a>)</span> (A necessary condition on the pseudopotential plasma pressure to allow for force-free 1D VM equilibria is formulated.)</p>
+<!-- Work on self-consistent kinetic models of the current sheet was pioneered by Sestero [1966] and by Schindler [1972, 1975, 1979] who presumed a much larger scale in the plane of the current sheet than in the normal (z) direction. Kan [1973] obtained exact solutions for the two dimensional (2-D) tail using a single Maxwellian distribution having uniform drift velocity and also a two component Maxwellian distribution having a sheared drift. His technique has been used by others to obtain 2-D solutions with an X-point (reviewed by Yoon and Lui [2005]). Eastwood [1972], Hill [1975], Cowley [1978a, 1978b], Cowley and Pellat [1979], Francfort and Pellat [1976], and others have discussed both the fluid and kinetic aspects of the current sheet, showing the importance of the balance between magnetic field pressure and the particle pressure component along the magnetic field, pk. -->
+</section>
+<section id="multifluid-model" class="level1">
+<h1>Multifluid Model</h1>
+<p>We used a steady-state multi-fluid model for assumed 1-D force-free current sheets. This approach, inspired by <span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span>, has the advantage of being analytically tractable while providing the necessary complexity to include the kinetic effects of multiple ion species. Kinetic approach, which is in principle more accurate, is hard to solve analytically and difficult to interpret the measurements. The multifluid model is a good compromise between the simplicity of the MHD model and the complexity of the kinetic model. One disadvantage of the multifluid model, however, is that there are more unknowns than equations. This means that the model is underdetermined and requires additional assumptions to be solved. This closure problem is usually solved by choosing equations of state. In this study, we first attempted to solve the system with a scalar pressure model, but then the system was overdetermined and no solution was found. We avoid this problem by assuming a specific profile for one of the variables, which is then used to solve the rest of the system.</p>
+<!-- An example is the simultaneous appearance of separate beams of ions in different directions with different fluxes. Parks et al. [2001] and Parks [2004] have pointed out that microphysical processes are key to understanding these new observations that, evidently, are unexplainable by conventional magnetohydrodynamic models. -->
 </section>
 <section id="plasma-field-equations-for-force-free-current-sheet" class="level1">
 <h1>Plasma-Field Equations for Force-free current sheet</h1>
@@ -586,6 +602,12 @@ Figure&nbsp;4: Asymptotic velocity for each species, bulk velocity and normalize
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-harrisPlasmaSheathSeparating1962" class="csl-entry" role="listitem">
+Harris, E. G. 1962. <span>“On a Plasma Sheath Separating Regions of Oppositely Directed Magnetic Field.”</span> <em>Il Nuovo Cimento (1955-1965)</em> 23 (1): 115–21. <a href="https://doi.org/10.1007/BF02733547">https://doi.org/10.1007/BF02733547</a>.
+</div>
+<div id="ref-harrisonRemarksOnedimensionalForcefree2009" class="csl-entry" role="listitem">
+Harrison, M. G., and T. Neukirch. 2009. <span>“<span>Some remarks on one-dimensional force-free Vlasov–Maxwell equilibria</span>.”</span> <em>Physics of Plasmas</em> 16 (2): 22106. <a href="https://doi.org/10.1063/1.3077307">https://doi.org/10.1063/1.3077307</a>.
+</div>
 <div id="ref-steinhauerMultifluidModelOnedimensional2008" class="csl-entry" role="listitem">
 Steinhauer, L. C., M. P. McCarthy, and E. C. Whipple. 2008. <span>“Multifluid Model of a One-Dimensional Steady State Magnetotail Current Sheet.”</span> <em>Journal of Geophysical Research: Space Physics</em> 113 (A4). <a href="https://doi.org/10.1029/2007JA012578">https://doi.org/10.1029/2007JA012578</a>.
 </div>
@@ -1011,7 +1033,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
