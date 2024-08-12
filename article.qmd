@@ -23,6 +23,22 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 
 # Introduction
 
+1. Observation features of solar wind discontinuities
+2. The necessity of kinetic models to describe solar wind discontinuities
+3. Current theoretical models of solar wind discontinuities and their limitations
+  - Harris current sheet @harrisPlasmaSheathSeparating1962
+
+Force-free @harrisonRemarksOnedimensionalForcefree2009 (A necessary condition on the pseudopotential plasma pressure to allow for force-free 1D VM equilibria is formulated.)
+
+<!-- Work on self-consistent kinetic models of the current sheet was pioneered by Sestero [1966] and by Schindler [1972, 1975, 1979] who presumed a much larger scale in the plane of the current sheet than in the normal (z) direction. Kan [1973] obtained exact solutions for the two dimensional (2-D) tail using a single Maxwellian distribution having uniform drift velocity and also a two component Maxwellian distribution having a sheared drift. His technique has been used by others to obtain 2-D solutions with an X-point (reviewed by Yoon and Lui [2005]). Eastwood [1972], Hill [1975], Cowley [1978a, 1978b], Cowley and Pellat [1979], Francfort and Pellat [1976], and others have discussed both the fluid and kinetic aspects of the current sheet, showing the importance of the balance between magnetic field pressure and the particle pressure component along the magnetic field, pk. -->
+
+
+# Multifluid Model
+
+We used a steady-state multi-fluid model for assumed 1-D force-free current sheets. This approach, inspired by @steinhauerMultifluidModelOnedimensional2008, has the advantage of being analytically tractable while providing the necessary complexity to include the kinetic effects of multiple ion species. Kinetic approach, which is in principle more accurate, is hard to solve analytically and difficult to interpret the measurements. The multifluid model is a good compromise between the simplicity of the MHD model and the complexity of the kinetic model. One disadvantage of the multifluid model, however, is that there are more unknowns than equations. This means that the model is underdetermined and requires additional assumptions to be solved. This closure problem is usually solved by choosing equations of state. In this study, we first attempted to solve the system with a scalar pressure model, but then the system was overdetermined and no solution was found. We avoid this problem by assuming a specific profile for one of the variables, which is then used to solve the rest of the system.
+
+<!-- An example is the simultaneous appearance of separate beams of ions in different directions with different fluxes. Parks et al. [2001] and Parks [2004] have pointed out that microphysical processes are key to understanding these new observations that, evidently, are unexplainable by conventional magnetohydrodynamic models. -->
+
 # Plasma-Field Equations for Force-free current sheet
 
 Following @steinhauerMultifluidModelOnedimensional2008, we consider a one-dimensional force-free current sheet where $B_x^2 + B_y^2 = B_0^2 = \text{const}$, with all variables dependent solely on $z$. The system comprises multiple steady-state ion species (fluid groups) and a background electron fluid. 
