@@ -28,6 +28,18 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 3. Current theoretical models of solar wind discontinuities and their limitations
   - Harris current sheet @harrisPlasmaSheathSeparating1962
 
+Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail. These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities.
+
+::: {.column-page}
+::: {#fig-examples layout-nrow="1" }
+
+![]()
+
+Three examples of solar wind discontinuities observed by Parker Solar Probe (PSP), Wind and ARTEMIS spacecraft. 
+
+:::
+:::
+
 Force-free @harrisonRemarksOnedimensionalForcefree2009 (A necessary condition on the pseudopotential plasma pressure to allow for force-free 1D VM equilibria is formulated.)
 
 <!-- Work on self-consistent kinetic models of the current sheet was pioneered by Sestero [1966] and by Schindler [1972, 1975, 1979] who presumed a much larger scale in the plane of the current sheet than in the normal (z) direction. Kan [1973] obtained exact solutions for the two dimensional (2-D) tail using a single Maxwellian distribution having uniform drift velocity and also a two component Maxwellian distribution having a sheared drift. His technique has been used by others to obtain 2-D solutions with an X-point (reviewed by Yoon and Lui [2005]). Eastwood [1972], Hill [1975], Cowley [1978a, 1978b], Cowley and Pellat [1979], Francfort and Pellat [1976], and others have discussed both the fluid and kinetic aspects of the current sheet, showing the importance of the balance between magnetic field pressure and the particle pressure component along the magnetic field, pk. -->
@@ -242,6 +254,13 @@ TODO: compare with Harris current sheet solution with same thickness
 
 # Summary
 
+::: {#fig-vRatioStats}
+![](https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png)
+
+Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21.
+:::
+
 # References
 
 - @steinhauerMultifluidModelOnedimensional2008
+- @artemyevIonNongyrotropySolar2020
