@@ -21,6 +21,16 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 \newcommand{\vect}[1]{\mathbf{#1}}
 :::
 
+# References
+
+- @steinhauerMultifluidModelOnedimensional2008
+- @artemyevIonNongyrotropySolar2020
+- @neukirchKineticModelsTangential2020
+- @vaskoThinCurrentSheets2014
+
+<!-- "This difference has previously been interpreted as: (1) a possible contribution of anisotropy that decreases ΔvA, or (2) a discontinuity non-stationarity due to residual magnetic energy. We propose an alternate interpretation: an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing ΔvA." - @artemyevIonNongyrotropySolar2020 -->
+
+
 # Introduction
 
 1. Observation features of solar wind discontinuities
@@ -28,12 +38,12 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 3. Current theoretical models of solar wind discontinuities and their limitations
   - Harris current sheet @harrisPlasmaSheathSeparating1962
 
-Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail. These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities.
+Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail.  Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump @artemyevIonNongyrotropySolar2020.
+
+These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone (assuming a Maxwellian distribution that fits both the parallel and perpendicular temperatures) and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities.
 
 ::: {.column-page}
 ::: {#fig-examples layout-nrow="1" }
-
-![]()
 
 Three examples of solar wind discontinuities observed by Parker Solar Probe (PSP), Wind and ARTEMIS spacecraft. 
 
@@ -259,8 +269,3 @@ TODO: compare with Harris current sheet solution with same thickness
 
 Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21.
 :::
-
-# References
-
-- @steinhauerMultifluidModelOnedimensional2008
-- @artemyevIonNongyrotropySolar2020

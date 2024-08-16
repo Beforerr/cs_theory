@@ -6,22 +6,29 @@ clone-overleaf:
 update-overleaf: sync-overleaf
   cd overleaf; git add .; git commit -am "update"; git push
 
-sync-overleaf:
+sync-overleaf: tex_render tex_keep_document
+
+tex_render to="pdf":
   #!/usr/bin/env bash
-  set -eo pipefail
-  # tlmgr install bibexport
   touch files/bibexport.bib
-  quarto render --profile man --to pdf
-  bibexport -o files/bibexport.bib --nosave article.aux   
+  quarto render --profile man --to {{to}}
+  just tex_export_bib
   rsync _manuscript/_tex/ overleaf/ -r
+  rsync article_files overleaf -r
+  just clean-man
+
+tex_export_bib:
+  #!/usr/bin/env bash
+  command -v bibexport >/dev/null || tlmgr install bibexport
+  bibexport -o files/bibexport.bib --nosave article.aux
+
+tex_keep_document:
+  #!/usr/bin/env bash
   temp_file=$(mktemp)
   awk '/\\begin\{document\}/ {flag=1; next} /\\end\{document\}/ {flag=0} flag' overleaf/article.tex | awk '!/\\maketitle/' > $temp_file
   mv $temp_file overleaf/article.tex
-  rsync article_files overleaf -r
-  just clean-man
 
 [private]
 clean-man:
   -rm article.{aux,bbl,blg,log,tex}
-  -rm -rf article_files
   -rm trackchanges.sty *.cls
