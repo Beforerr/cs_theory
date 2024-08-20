@@ -26,5 +26,6 @@ format:
 
 bibliography:
   - files/bibliography/research.bib
+  - files/bibexport.bib
 
 wrap: preserve
