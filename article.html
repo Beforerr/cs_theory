@@ -191,12 +191,29 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Presentations</span></a>
+ <span class="menu-text">Nbs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nbs/examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Get data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Presentations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./presentations/AGU24.html" class="sidebar-item-text sidebar-link">
@@ -215,7 +232,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#multifluid-model" id="toc-multifluid-model" class="nav-link" data-scroll-target="#multifluid-model">Multifluid Model</a></li>
   <li><a href="#plasma-field-equations-for-force-free-current-sheet" id="toc-plasma-field-equations-for-force-free-current-sheet" class="nav-link" data-scroll-target="#plasma-field-equations-for-force-free-current-sheet">Plasma-Field Equations for Force-free current sheet</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
@@ -225,12 +243,11 @@ window.Quarto = {
   <li><a href="#density-peaking" id="toc-density-peaking" class="nav-link" data-scroll-target="#density-peaking">Density Peaking</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://www.overleaf.com/project/668273f5d14067a22517615c"><i class="bi bi-link-45deg"></i>Overleaf</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -243,22 +260,39 @@ window.Quarto = {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Zijin Zhang </p>
+    <p class="author">Zijin Zhang <a href="mailto:zijin@ucla.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-9968-067X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of California, Los Angeles
+          </p>
       </div>
     <div class="quarto-title-meta-contents">
-    <p class="author">Xiaofei Shi </p>
+    <p class="author">Sergei Kamaletdinov <a href="mailto:sergei2033@ucla.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-2261-0331" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of California, Los Angeles
+          </p>
       </div>
     <div class="quarto-title-meta-contents">
-    <p class="author">Sergey Kamaletdinov </p>
+    <p class="author">Xiaofei Shi <a href="mailto:sxf1698@ucla.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-3367-5074" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of California, Los Angeles
+          </p>
       </div>
     <div class="quarto-title-meta-contents">
     <p class="author">Anton V. Artemyev <a href="mailto:aartemyev@igpp.ucla.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0001-8823-4474" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of California, Los Angeles
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Marco Velli <a href="mailto:mvelli@ucla.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-2381-3106" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -296,6 +330,16 @@ window.Quarto = {
 <div class="hide">
 
 </div>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span></li>
+<li><span class="citation" data-cites="artemyevIonNongyrotropySolar2020">Artemyev et al. (<a href="#ref-artemyevIonNongyrotropySolar2020" role="doc-biblioref">2020</a>)</span></li>
+<li><span class="citation" data-cites="neukirchKineticModelsTangential2020">Neukirch et al. (<a href="#ref-neukirchKineticModelsTangential2020" role="doc-biblioref">2020</a>)</span></li>
+<li><span class="citation" data-cites="vaskoThinCurrentSheets2014">Vasko et al. (<a href="#ref-vaskoThinCurrentSheets2014" role="doc-biblioref">2014</a>)</span></li>
+</ul>
+<!-- "This difference has previously been interpreted as: (1) a possible contribution of anisotropy that decreases ΔvA, or (2) a discontinuity non-stationarity due to residual magnetic energy. We propose an alternate interpretation: an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing ΔvA." - @artemyevIonNongyrotropySolar2020 -->
+</section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <ol type="1">
@@ -306,6 +350,18 @@ window.Quarto = {
 <ul>
 <li>Harris current sheet <span class="citation" data-cites="harrisPlasmaSheathSeparating1962">Harris (<a href="#ref-harrisPlasmaSheathSeparating1962" role="doc-biblioref">1962</a>)</span></li>
 </ul>
+<p>Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. <a href="#fig-examples" class="quarto-xref">Figure&nbsp;1</a> show observations of magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth’s bow shock, and ARTEMIS in the Earth’s magnetotail. Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump <span class="citation" data-cites="artemyevIonNongyrotropySolar2020">Artemyev et al. (<a href="#ref-artemyevIonNongyrotropySolar2020" role="doc-biblioref">2020</a>)</span>.</p>
+<p>These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone (assuming a Maxwellian distribution that fits both the parallel and perpendicular temperatures) and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities.</p>
+<div id="fig-examples" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/fig_examples.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Three examples of solar wind discontinuities observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity."><img src="figures/fig_examples.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Three examples of solar wind discontinuities observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity.
+</figcaption>
+</figure>
+</div>
 <p>Force-free <span class="citation" data-cites="harrisonRemarksOnedimensionalForcefree2009">Harrison and Neukirch (<a href="#ref-harrisonRemarksOnedimensionalForcefree2009" role="doc-biblioref">2009</a>)</span> (A necessary condition on the pseudopotential plasma pressure to allow for force-free 1D VM equilibria is formulated.)</p>
 <!-- Work on self-consistent kinetic models of the current sheet was pioneered by Sestero [1966] and by Schindler [1972, 1975, 1979] who presumed a much larger scale in the plane of the current sheet than in the normal (z) direction. Kan [1973] obtained exact solutions for the two dimensional (2-D) tail using a single Maxwellian distribution having uniform drift velocity and also a two component Maxwellian distribution having a sheared drift. His technique has been used by others to obtain 2-D solutions with an X-point (reviewed by Yoon and Lui [2005]). Eastwood [1972], Hill [1975], Cowley [1978a, 1978b], Cowley and Pellat [1979], Francfort and Pellat [1976], and others have discussed both the fluid and kinetic aspects of the current sheet, showing the importance of the balance between magnetic field pressure and the particle pressure component along the magnetic field, pk. -->
 </section>
@@ -420,7 +476,7 @@ B_x B_z = \sum n_α u_{α,x} u_{α,z} = \sum Γ_α u_{α,x}
 </tbody>
 </table>
 </section>
-<section id="results" class="level1 page-columns page-full">
+<section id="results" class="level1">
 <h1>Results</h1>
 <p>The multifluid model developed above is used here to study a specific example and the effects of model parameters: assume a density profile for one species taking the form of a Gaussian function</p>
 <p><span class="math display">\[
@@ -430,41 +486,41 @@ n_1(z) \to n_1 (∞) (\frac{c_1}{\frac{z}{\delta_1 }^2+1}+1)
 <p><span class="math display">\[
 \theta (z)\to \frac{\pi  \Gamma _1-2 c_1 \delta _1 B_z n_1(\infty ) \tan ^{-1}\left(\frac{z}{\delta _1}\right)}{2 \Gamma _1}
 \]</span></p>
-<p>For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span>, the system could be determined given <span class="math inline">\(c_1\)</span>, <span class="math inline">\(δ_1\)</span>, and <span class="math inline">\(B_0\)</span>. The system profile of magnetic field, plasma density, and plasma velocity for one specific case (<span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>) is plotted below <a href="#fig-profiles" class="quarto-xref">Figure&nbsp;1</a>. The specific profiles are chosen to have zero electron current across the current sheet and zero <span class="math inline">\(B_y\)</span> in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.</p>
-<div class="page-columns page-full">
-<div id="fig-profiles" class="quarto-layout-panel page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<div class="quarto-layout-row column-page">
+<p>For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span>, the system could be determined given <span class="math inline">\(c_1\)</span>, <span class="math inline">\(δ_1\)</span>, and <span class="math inline">\(B_0\)</span>. The system profile of magnetic field, plasma density, and plasma velocity for one specific case (<span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>) is plotted below <a href="#fig-profiles" class="quarto-xref">Figure&nbsp;2</a>. The specific profiles are chosen to have zero electron current across the current sheet and zero <span class="math inline">\(B_y\)</span> in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.</p>
+<!-- ::: {.column-page} -->
+<div id="fig-profiles" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="figures/profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/profiles_sym.svg" class="img-fluid figure-img"></a></p>
+<p><a href="figures/profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/profiles_sym.svg" class="img-fluid figure-img"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="figures/J_profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/J_profiles_sym.svg" class="img-fluid figure-img"></a></p>
+<p><a href="figures/J_profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/J_profiles_sym.svg" class="img-fluid figure-img"></a></p>
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span> and <span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>. (b). Current density profiles for the same case.
+Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span> and <span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>. (b). Current density profiles for the same case.
 </figcaption>
 </figure>
 </div>
-</div>
-<section id="alfvenicity" class="level2 page-columns page-full">
+<!-- ::: -->
+<section id="alfvenicity" class="level2">
 <h2 class="anchored" data-anchor-id="alfvenicity">Alfvenicity</h2>
 <p>For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.</p>
 <p>Here we set <span class="math inline">\(B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z\)</span>, and let two ion species have the opposite bulk velocity but this time with different densities. By varying <span class="math inline">\(n_1(∞)\)</span>, we find that the magnetic field profiles are exactly the same, while plasma density and velocity profiles vary.</p>
-<p>We normalize the plasma velocity by asympotic Alfvén velocity <span class="math inline">\(v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}\)</span>, and the profiles are plotted below <a href="#fig-profilesC" class="quarto-xref">Figure&nbsp;2</a>. It could be seen that for <span class="math inline">\(n_1(∞) = 0.5\)</span>, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uxnorm" class="quarto-xref">Figure&nbsp;2 (b)</a>. The normalized plasma velocity <span class="math inline">\(U_y\)</span> in the aympotic limit decreases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uynorm" class="quarto-xref">Figure&nbsp;2 (c)</a>.</p>
-<div class="page-columns page-full">
-<div id="fig-profilesC" class="quarto-layout-panel page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<div class="quarto-layout-row column-page">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p>We normalize the plasma velocity by asympotic Alfvén velocity <span class="math inline">\(v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}\)</span>, and the profiles are plotted below <a href="#fig-profilesC" class="quarto-xref">Figure&nbsp;3</a>. It could be seen that for <span class="math inline">\(n_1(∞) = 0.5\)</span>, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uxnorm" class="quarto-xref">Figure&nbsp;3 (b)</a>. The normalized plasma velocity <span class="math inline">\(U_y\)</span> in the aympotic limit decreases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uynorm" class="quarto-xref">Figure&nbsp;3 (c)</a>.</p>
+<!-- ::: {.column-page} -->
+<div id="fig-profilesC" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div id="fig-profiles_ratio" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/profiles_ratio=0.5.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;2&nbsp;(a): Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities."><img src="figures/profiles_ratio=0.5.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+<a href="figures/profiles_ratio=0.5.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;3&nbsp;(a): Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities."><img src="figures/profiles_ratio=0.5.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities.
@@ -472,11 +528,11 @@ Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for <span
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div id="fig-uxnorm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UxNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;2&nbsp;(b): Plasma velocity U_x profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UxNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+<a href="figures/UxNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;3&nbsp;(b): Plasma velocity U_x profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UxNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
@@ -484,11 +540,11 @@ Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for <span
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div id="fig-uynorm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UyNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;2&nbsp;(c): Plasma velocity U_y profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UyNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+<a href="figures/UyNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;3&nbsp;(c): Plasma velocity U_y profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UyNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
@@ -496,25 +552,27 @@ Figure&nbsp;1: (a). Magnetic field, ion density, and ion bulk velocity for <span
 </figure>
 </div>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<!-- ::: -->
+</div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+Figure&nbsp;3
 </figcaption>
 </figure>
 </div>
-</div>
-<p>Normalized by Alfvén velocity <span class="math inline">\(v_{A,x}\)</span> and <span class="math inline">\(v_{A,y}\)</span>, the plasma velocity profiles are plotted below <a href="#fig-uxNormBx" class="quarto-xref">Figure&nbsp;3 (a)</a> and <a href="#fig-uyNormBy" class="quarto-xref">Figure&nbsp;3 (b)</a>. The normalized plasma velocity profiles are exactly the same for <span class="math inline">\(U_x/v_{A,x}\)</span> and <span class="math inline">\(U_y/v_{A,y}\)</span> for same <span class="math inline">\(n_1(∞)\)</span>. When <span class="math inline">\(n_1(∞)\)</span> decreases to zero, the normalized plasma velocity would approach one in the asymptotic limit, indicating the Alvenicity of the current sheet.</p>
-<div class="page-columns page-full">
-<div id="fig-uProfilesNorm" class="quarto-layout-panel page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-uProfilesNorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<div class="quarto-layout-row column-page">
+<p>Normalized by Alfvén velocity <span class="math inline">\(v_{A,x}\)</span> and <span class="math inline">\(v_{A,y}\)</span>, the plasma velocity profiles are plotted below <a href="#fig-uxNormBx" class="quarto-xref">Figure&nbsp;4 (a)</a> and <a href="#fig-uyNormBy" class="quarto-xref">Figure&nbsp;4 (b)</a>. The normalized plasma velocity profiles are exactly the same for <span class="math inline">\(U_x/v_{A,x}\)</span> and <span class="math inline">\(U_y/v_{A,y}\)</span> for same <span class="math inline">\(n_1(∞)\)</span>. When <span class="math inline">\(n_1(∞)\)</span> decreases to zero, the normalized plasma velocity would approach one in the asymptotic limit, indicating the Alvenicity of the current sheet.</p>
+<!-- ::: {.column-page} -->
+<div id="fig-uProfilesNorm" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-uProfilesNorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-uProfilesNorm" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-uxNormBx" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uxNormBx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UxNormBx.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;3&nbsp;(a): Plasma velocity U_x profiles normalized by v_{A,x} for different n_1(∞)."><img src="figures/UxNormBx.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
+<a href="figures/UxNormBx.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;4&nbsp;(a): Plasma velocity U_x profiles normalized by v_{A,x} for different n_1(∞)."><img src="figures/UxNormBx.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxNormBx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by <span class="math inline">\(v_{A,x}\)</span> for different <span class="math inline">\(n_1(∞)\)</span>.
@@ -526,7 +584,7 @@ Figure&nbsp;2
 <div id="fig-uyNormBy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uyNormBy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UyNormBy.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;3&nbsp;(b): Plasma velocity U_y profiles normalized by v_{A,y} for different n_1(∞)."><img src="figures/UyNormBy.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
+<a href="figures/UyNormBy.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;4&nbsp;(b): Plasma velocity U_y profiles normalized by v_{A,y} for different n_1(∞)."><img src="figures/UyNormBy.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uyNormBy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by <span class="math inline">\(v_{A,y}\)</span> for different <span class="math inline">\(n_1(∞)\)</span>.
@@ -537,22 +595,22 @@ Figure&nbsp;2
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-uProfilesNorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3
+Figure&nbsp;4
 </figcaption>
 </figure>
 </div>
-</div>
-<p>The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below <a href="#fig-vRatios" class="quarto-xref">Figure&nbsp;4</a> and <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;4 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (two groups of opposite velocity in z direction) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> respectively. For the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> as shown in <a href="#fig-vRatiosEx1" class="quarto-xref">Figure&nbsp;4 (a)</a>, the normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 0.5\)</span>. The bulk velocity of each species is the same in the asymptotic limit and does not depend on <span class="math inline">\(n_1(∞)\)</span>. However, this does not generally hold when <span class="math inline">\(\lambda_{z,2} \neq - 1\)</span> as shown in <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;4 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span>.. The normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 1/3\)</span>, and the bulk velocity of each species differs in the asymptotic limit and depends on <span class="math inline">\(n_1(∞)\)</span>.</p>
-<div class="page-columns page-full">
-<div id="fig-vRatios" class="quarto-layout-panel page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-vRatios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<div class="quarto-layout-row column-page">
+<!-- ::: -->
+<p>The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below <a href="#fig-vRatios" class="quarto-xref">Figure&nbsp;5</a> and <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;5 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (two groups of opposite velocity in z direction) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> respectively. For the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> as shown in <a href="#fig-vRatiosEx1" class="quarto-xref">Figure&nbsp;5 (a)</a>, the normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 0.5\)</span>. The bulk velocity of each species is the same in the asymptotic limit and does not depend on <span class="math inline">\(n_1(∞)\)</span>. However, this does not generally hold when <span class="math inline">\(\lambda_{z,2} \neq - 1\)</span> as shown in <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;5 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span>.. The normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 1/3\)</span>, and the bulk velocity of each species differs in the asymptotic limit and depends on <span class="math inline">\(n_1(∞)\)</span>.</p>
+<!-- ::: {.column-page} -->
+<div id="fig-vRatios" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vRatios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-vRatios" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-vRatiosEx1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-vRatiosEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/vRatios.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;4&nbsp;(a): "><img src="figures/vRatios.svg" id="fig-vRatiosEx1" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
+<a href="figures/vRatios.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;5&nbsp;(a): "><img src="figures/vRatios.svg" id="fig-vRatiosEx1" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-vRatiosEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 </figcaption>
@@ -563,7 +621,7 @@ Figure&nbsp;3
 <div id="fig-vRatiosEx2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-vRatiosEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/vRatiosEx2.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;4&nbsp;(b): "><img src="figures/vRatiosEx2.svg" id="fig-vRatiosEx2" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
+<a href="figures/vRatiosEx2.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;5&nbsp;(b): "><img src="figures/vRatiosEx2.svg" id="fig-vRatiosEx2" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-vRatiosEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 </figcaption>
@@ -573,11 +631,11 @@ Figure&nbsp;3
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vRatios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (a) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> (b).
+Figure&nbsp;5: Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (a) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> (b).
 </figcaption>
 </figure>
 </div>
-</div>
+<!-- ::: -->
 </section>
 <section id="current-sheet-thickness" class="level2">
 <h2 class="anchored" data-anchor-id="current-sheet-thickness">Current Sheet Thickness</h2>
@@ -590,26 +648,39 @@ Figure&nbsp;4: Asymptotic velocity for each species, bulk velocity and normalize
 </section>
 <section id="summary" class="level1">
 <h1>Summary</h1>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
-<ul>
-<li><span class="citation" data-cites="steinhauerMultifluidModelOnedimensional2008">Steinhauer, McCarthy, and Whipple (<a href="#ref-steinhauerMultifluidModelOnedimensional2008" role="doc-biblioref">2008</a>)</span></li>
-</ul>
+<div id="fig-vRatioStats" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vRatioStats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;6: Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21."><img src="https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vRatioStats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21.
+</figcaption>
+</figure>
+</div>
 
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-artemyevIonNongyrotropySolar2020" class="csl-entry" role="listitem">
+Artemyev, Anton V., Vassilis Angelopoulos, Ivan Y. Vasko, and Lev M. Zelenyi. 2020. <span>“Ion <span>Nongyrotropy</span> in <span>Solar Wind Discontinuities</span>.”</span> <em>The Astrophysical Journal Letters</em> 889 (1): L23. <a href="https://doi.org/10.3847/2041-8213/ab6b2e">https://doi.org/10.3847/2041-8213/ab6b2e</a>.
+</div>
 <div id="ref-harrisPlasmaSheathSeparating1962" class="csl-entry" role="listitem">
 Harris, E. G. 1962. <span>“On a Plasma Sheath Separating Regions of Oppositely Directed Magnetic Field.”</span> <em>Il Nuovo Cimento (1955-1965)</em> 23 (1): 115–21. <a href="https://doi.org/10.1007/BF02733547">https://doi.org/10.1007/BF02733547</a>.
 </div>
 <div id="ref-harrisonRemarksOnedimensionalForcefree2009" class="csl-entry" role="listitem">
-Harrison, M. G., and T. Neukirch. 2009. <span>“<span>Some remarks on one-dimensional force-free Vlasov–Maxwell equilibria</span>.”</span> <em>Physics of Plasmas</em> 16 (2): 22106. <a href="https://doi.org/10.1063/1.3077307">https://doi.org/10.1063/1.3077307</a>.
+Harrison, M. G., and T. Neukirch. 2009. <span>“<span class="nocase">Some remarks on one-dimensional force-free Vlasov–Maxwell equilibria</span>.”</span> <em>Physics of Plasmas</em> 16 (2): 22106. <a href="https://doi.org/10.1063/1.3077307">https://doi.org/10.1063/1.3077307</a>.
+</div>
+<div id="ref-neukirchKineticModelsTangential2020" class="csl-entry" role="listitem">
+Neukirch, T., I. Y. Vasko, A. V. Artemyev, and O. Allanson. 2020. <span>“Kinetic <span>Models</span> of <span>Tangential Discontinuities</span> in the <span>Solar Wind</span>.”</span> <em>Astrophysical Journal</em> 891 (1): 86. <a href="https://doi.org/10.3847/1538-4357/ab7234">https://doi.org/10.3847/1538-4357/ab7234</a>.
 </div>
 <div id="ref-steinhauerMultifluidModelOnedimensional2008" class="csl-entry" role="listitem">
 Steinhauer, L. C., M. P. McCarthy, and E. C. Whipple. 2008. <span>“Multifluid Model of a One-Dimensional Steady State Magnetotail Current Sheet.”</span> <em>Journal of Geophysical Research: Space Physics</em> 113 (A4). <a href="https://doi.org/10.1029/2007JA012578">https://doi.org/10.1029/2007JA012578</a>.
+</div>
+<div id="ref-vaskoThinCurrentSheets2014" class="csl-entry" role="listitem">
+Vasko, I. Y., A. V. Artemyev, A. A. Petrukovich, and H. V. Malova. 2014. <span>“Thin Current Sheets with Strong Bell-Shape Guide Field: <span>Cluster</span> Observations and Models with Beams.”</span> <em>Annales Geophysicae</em> 32 (10): 1349–60. <a href="https://doi.org/10.5194/angeo-32-1349-2014">https://doi.org/10.5194/angeo-32-1349-2014</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1033,7 +1104,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
