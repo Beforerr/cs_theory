@@ -1,12 +1,25 @@
 ---
 title: On a Alvenicity of solar wind discontinuities
 authors:
-  - Zijin Zhang
-  - Xiaofei Shi
-  - Sergey Kamaletdinov
+  - name: Zijin Zhang
+    email: zijin@ucla.edu
+    orcid: 0000-0002-9968-067X
+    affiliation: University of California, Los Angeles
+  - name: Sergei Kamaletdinov
+    email: sergei2033@ucla.edu
+    orcid: 0000-0002-2261-0331
+    affiliation: University of California, Los Angeles
+  - name: Xiaofei Shi
+    email: sxf1698@ucla.edu
+    orcid: 0000-0003-3367-5074
+    affiliation: University of California, Los Angeles
   - name: Anton V. Artemyev
     email: aartemyev@igpp.ucla.edu
     orcid: 0000-0001-8823-4474
+    affiliation: University of California, Los Angeles
+  - name: Marco Velli
+    email: mvelli@ucla.edu
+    orcid: 0000-0002-2381-3106
     affiliation: University of California, Los Angeles
   - name: Vassilis Angelopoulos
     orcid: 0000-0001-7024-1561

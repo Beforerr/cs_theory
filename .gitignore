@@ -11,3 +11,8 @@ _proc
 overleaf/
 
 /.quarto/
+# pixi environments
+.pixi
+pixi.lock
+
+.vscode
