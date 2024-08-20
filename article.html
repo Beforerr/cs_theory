@@ -487,82 +487,98 @@ n_1(z) \to n_1 (∞) (\frac{c_1}{\frac{z}{\delta_1 }^2+1}+1)
 \theta (z)\to \frac{\pi  \Gamma _1-2 c_1 \delta _1 B_z n_1(\infty ) \tan ^{-1}\left(\frac{z}{\delta _1}\right)}{2 \Gamma _1}
 \]</span></p>
 <p>For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span>, the system could be determined given <span class="math inline">\(c_1\)</span>, <span class="math inline">\(δ_1\)</span>, and <span class="math inline">\(B_0\)</span>. The system profile of magnetic field, plasma density, and plasma velocity for one specific case (<span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>) is plotted below <a href="#fig-profiles" class="quarto-xref">Figure&nbsp;2</a>. The specific profiles are chosen to have zero electron current across the current sheet and zero <span class="math inline">\(B_y\)</span> in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.</p>
-<!-- ::: {.column-page} -->
 <div id="fig-profiles" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="figures/profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/profiles_sym.svg" class="img-fluid figure-img"></a></p>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profiles" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-profilesEx1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-profilesEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/profiles_sym.svg" class="lightbox" data-gallery="fig-profiles" title="Figure&nbsp;2&nbsp;(a): "><img src="figures/profiles_sym.svg" id="fig-profilesEx1" class="img-fluid figure-img" data-ref-parent="fig-profiles"></a>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="figures/J_profiles_sym.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for n_1 = n_2, u_1 = -u_2 and δ_1=1, c_1=1/\sqrt{2}, B_0 = 2. (b). Current density profiles for the same case."><img src="figures/J_profiles_sym.svg" class="img-fluid figure-img"></a></p>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-profilesEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profiles" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-jprofilesEx1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-jprofilesEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/J_profiles_sym.svg" class="lightbox" data-gallery="fig-profiles" title="Figure&nbsp;2&nbsp;(b): "><img src="figures/J_profiles_sym.svg" id="fig-jprofilesEx1" class="img-fluid figure-img" data-ref-parent="fig-profiles"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-jprofilesEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span> and <span class="math inline">\(δ_1=1, c_1=1/\sqrt{2}, B_0 = 2\)</span>. (b). Current density profiles for the same case.
+Figure&nbsp;2: (a). Magnetic field, ion density, and ion bulk velocity for <span class="math inline">\(n_1 = n_2, u_1 = -u_2\)</span> and <span class="math inline">\(δ_1=1, c_1=1, B_0 = 2\)</span>. (b). Current density profiles for the same case.
 </figcaption>
 </figure>
 </div>
-<!-- ::: -->
 <section id="alfvenicity" class="level2">
 <h2 class="anchored" data-anchor-id="alfvenicity">Alfvenicity</h2>
 <p>For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.</p>
 <p>Here we set <span class="math inline">\(B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z\)</span>, and let two ion species have the opposite bulk velocity but this time with different densities. By varying <span class="math inline">\(n_1(∞)\)</span>, we find that the magnetic field profiles are exactly the same, while plasma density and velocity profiles vary.</p>
-<p>We normalize the plasma velocity by asympotic Alfvén velocity <span class="math inline">\(v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}\)</span>, and the profiles are plotted below <a href="#fig-profilesC" class="quarto-xref">Figure&nbsp;3</a>. It could be seen that for <span class="math inline">\(n_1(∞) = 0.5\)</span>, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uxnorm" class="quarto-xref">Figure&nbsp;3 (b)</a>. The normalized plasma velocity <span class="math inline">\(U_y\)</span> in the aympotic limit decreases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uynorm" class="quarto-xref">Figure&nbsp;3 (c)</a>.</p>
-<!-- ::: {.column-page} -->
+<div id="fig-profilesEx2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-profilesEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="figures/profiles_n1Inf=0.6.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;3: Same as Figure&nbsp;2, but for two ion species with same bulk velocity but different densities n_1(∞) = 0.6 and B_y(z=\infty) = 1/2 B_0."><img src="figures/profiles_n1Inf=0.6.svg" class="img-fluid figure-img"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="figures/J_profiles_n1Inf=0.6.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;3: Same as Figure&nbsp;2, but for two ion species with same bulk velocity but different densities n_1(∞) = 0.6 and B_y(z=\infty) = 1/2 B_0."><img src="figures/J_profiles_n1Inf=0.6.svg" class="img-fluid figure-img"></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-profilesEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Same as <a href="#fig-profiles" class="quarto-xref">Figure&nbsp;2</a>, but for two ion species with same bulk velocity but different densities <span class="math inline">\(n_1(∞) = 0.6\)</span> and <span class="math inline">\(B_y(z=\infty) = 1/2 B_0\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>We normalize the plasma velocity by asympotic Alfvén velocity <span class="math inline">\(v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}\)</span>, and the profiles are plotted in <a href="#fig-profilesEx2" class="quarto-xref">Figure&nbsp;3</a> for the case of <span class="math inline">\(n_1(∞) = 0.6\)</span>.
+<a href="#fig-uxnorm" class="quarto-xref">Figure&nbsp;4 (a)</a> It could be seen that for <span class="math inline">\(n_1(∞) = 0.5\)</span>, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero. The normalized plasma velocity <span class="math inline">\(U_y\)</span> in the aympotic limit decreases with <span class="math inline">\(n_1(∞)\)</span> decreasing to zero <a href="#fig-uynorm" class="quarto-xref">Figure&nbsp;4 (b)</a>.</p>
 <div id="fig-profilesC" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-profiles_ratio" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/profiles_ratio=0.5.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;3&nbsp;(a): Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities."><img src="figures/profiles_ratio=0.5.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-profiles_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Magnetic field, ion density, and ion bulk velocity for two ion species with same bulk velocity but different densities.
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-uxnorm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UxNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;3&nbsp;(b): Plasma velocity U_x profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UxNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+<a href="figures/UxNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;4&nbsp;(a): Plasma velocity U_x profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UxNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
+(a) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-profilesC" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-uynorm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UyNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;3&nbsp;(c): Plasma velocity U_y profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UyNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
+<a href="figures/UyNormB0.svg" class="lightbox" data-gallery="fig-profilesC" title="Figure&nbsp;4&nbsp;(b): Plasma velocity U_y profiles normalized by aysmpotic Alfvén velocity for different n_1(∞)."><img src="figures/UyNormB0.svg" class="img-fluid figure-img" data-ref-parent="fig-profilesC"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uynorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
+(b) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by aysmpotic Alfvén velocity for different <span class="math inline">\(n_1(∞)\)</span>.
 </figcaption>
 </figure>
 </div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<!-- ::: -->
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-profilesC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3
+Figure&nbsp;4
 </figcaption>
 </figure>
 </div>
-<p>Normalized by Alfvén velocity <span class="math inline">\(v_{A,x}\)</span> and <span class="math inline">\(v_{A,y}\)</span>, the plasma velocity profiles are plotted below <a href="#fig-uxNormBx" class="quarto-xref">Figure&nbsp;4 (a)</a> and <a href="#fig-uyNormBy" class="quarto-xref">Figure&nbsp;4 (b)</a>. The normalized plasma velocity profiles are exactly the same for <span class="math inline">\(U_x/v_{A,x}\)</span> and <span class="math inline">\(U_y/v_{A,y}\)</span> for same <span class="math inline">\(n_1(∞)\)</span>. When <span class="math inline">\(n_1(∞)\)</span> decreases to zero, the normalized plasma velocity would approach one in the asymptotic limit, indicating the Alvenicity of the current sheet.</p>
+<p>Normalized by Alfvén velocity <span class="math inline">\(v_{A,x}\)</span> and <span class="math inline">\(v_{A,y}\)</span>, the plasma velocity profiles are plotted below <a href="#fig-uxNormBx" class="quarto-xref">Figure&nbsp;5 (a)</a> and <a href="#fig-uyNormBy" class="quarto-xref">Figure&nbsp;5 (b)</a>. The normalized plasma velocity profiles are exactly the same for <span class="math inline">\(U_x/v_{A,x}\)</span> and <span class="math inline">\(U_y/v_{A,y}\)</span> for same <span class="math inline">\(n_1(∞)\)</span>. When <span class="math inline">\(n_1(∞)\)</span> decreases to zero, the normalized plasma velocity would approach one in the asymptotic limit, indicating the Alvenicity of the current sheet.</p>
 <!-- ::: {.column-page} -->
 <div id="fig-uProfilesNorm" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -572,7 +588,7 @@ Figure&nbsp;3
 <div id="fig-uxNormBx" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uxNormBx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UxNormBx.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;4&nbsp;(a): Plasma velocity U_x profiles normalized by v_{A,x} for different n_1(∞)."><img src="figures/UxNormBx.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
+<a href="figures/UxNormBx.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;5&nbsp;(a): Plasma velocity U_x profiles normalized by v_{A,x} for different n_1(∞)."><img src="figures/UxNormBx.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uxNormBx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Plasma velocity <span class="math inline">\(U_x\)</span> profiles normalized by <span class="math inline">\(v_{A,x}\)</span> for different <span class="math inline">\(n_1(∞)\)</span>.
@@ -584,7 +600,7 @@ Figure&nbsp;3
 <div id="fig-uyNormBy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-uyNormBy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/UyNormBy.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;4&nbsp;(b): Plasma velocity U_y profiles normalized by v_{A,y} for different n_1(∞)."><img src="figures/UyNormBy.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
+<a href="figures/UyNormBy.svg" class="lightbox" data-gallery="fig-uProfilesNorm" title="Figure&nbsp;5&nbsp;(b): Plasma velocity U_y profiles normalized by v_{A,y} for different n_1(∞)."><img src="figures/UyNormBy.svg" class="img-fluid figure-img" data-ref-parent="fig-uProfilesNorm"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-uyNormBy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Plasma velocity <span class="math inline">\(U_y\)</span> profiles normalized by <span class="math inline">\(v_{A,y}\)</span> for different <span class="math inline">\(n_1(∞)\)</span>.
@@ -595,12 +611,12 @@ Figure&nbsp;3
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-uProfilesNorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4
+Figure&nbsp;5
 </figcaption>
 </figure>
 </div>
 <!-- ::: -->
-<p>The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below <a href="#fig-vRatios" class="quarto-xref">Figure&nbsp;5</a> and <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;5 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (two groups of opposite velocity in z direction) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> respectively. For the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> as shown in <a href="#fig-vRatiosEx1" class="quarto-xref">Figure&nbsp;5 (a)</a>, the normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 0.5\)</span>. The bulk velocity of each species is the same in the asymptotic limit and does not depend on <span class="math inline">\(n_1(∞)\)</span>. However, this does not generally hold when <span class="math inline">\(\lambda_{z,2} \neq - 1\)</span> as shown in <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;5 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span>.. The normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 1/3\)</span>, and the bulk velocity of each species differs in the asymptotic limit and depends on <span class="math inline">\(n_1(∞)\)</span>.</p>
+<p>The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below <a href="#fig-vRatios" class="quarto-xref">Figure&nbsp;6</a> and <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;6 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (two groups of opposite velocity in z direction) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> respectively. For the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> as shown in <a href="#fig-vRatiosEx1" class="quarto-xref">Figure&nbsp;6 (a)</a>, the normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 0.5\)</span>. The bulk velocity of each species is the same in the asymptotic limit and does not depend on <span class="math inline">\(n_1(∞)\)</span>. However, this does not generally hold when <span class="math inline">\(\lambda_{z,2} \neq - 1\)</span> as shown in <a href="#fig-vRatiosEx2" class="quarto-xref">Figure&nbsp;6 (b)</a> for the case of <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span>.. The normalized velocity reaches zero when <span class="math inline">\(n_1(∞) = 1/3\)</span>, and the bulk velocity of each species differs in the asymptotic limit and depends on <span class="math inline">\(n_1(∞)\)</span>.</p>
 <!-- ::: {.column-page} -->
 <div id="fig-vRatios" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -610,7 +626,7 @@ Figure&nbsp;4
 <div id="fig-vRatiosEx1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-vRatiosEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/vRatios.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;5&nbsp;(a): "><img src="figures/vRatios.svg" id="fig-vRatiosEx1" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
+<a href="figures/vRatios.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;6&nbsp;(a): "><img src="figures/vRatios.svg" id="fig-vRatiosEx1" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-vRatiosEx1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 </figcaption>
@@ -621,7 +637,7 @@ Figure&nbsp;4
 <div id="fig-vRatiosEx2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-vRatiosEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/vRatiosEx2.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;5&nbsp;(b): "><img src="figures/vRatiosEx2.svg" id="fig-vRatiosEx2" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
+<a href="figures/vRatiosEx2.svg" class="lightbox" data-gallery="fig-vRatios" title="Figure&nbsp;6&nbsp;(b): "><img src="figures/vRatiosEx2.svg" id="fig-vRatiosEx2" class="img-fluid figure-img" data-ref-parent="fig-vRatios"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-vRatiosEx2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 </figcaption>
@@ -631,7 +647,7 @@ Figure&nbsp;4
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vRatios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (a) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> (b).
+Figure&nbsp;6: Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of <span class="math inline">\(\lambda_{z,2} = - 1\)</span> (a) and <span class="math inline">\(\lambda_{z,2} = - 1/2\)</span> (b).
 </figcaption>
 </figure>
 </div>
@@ -651,10 +667,10 @@ Figure&nbsp;5: Asymptotic velocity for each species, bulk velocity and normalize
 <div id="fig-vRatioStats" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vRatioStats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;6: Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21."><img src="https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png" class="img-fluid figure-img"></a>
+<a href="https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;7: Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21."><img src="https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vRatioStats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21.
+Figure&nbsp;7: Statistics of the asymptotic velocity ratio from PSP, Wind, and ARTEMIS spacecraft observations during PSP encounter 7 period from 2021-01-14 to 2021-01-21.
 </figcaption>
 </figure>
 </div>
@@ -1104,7 +1120,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
