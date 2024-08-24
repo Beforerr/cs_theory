@@ -13,7 +13,7 @@ tex_render to="pdf":
   touch files/bibexport.bib
   quarto render --profile man --to {{to}}
   rsync _manuscript/_tex/ overleaf/ -rcL
-  rsync article_files overleaf -ac
+  rsync article_files overleaf -a --size-only
 
 [private]
 tex_export_bib:
