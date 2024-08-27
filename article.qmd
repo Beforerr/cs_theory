@@ -1,5 +1,5 @@
 ---
-title: On a Alvenicity of solar wind discontinuities
+title: On a Alfvenicity of solar wind discontinuities
 authors:
   - name: Zijin Zhang
     email: zijin@ucla.edu
