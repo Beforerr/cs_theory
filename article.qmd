@@ -27,19 +27,16 @@ authors:
 code-links:
   - text: Overleaf
     href: https://www.overleaf.com/project/668273f5d14067a22517615c
+  - text: Roam Research
+    href: https://roamresearch.com/#/offline/Research/page/5EiGYXsXE
+  - text: Zotero
+    href: zotero://select/library/collections/DZHNUFNV
 abstract: "Solar wind plasma flow is characterized by intense, large-amplitude current sheets, also known as solar wind discontinuities. These regions are believed to play a crucial role in magnetic reconnection, solar wind ion heating, and energetic particle scattering. Although solar wind discontinuities share several properties with the classical MHD model of rotational discontinuities, they exhibit more complex characteristics that include many kinetic properties, going beyond this model. One of the most puzzling properties of these discontinuities is their Alvenicity, which describes the relationship between Alfvén and plasma velocity jumps across discontinuities. Although the high correlation of these jumps suggests the rotational nature of discontinuities, the significant differences in jump amplitudes indicate the necessity of kinetic mechanisms to describe the stress balance within discontinuities. Spacecraft observations show that plasma thermal anisotropy alone may not sufficiently explain this difference and achieve stress balance. In this study, we present a theoretical model in which this difference is explained by the kinetics of interpenetrating ion beams crossing the discontinuity. Our model successfully describes the observed properties of discontinuities within the inner heliosphere."
 ---
 
 :::{.hide}
 \newcommand{\vect}[1]{\mathbf{#1}}
 :::
-
-# References
-
-- @steinhauerMultifluidModelOnedimensional2008
-- @artemyevIonNongyrotropySolar2020
-- @neukirchKineticModelsTangential2020
-- @vaskoThinCurrentSheets2014
 
 <!-- "This difference has previously been interpreted as: (1) a possible contribution of anisotropy that decreases ΔvA, or (2) a discontinuity non-stationarity due to residual magnetic energy. We propose an alternate interpretation: an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing ΔvA." - @artemyevIonNongyrotropySolar2020 -->
 
@@ -50,6 +47,15 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 2. The necessity of kinetic models to describe solar wind discontinuities
 3. Current theoretical models of solar wind discontinuities and their limitations
   - Harris current sheet @harrisPlasmaSheathSeparating1962
+
+
+|      | Harris Current Sheet                              | Yoon-Lui Current Sheet                               | Kan Current Sheet                        |
+|-------------------|-------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------|
+| **Magnetic Field** | $B_x(z) = B_0 \tanh(z/L)$ | $B_x(z) = B_0 \tanh \left(\frac{h}{L} \tan^{-1}(z/h)\right)$|$B_x^*(x^*, z^*)$ |
+| **Number Density** | $n(z) = n_0 \text{sech}^2(z/L)$ | $n(z) = n_0 \text{sech}^2 \left(\frac{h}{L} \tan^{-1}(z/h)\right)$ | $n^*(x^*, z^*)$ |
+| **Current Density** | $j_y(z) = B_0 \text{sech}^2(z/L) / (\mu_0 L)$ |$j_y(z) = \frac{B_0}{\mu_0 L} \frac{h^2}{z^2 + h^2} \text{sech}^2 \left(\frac{h}{L} \tan^{-1}(z/h)\right)$|                     |
+| **Drift Velocity** |  |$V_y(z) = V_0 \frac{h^2}{(z^2 + h^2)}$ |                                       |
+| **Special Feature** | Vlasov equilibrium, Maxwellian velocity distribution | Velocity shear important for thin current sheets       | Function form involves complex variables            |
 
 Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail.  Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump @artemyevIonNongyrotropySolar2020.
 
