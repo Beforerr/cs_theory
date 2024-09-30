@@ -74,26 +74,21 @@ In this model, we assume that the asymptotic boundary conditions are known from 
 # Plasma-Field Equations for Force-free current sheet
 
 
-The governing equations for the multi-fluid plasma model can be expressed in conservation law form as follows:
+The governing equations for the multi-fluid collisionless plasma model can be expressed in conservation law form as follows:
 
 $$
 (\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) n_α = - n_α ∇ · \mathbf{u}_α
 $$
 
 $$
-m_α n_α (\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) \mathbf{u}_α  = - ∇ · \mathbf{P}_α + q_α n_α \left( \mathbf{E} + \frac{\mathbf{u}_α \times \mathbf{B}}{c} \right) + \mathbf{R}_α
+m_α n_α (\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) \mathbf{u}_α  = - ∇ · \mathbf{P}_α + q_α n_α \left( \mathbf{E} + \frac{\mathbf{u}_α \times \mathbf{B}}{c} \right)
 $$
 
-where $α$ indicates the particle species, $n_α$ the number density, $m_α$ the mass, $q_α$ the charge, $\mathbf{u}_α$ the bulk velocity, $\mathbf{P}_α$ the pressure tensor, $\mathbf{E}$ the electric field, $\mathbf{B}$ the magnetic induction (magnetic field), and $R_α$ the friction forces.
+where $α$ indicates the particle species, $n_α$ the number density, $m_α$ the mass, $q_α$ the charge, $\mathbf{u}_α$ the bulk velocity, $\mathbf{P}_α$ the pressure tensor, $\mathbf{E}$ the electric field a $\mathbf{B}$ the magnetic induction (magnetic field).
 
-In this study, we focus on the equilibrium solutions of the set of equations, which implies that the partial derivatives with respect to time are set to zero ($\frac{∂}{∂ t}=0$). 
-Our primary interest lies in the current sheet, and we simplify the problem by assuming that the magnetic field depends only on a single Cartesian coordinate, designated as $z$.
-Additionally, we assume that the background electron is massless, meaning the electrons follow the magnetic field lines $\mathbf{u}_e \times \mathbf{B} = 0$. 
-For further simplification, we also assume the ion populations are gyrotropic, eliminating any non-diagonal terms in the pressure tensor.
+In this study, we focus on the equilibrium solutions of the set of equations, which implies that the partial derivatives with respect to time are set to zero ($\frac{∂}{∂ t}=0$). Since our primary interest lies in the force-free current sheet, we assume that the magnetic field depends only on a single Cartesian coordinate, $z$, leading to the force-free condition $B_x^2 + B_y^2 = B_0^2 = \text{const}$. Additionally, we assume that the background electron is massless, meaning the electrons follow the magnetic field lines $\mathbf{u}_e \times \mathbf{B} = 0$. For further simplification, we also assume the ion populations are gyrotropic, eliminating any non-diagonal terms in the pressure tensor.
 
-Following @steinhauerMultifluidModelOnedimensional2008, we consider a one-dimensional force-free current sheet where $B_x^2 + B_y^2 = B_0^2 = \text{const}$, with all variables dependent solely on $z$. The system comprises multiple steady-state ion species (fluid groups) and a background electron fluid. 
-
-Electron motion is along the field lines $\vect{u_e} = Γ_e \vect{B} / (n_e B_z)$. And the conservation of fluid mass $d(n_α u_{αz})/dz = 0$ integrate to a constant parameters $Γ_α = n_α u_{αz}$. The momentum equations for each ion species are given by
+Under these assumptions, the conservation of fluid mass, expressed as $d(n_α u_{αz})/dz = 0$, integrates to a constant parameter, $Γ_α = n_α u_{αz}$. The electron motion is aligned with the magnetic field lines, resulting in $\vect{u_e} = Γ_e \vect{B} / (n_e B_z)$. The momentum equations for each ion species are then given by:
 
 $$
 \begin{aligned}
