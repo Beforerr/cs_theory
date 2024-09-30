@@ -48,25 +48,14 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 3. Current theoretical models of solar wind discontinuities and their limitations
   - Harris current sheet @harrisPlasmaSheathSeparating1962
 
-
-|      | Harris Current Sheet                              | Yoon-Lui Current Sheet                               | Kan Current Sheet                        |
-|-------------------|-------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------|
-| **Magnetic Field** | $B_x(z) = B_0 \tanh(z/L)$ | $B_x(z) = B_0 \tanh \left(\frac{h}{L} \tan^{-1}(z/h)\right)$|$B_x^*(x^*, z^*)$ |
-| **Number Density** | $n(z) = n_0 \text{sech}^2(z/L)$ | $n(z) = n_0 \text{sech}^2 \left(\frac{h}{L} \tan^{-1}(z/h)\right)$ | $n^*(x^*, z^*)$ |
-| **Current Density** | $j_y(z) = B_0 \text{sech}^2(z/L) / (\mu_0 L)$ |$j_y(z) = \frac{B_0}{\mu_0 L} \frac{h^2}{z^2 + h^2} \text{sech}^2 \left(\frac{h}{L} \tan^{-1}(z/h)\right)$|                     |
-| **Drift Velocity** |  |$V_y(z) = V_0 \frac{h^2}{(z^2 + h^2)}$ |                                       |
-| **Special Feature** | Vlasov equilibrium, Maxwellian velocity distribution | Velocity shear important for thin current sheets       | Function form involves complex variables            |
-
 Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail.  Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump @artemyevIonNongyrotropySolar2020.
 
 These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone (assuming a Maxwellian distribution that fits both the parallel and perpendicular temperatures) and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities.
 
 ::: {#fig-examples}
-
 ![](figures/fig_examples.svg)
 
 Three examples of solar wind discontinuities observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity.
-
 :::
 
 Force-free @harrisonRemarksOnedimensionalForcefree2009 (A necessary condition on the pseudopotential plasma pressure to allow for force-free 1D VM equilibria is formulated.)
@@ -76,11 +65,31 @@ Force-free @harrisonRemarksOnedimensionalForcefree2009 (A necessary condition on
 
 # Multifluid Model
 
-We used a steady-state multi-fluid model for assumed 1-D force-free current sheets. This approach, inspired by @steinhauerMultifluidModelOnedimensional2008, has the advantage of being analytically tractable while providing the necessary complexity to include the kinetic effects of multiple ion species. Kinetic approach, which is in principle more accurate, is hard to solve analytically and difficult to interpret the measurements. The multifluid model is a good compromise between the simplicity of the MHD model and the complexity of the kinetic model. One disadvantage of the multifluid model, however, is that there are more unknowns than equations. This means that the model is underdetermined and requires additional assumptions to be solved. This closure problem is usually solved by choosing equations of state. In this study, we first attempted to solve the system with a scalar pressure model, but then the system was overdetermined and no solution was found. We avoid this problem by assuming a specific profile for one of the variables, which is then used to solve the rest of the system.
+We used a multi-fluid model for assumed 1-D quasineutral force-free current sheet equilibria. This approach, inspired by @steinhauerMultifluidModelOnedimensional2008, has the advantage of being analytically tractable while providing the necessary complexity to include the kinetic effects of multiple ion species. Kinetic approach, which is in principle more accurate, is hard to solve analytically and difficult to interpret the measurements. The multifluid model is a good compromise between the simplicity of the MHD model and the complexity of the kinetic model. One disadvantage of the multifluid model, however, is that there are more unknowns than equations. This means that the model is underdetermined and requires additional assumptions to be solved. This closure problem is usually solved by choosing equations of state. In this study, we first attempted to solve the system with a scalar pressure model, but then the system was overdetermined and no solution was found. We avoid this problem by assuming a specific profile for one of the variables, which is then used to solve the rest of the system.
+
+In this model, we assume that the asymptotic boundary conditions are known from measurements, including the normal component of the magnetic field and the asymptotic properties of the incident fluid streams, which are clearly distinguishable. It should be noted, however, that while the velocity space boundary between different groups may be clear in the uniform field region outside the current sheet, within the sheet itself, the boundary can become more complex. For instance, individual ions may jump from one group to another, and some may become trapped within the current sheet. These complexities, particularly ion behavior within the sheet, are beyond the scope of this paper and are not addressed in the current analysis.
 
 <!-- An example is the simultaneous appearance of separate beams of ions in different directions with different fluxes. Parks et al. [2001] and Parks [2004] have pointed out that microphysical processes are key to understanding these new observations that, evidently, are unexplainable by conventional magnetohydrodynamic models. -->
 
 # Plasma-Field Equations for Force-free current sheet
+
+
+The governing equations for the multi-fluid plasma model can be expressed in conservation law form as follows:
+
+$$
+(\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) n_α = - n_α ∇ · \mathbf{u}_α
+$$
+
+$$
+m_α n_α (\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) \mathbf{u}_α  = - ∇ · \mathbf{P}_α + q_α n_α \left( \mathbf{E} + \frac{\mathbf{u}_α \times \mathbf{B}}{c} \right) + \mathbf{R}_α
+$$
+
+where $α$ indicates the particle species, $n_α$ the number density, $m_α$ the mass, $q_α$ the charge, $\mathbf{u}_α$ the bulk velocity, $\mathbf{P}_α$ the pressure tensor, $\mathbf{E}$ the electric field, $\mathbf{B}$ the magnetic induction (magnetic field), and $R_α$ the friction forces.
+
+In this study, we focus on the equilibrium solutions of the set of equations, which implies that the partial derivatives with respect to time are set to zero ($\frac{∂}{∂ t}=0$). 
+Our primary interest lies in the current sheet, and we simplify the problem by assuming that the magnetic field depends only on a single Cartesian coordinate, designated as $z$.
+Additionally, we assume that the background electron is massless, meaning the electrons follow the magnetic field lines $\mathbf{u}_e \times \mathbf{B} = 0$. 
+For further simplification, we also assume the ion populations are gyrotropic, eliminating any non-diagonal terms in the pressure tensor.
 
 Following @steinhauerMultifluidModelOnedimensional2008, we consider a one-dimensional force-free current sheet where $B_x^2 + B_y^2 = B_0^2 = \text{const}$, with all variables dependent solely on $z$. The system comprises multiple steady-state ion species (fluid groups) and a background electron fluid. 
 
@@ -94,21 +103,21 @@ $$
 \\
 Γ_α \frac{d u_{α z}}{d z} &= -\frac{1}{2} \frac{d p_α}{d z}-n_α \frac{d \phi}{d z}+n_α u_{α x} B_y-n_α u_{α y} B_x
 \end{aligned}
-$${#eq-momentum}
+$$ {#eq-momentum}
 
 Ampere’s law connects the fields and the flow components
 
 $$
-d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x+\Gamma_e B_x / B_z
-$${#eq-Jx}
+d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x + Γ_e B_x / B_z
+$$ {#eq-Jx}
 
 $$
-d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
-$${#eq-Jy}
+d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y - Γ_e B_y / B_z
+$$ {#eq-Jy}
 
 $$
-d B_z / d z = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z-\Gamma_e
-$${#eq-Jz}
+d B_z / d z = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z - Γ_e
+$$ {#eq-Jz}
 
 And the Gauss's law for magnetism gives another constant parameter $B_{z} = \text{const}$.
 
@@ -126,7 +135,7 @@ And we could express the density and bulk velocity in terms of every ion species
 
 $$
 n_α (u_{αx} B_y - n_α u_{αy} B_x) = 0
-$${#eq-alpha}
+$$ {#eq-alpha}
 
 Combining the above equation with the first two equations in (@eq-momentum), we have:
 
@@ -179,7 +188,7 @@ $$
 θ_α' = \frac{B_z}{Γ_α} (n_α - n_α(∞))
 $${#eq-theta1-asym}
 
-Conveniently, the center of the current sheet is chosen as the origin $z = 0$, which corresponds to the lower boundary of @eq-theta1. As a result, the boundary condition for the rotation angle is given by  $\theta_\alpha(0) = \pi/2$.
+Conveniently, the center of the current sheet is chosen as the origin $z = 0$, which corresponds to the lower boundary of @eq-theta1. As a result, the boundary condition for the rotation angle is given by  $\theta_α(0) = \pi/2$.
 
 Combine momentum equation (x) (@eq-momentum) and Ampere's law (y) (@eq-Jy) with condition that the constant of integration vanishes at the current sheet center yield
 
@@ -220,13 +229,11 @@ $$
 For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $c_1$, $δ_1$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($δ_1=1, c_1=1/\sqrt{2}, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
 
 ::: {#fig-profiles layout-ncol="2" }
-
 ![](figures/profiles_sym.svg){#fig-profilesEx1}
 
 ![](figures/J_profiles_sym.svg){#fig-jprofilesEx1}
 
 (a). Magnetic field, ion density, and ion bulk velocity for $n_1 = n_2, u_1 = -u_2$ and $δ_1=1, c_1=1, B_0 = 2$. (b). Current density profiles for the same case.
-
 :::
 
 ## Alfvenicity
@@ -236,24 +243,20 @@ For the same asymptotic magnetic field, it is interesting to see how the plasma 
 Here we set $B_y(z=\infty) = 1/2 B_0, B_0 = 2 B_z$, and let two ion species have the opposite bulk velocity but this time with different densities. By varying $n_1(∞)$, we find that the magnetic field profiles are exactly the same, while plasma density and velocity profiles vary.
 
 ::: {#fig-profilesEx2 layout-ncol="2" }
-
 ![](figures/profiles_n1Inf=0.6.svg)
 
 ![](figures/J_profiles_n1Inf=0.6.svg)
 
 Same as @fig-profiles, but for two ion species with same bulk velocity but different densities $n_1(∞) = 0.6$ and $B_y(z=\infty) = 1/2 B_0$.
-
 :::
 
 We normalize the plasma velocity by asympotic Alfvén velocity $v_{A}(∞) = B_0 / \sqrt{\mu_0 m_i n}$, and the profiles are plotted in @fig-profilesEx2 for the case of $n_1(∞) = 0.6$. 
 @fig-uxnorm It could be seen that for $n_1(∞) = 0.5$, we have zero bulk velocity change across the current sheet in the asymptotic limit. And the change of bulk velocity across the current sheet increases with $n_1(∞)$ decreasing to zero. The normalized plasma velocity $U_y$ in the aympotic limit decreases with $n_1(∞)$ decreasing to zero @fig-uynorm.
 
 ::: {#fig-profilesC layout-nrow="1" }
-
 ![Plasma velocity $U_x$ profiles normalized by aysmpotic Alfvén velocity for different $n_1(∞)$.](figures/UxNormB0.svg){#fig-uxnorm}
 
 ![Plasma velocity $U_y$ profiles normalized by aysmpotic Alfvén velocity for different $n_1(∞)$.](figures/UyNormB0.svg){#fig-uynorm}
-
 :::
 
 
