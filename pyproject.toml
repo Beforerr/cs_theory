@@ -3,7 +3,7 @@ name = "cs"
 version = "0.1.0"
 description = "Add a short description here"
 authors = [{ name = "Beforerr", email = "zzj956959688@gmail.com" }]
-requires-python = ">= 3.10, < 3.12"
+requires-python = ">= 3.10"
 dependencies = []
 
 [tool.pixi.project]
@@ -13,11 +13,11 @@ platforms = ["osx-arm64"]
 [tool.pixi.dependencies]
 ipykernel = "*"
 xarray = "*"
-netcdf4 = "*"
-pytables = "*"   # for `pyspedas`
+netcdf4 = "*" # for `pyspedas`
 scipy = "*"
 scienceplots = "*"
 jupyter_bokeh = "*"
+hvplot = ">=0.10.0"
 
 [tool.pixi.pypi-dependencies]
 matplotlib = "*"
