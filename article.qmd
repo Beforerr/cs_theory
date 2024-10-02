@@ -36,6 +36,7 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 
 :::{.hide}
 \newcommand{\vect}[1]{\mathbf{#1}}
+\DeclareMathOperator{\sech}{sech}
 :::
 
 <!-- "This difference has previously been interpreted as: (1) a possible contribution of anisotropy that decreases ΔvA, or (2) a discontinuity non-stationarity due to residual magnetic energy. We propose an alternate interpretation: an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing ΔvA." - @artemyevIonNongyrotropySolar2020 -->
@@ -212,16 +213,33 @@ To simplify the analysis, it is useful to employ a dimensionless system by norma
 The multifluid model developed above is used here to study a specific example and the effects of model parameters: assume a density profile for one species taking the form of a Gaussian function
 
 $$
-n_1(z) \to n_1 (∞) (\frac{c_1}{\frac{z}{\delta_1 }^2+1}+1)
+n_1(z) \to n_1(∞) +  \frac{κ Γ_1}{1+(z/L)^2}
 $$
 
 Solving the @eq-theta1-asym analytically, we have the rotation angle profile as
 
+
 $$
-\theta (z)\to \frac{\pi  \Gamma _1-2 c_1 \delta _1 B_z n_1(\infty ) \tan ^{-1}\left(\frac{z}{\delta _1}\right)}{2 \Gamma _1}
+\theta (z)\to \frac{\pi}{2} - \kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)
 $$
 
-For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $c_1$, $δ_1$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($δ_1=1, c_1=1/\sqrt{2}, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
+And therefore
+
+$$
+\begin{aligned}
+B_x(z) &= B_0 \sin \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+B_y(z) &= B_0 \cos \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+n(z) &= n(\infty ) + \frac{\kappa ∑_α Γ_α}{1+(z/L)^2}
+\\
+J_x(z) &= \frac{\kappa B_0 B_z}{1+(z/L)^2} \sin \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+J_y(z) &= \frac{\kappa B_0 B_z}{1+(z/L)^2} \cos \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\end{aligned}
+$$
+
+For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $κ$, $L$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($δ_1=1, c_1=1/\sqrt{2}, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
 
 ::: {#fig-profiles layout-ncol="2" }
 ![](figures/profiles_sym.svg){#fig-profilesEx1}
@@ -286,6 +304,21 @@ TODO: compare with Harris current sheet solution with same thickness
 ## Density Peaking
 
 # Summary
+
+In non-dimensionalized form
+$$
+\begin{aligned}
+B_x(z) &= B_0 \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+B_y(z) &= B_0 \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+n(z) &= n(\infty ) + \frac{\kappa}{V_a} \frac{∑_α Γ_α}{1+(z/L)^2}
+\\
+J_x(z) &= \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+J_y(z) &= \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\end{aligned}
+$$
 
 ::: {#fig-vRatioStats}
 ![](https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png)
