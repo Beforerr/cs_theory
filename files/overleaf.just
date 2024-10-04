@@ -1,18 +1,18 @@
-overleaf_repo := "https://git@git.overleaf.com/668273f5d14067a22517615c"
+overleaf_repo := x'https://git@git.overleaf.com/${OVERLEAF_ID:-}'
 
 clone_overleaf:
   git clone {{overleaf_repo}} overleaf
 
-update_overleaf: sync_overleaf
+update-overleaf: sync-overleaf
   cd overleaf; git add .; git commit -am "update"; git push
 
-sync_overleaf: tex_render tex_keep_document tex_export_bib tex_clean
+sync-overleaf: tex-render tex_keep_document tex_export_bib tex_clean
 
-tex_render to="pdf":
+tex-render:
   #!/usr/bin/env bash
   touch files/bibexport.bib
-  quarto render --profile man --to {{to}}
-  rsync _manuscript/_tex/ overleaf/ -rcL
+  quarto render --profile man --to $OVERLEAF_FMT
+  rsync _manuscript/_tex/ overleaf/ -rc
   rsync article_files overleaf -a --size-only
 
 [private]
