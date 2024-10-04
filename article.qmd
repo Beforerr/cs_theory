@@ -1,5 +1,5 @@
 ---
-title: On a Alfvenicity of solar wind discontinuities
+title: On the Alfvenicity of solar wind discontinuities
 authors:
   - name: Zijin Zhang
     email: zijin@ucla.edu
@@ -36,7 +36,6 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 
 :::{.hide}
 \newcommand{\vect}[1]{\mathbf{#1}}
-\DeclareMathOperator{\sech}{sech}
 :::
 
 <!-- "This difference has previously been interpreted as: (1) a possible contribution of anisotropy that decreases ΔvA, or (2) a discontinuity non-stationarity due to residual magnetic energy. We propose an alternate interpretation: an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing ΔvA." - @artemyevIonNongyrotropySolar2020 -->
@@ -44,22 +43,21 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 
 # Introduction
 
-1. Observation features of solar wind discontinuities
-2. The necessity of kinetic models to describe solar wind discontinuities
-3. Current theoretical models of solar wind discontinuities and their limitations
+- Observation features of solar wind discontinuities
+- Importance of solar wind discontinuities
+- The necessity of kinetic models to describe solar wind discontinuities
+- Current theoretical models of solar wind discontinuities and their limitations
   - Harris current sheet @harrisPlasmaSheathSeparating1962
 
-Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail.  Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump @artemyevIonNongyrotropySolar2020.
+<!-- Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail.  Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump @artemyevIonNongyrotropySolar2020.
 
-These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone (assuming a Maxwellian distribution that fits both the parallel and perpendicular temperatures) and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities.
+These differences could not be simply explained by the aniostropy of the plasma thermal pressure alone [@shenComparingPlasmaAnisotropy2024] (assuming a Maxwellian distribution that fits both the parallel and perpendicular temperatures) and suggest that kinetic mechanisms are necessary to describe the stress balance within discontinuities. -->
 
 ::: {#fig-examples}
 ![](figures/fig_examples.svg)
 
-Three examples of solar wind discontinuities observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity.
+Three examples of current sheets observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity.
 :::
-
-Force-free @harrisonRemarksOnedimensionalForcefree2009 (A necessary condition on the pseudopotential plasma pressure to allow for force-free 1D VM equilibria is formulated.)
 
 <!-- Work on self-consistent kinetic models of the current sheet was pioneered by Sestero [1966] and by Schindler [1972, 1975, 1979] who presumed a much larger scale in the plane of the current sheet than in the normal (z) direction. Kan [1973] obtained exact solutions for the two dimensional (2-D) tail using a single Maxwellian distribution having uniform drift velocity and also a two component Maxwellian distribution having a sheared drift. His technique has been used by others to obtain 2-D solutions with an X-point (reviewed by Yoon and Lui [2005]). Eastwood [1972], Hill [1975], Cowley [1978a, 1978b], Cowley and Pellat [1979], Francfort and Pellat [1976], and others have discussed both the fluid and kinetic aspects of the current sheet, showing the importance of the balance between magnetic field pressure and the particle pressure component along the magnetic field, pk. -->
 
@@ -83,6 +81,14 @@ $$
 
 $$
 m_α n_α (\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) \mathbf{u}_α  = - ∇ · \mathbf{P}_α + q_α n_α \left( \mathbf{E} + \frac{\mathbf{u}_α \times \mathbf{B}}{c} \right)
+$$
+
+$$
+\mathbf {\nabla } \times \mathbf {B} =\mu _{0}\mathbf {J}
+$$ {#eq-Ampere}
+
+$$
+∇ · \mathbf{B} = 0
 $$
 
 where $α$ indicates the particle species, $n_α$ the number density, $m_α$ the mass, $q_α$ the charge, $\mathbf{u}_α$ the bulk velocity, $\mathbf{P}_α$ the pressure tensor, $\mathbf{E}$ the electric field a $\mathbf{B}$ the magnetic induction (magnetic field).
@@ -112,7 +118,7 @@ d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y - Γ_e B_y / B_z
 $$ {#eq-Jy}
 
 $$
-d B_z / d z = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z - Γ_e
+0 = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z - Γ_e
 $$ {#eq-Jz}
 
 And the Gauss's law for magnetism gives another constant parameter $B_{z} = \text{const}$.
@@ -164,7 +170,6 @@ The Ampere's law (@eq-Jy) after substitution becomes:
 
 $$
 - B_0 \sin θ θ' = \sum n_α u_{α} \sin θ_α - Γ_e B_0 \sin θ / B_z
-% Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
 $$
 
 $$
@@ -218,7 +223,6 @@ $$
 
 Solving the @eq-theta1-asym analytically, we have the rotation angle profile as
 
-
 $$
 \theta (z)\to \frac{\pi}{2} - \kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)
 $$
@@ -239,14 +243,14 @@ J_y(z) &= \frac{\kappa B_0 B_z}{1+(z/L)^2} \cos \left(\kappa  L B_z \tan ^{-1}\l
 \end{aligned}
 $$
 
-For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $κ$, $L$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($δ_1=1, c_1=1/\sqrt{2}, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
+For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $κ$, $L$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($L=1, κ=1, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
 
 ::: {#fig-profiles layout-ncol="2" }
 ![](figures/profiles_sym.svg){#fig-profilesEx1}
 
 ![](figures/J_profiles_sym.svg){#fig-jprofilesEx1}
 
-(a). Magnetic field, ion density, and ion bulk velocity for $n_1 = n_2, u_1 = -u_2$ and $δ_1=1, c_1=1, B_0 = 2$. (b). Current density profiles for the same case.
+(a). Magnetic field, ion density, and ion bulk velocity for $n_1 = n_2, u_1 = -u_2$ and $L=1, κ=1, B_0 = 2$. (b). Current density profiles for the same case.
 :::
 
 ## Alfvenicity
@@ -283,7 +287,7 @@ Normalized by Alfvén velocity $v_{A,x}$ and $v_{A,y}$, the plasma velocity prof
 :::
 <!-- ::: -->
 
-The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below @fig-vRatios and @fig-vRatiosEx2 for the case of $\lambda_{z,2} = - 1$ (two groups of opposite velocity in z direction) and $\lambda_{z,2} = - 1/2$ respectively. For the case of $\lambda_{z,2} = - 1$ as shown in @fig-vRatiosEx1, the normalized velocity reaches zero when $n_1(∞) = 0.5$. The bulk velocity of each species is the same in the asymptotic limit and does not depend on $n_1(∞)$. However, this does not generally hold when $\lambda_{z,2} \neq - 1$ as shown in @fig-vRatiosEx2 for the case of $\lambda_{z,2} = - 1/2$.. The normalized velocity reaches zero when $n_1(∞) = 1/3$, and the bulk velocity of each species differs in the asymptotic limit and depends on $n_1(∞)$.
+The asymptotic velocity for the each species, bulk velocity and normalized one by Alfvén velocity are plotted below @fig-vRatios and @fig-vRatiosEx2 for the case of $u_{1,z} = - u_{2,z}$ (two groups of opposite velocity in z direction) and $u_{1,z} = - 2 u_{2,z}$ respectively. For the case of $u_{1,z} = - u_{2,z}$ as shown in @fig-vRatiosEx1, the normalized velocity reaches zero when $n_1(∞) = 0.5$. The bulk velocity of each species is the same in the asymptotic limit and does not depend on $n_1(∞)$. However, this does not generally hold when $u_{1,z} \neq - u_{2,z}$ as shown in @fig-vRatiosEx2 for the case of $u_{1,z} = - 2 u_{2,z}$. The normalized velocity reaches zero when $n_1(∞) = 1/3$, and the bulk velocity of each species differs in the asymptotic limit and depends on $n_1(∞)$.
 
 <!-- ::: {.column-page} -->
 ::: {#fig-vRatios layout-nrow="1" }
@@ -291,7 +295,7 @@ The asymptotic velocity for the each species, bulk velocity and normalized one b
 
 ![](figures/vRatiosEx2.svg){#fig-vRatiosEx2}
 
-Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of $\lambda_{z,2} = - 1$ (a) and $\lambda_{z,2} = - 1/2$ (b).
+Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of $u_{1,z} = - u_{2,z}$ (a) and $u_{1,z} = - 2 u_{2,z}$ (b).
 :::
 <!-- ::: -->
 
@@ -312,13 +316,16 @@ B_x(z) &= B_0 \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)
 \\
 B_y(z) &= B_0 \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \\
-n(z) &= n(\infty ) + \frac{\kappa}{V_a} \frac{∑_α Γ_α}{1+(z/L)^2}
+n(z) &= n_{\infty } + \frac{\kappa}{V_A} \frac{∑_α Γ_α}{1+(z/L)^2}
 \\
 J_x(z) &= \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \\
 J_y(z) &= \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \end{aligned}
 $$
+
+
+
 
 ::: {#fig-vRatioStats}
 ![](https://raw.githubusercontent.com/Beforerr/psp_conjunction/5e09973ebedbdaef5cc89cb3a12be3fb77f44570/figures/enc7/vl_ratio.png)

@@ -1,9 +1,9 @@
 ---
-title: "Multifluid model of a one-dimensional steady state force-free current sheet"
+title: "Multifluid model of one-dimensional force-free current sheet equilibrium"
 format:
   html: default
   pptx:
-    slide-level: 3
+    slide-level: 2
     incremental: true
 code-links:
   - text: Tana
@@ -12,69 +12,137 @@ code-links:
     href: zotero://select/library/collections/DZHNUFNV
 ---
 
-:::{.hide}
+::: hide
 \newcommand{\vect}[1]{\mathbf{#1}}
 :::
 
-## Introduction
+# Introduction
 
-### Motivation
+Classification of discontinuities
 
-In MHD theory, for rotational rotational discontinuity, we have this following relationship
+The ratio $R_{V B}$ is expected to equal unity for rotational discontinuity, but is arbitrary for tangential discontinuities.
 
 $$
-[[\vec{U}]]=\left(\frac{\xi \rho}{\mu_0}\right)^{1 / 2}\left[\left[\frac{\vec{B}}{\rho}\right]\right]
+R_{V B} = \frac{1}{\sqrt{A}} \frac{|Δ \vect{V}|}{|Δ \vect{V_A}|}
 $$
 
-where $\xi \equiv 1-\frac{p_{\parallel}-p_{\perp}}{B^2 / \mu_0}$.
+where $Δ \vect{V_A} = Δ {\frac{\vect{B}}{\sqrt{\mu_0 \rho}}}$ and the anisotropy factor A is defined as $A = 1 - \frac{p_{\|}-p_{\perp}}{B^2/\mu_0}$.
+
+## Examples
+
+![Three examples of current sheets observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity.](figures/fig_examples.svg)
 
 ---
 
-However, observations of solar wind discontinuities reveals discrepancies between
+## Force-free current sheets
 
-- Alfven velocity and plasma velocity change across discontinuities
+Force-free current sheets are important for modelling low-$β$ plasmas in laboratory, space and astrophysical applications [@marshForcefreeMagneticFields1996]
+
+However, observations of current sheet reveals discrepancies between
+
+- Alfven velocity and plasma velocity change across current sheet
 - Anisotropic MHD theory-predicted and directly measured ion anisotropies
 
-Multifluid theory is proposed to address these discrepancies. The basic idea is that we could have zero bulk velocity with non zero pressure.
+## Theory - previous art
 
-#### MHD in a nutshell
+### Multi-fluid model
+
+A multi-fluid model is developed to estimate the ratio of $R_{V B}$ [@neugebauerReexaminationRotationalTangential1984]. However no analytical solution is provided for the force-free current sheet.
 
 $$
-\begin{aligned}
-& \frac{\partial \rho}{\partial t}+(\vec{V} \cdot \nabla) \rho+\rho \nabla \cdot \vec{V}=0 \\
-& \rho\left[\frac{\partial \vec{V}}{\partial t}+(\vec{V} \cdot \nabla) \vec{V}\right]+\nabla p=\vec{J} \times \vec{B} \\
-& p=\alpha \rho^\gamma \\
-& \nabla \times \vec{B}=\mu_0 \vec{J} \\
-& \frac{\partial \vec{B}}{\partial t}=\nabla \times(\vec{V} \times \vec{B})
-\end{aligned}
+R_{V B}(\text { multistream })=\left(\frac{1}{A} \sum_i \frac{|Δ \vect{V_i}|^2}{|Δ \vect{V_{i,A}} |^2}\right)^{1 / 2}
 $$
-
-### Previous Work
-
-On the extreme of multiple fluid theory, we have the kinetic Harris model for the current sheet.
-
-- no normal field, $B_z = 0$
-- uniform cross-tail drift velocity, $u_y$
-- vanishing particle density far from the sheet
-
-<!-- > Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005]. -->
-
-@steinhauerMultifluidModelOnedimensional2008 built a multifluid model to study the steady state magnetotail current sheet.
 
 ![Ion trajectories in model magnetic field.](figures/jgra18999-fig-0001.png)
 
 ---
 
-For the symmetric three-fluid system with $B_y=0$, 
+### Steinhauer, McCarthy, and Whipple (2008) 
+
+@steinhauerMultifluidModelOnedimensional2008 built a multifluid model to study the steady state magnetotail current sheet.
+
+For the symmetric three-fluid system with $B_y=0$. However, it is not force-free.
+
 
 ![Magnetic field, current density, ion density and out-of-plane flow for Bz = 0.1, βe = 0.5, βi = 1. Solid lines are fluid model results and dot symbols are from the Harris sheet solution.](figures/jgra18999-fig-0003.png)
 
-Here, we are interested in the case of a force-free current sheet and start from the simplest case of two ion species.
 
+---
 
-## Plasma-Field Equations for a One-Dimensional Multifluid
+### Vlasov equilibrium
 
-Consider a collisionless, steady state plasma composed of multiple fluid groups, and follow the notation in @steinhauerMultifluidModelOnedimensional2008, we have $3N$ equations for $N$ ion species:
+A number of Vlasov-Maxwell distribution function have been found to describe force-free current sheet recently
+
+$$
+\begin{aligned}
+& \frac{\mathrm{d}^2 A_x}{\mathrm{d} z^2}=-\mu_0 \frac{\partial P_{z z}}{\partial A_x} \\
+& \frac{\mathrm{d}^2 A_y}{\mathrm{d} z^2}=-\mu_0 \frac{\partial P_{z z}}{\partial A_y}
+\end{aligned}
+$$
+
+::: {.notes}
+As has been shown before, the 1D VM equilibrium equations are equivalent to the motion of a pseudoparticle in a conservative pseudopotential, with the pseudopotential being proportional to one of the diagonal components of the plasma pressure tensor.
+:::
+
+- no normal field, $B_z = 0$
+
+<!-- > Consider several deficiencies of the Harris model: (1) there is no normal field, Bz = 0, so that no particles cross the sheet from asymptotic sources; (2) the unrealistic assumption of uniform cross-tail drift velocity, uy; (3) vanishing particle density far from the sheet; (4) assumption of a simple Maxwellian velocity distribution; (5) further, one study showed that atypical current sheet structures with bifurcated current density occur 17% of the time, and even for typical center-peaked sheets, strongly peaked structures frequently appear in the center, which also differs from the Harris profile [Asano et al., 2005]. -->
+
+# Plasma-Field Equations
+
+## Multi-fluid collisionless plasma model in a nutshell
+
+The governing equations for the multi-fluid collisionless plasma model can be expressed in conservation law form as follows:
+
+$$
+(\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) n_α = - n_α ∇ · \mathbf{u}_α
+$$
+
+$$
+m_α n_α (\frac{∂}{∂ t} + \mathbf{u}_{α} · ∇) \mathbf{u}_α  = - ∇ · \mathbf{P}_α + q_α n_α \left( \mathbf{E} + \frac{\mathbf{u}_α \times \mathbf{B}}{c} \right)
+$$
+
+$$
+\mathbf {\nabla } \times \mathbf {B} =\mu _{0}\mathbf {J}
+$$ {#eq-Ampere}
+
+$$
+∇ · \mathbf{B} = 0
+$$
+
+where $α$ indicates the particle species...
+
+---
+
+## To much, let's simplify
+
+- equilibrium solutions => $\frac{∂}{∂ t}=0$
+
+- current sheet => magnetic field depends only on a single Cartesian coordinate, $z$
+
+- force-free condition => $B_x^2 + B_y^2 = B_0^2 = \text{const}$
+
+Additionally, we assume
+
+- background electron is massless => electrons follow the magnetic field lines $\mathbf{u}_e \times \mathbf{B} = 0$
+
+- ion populations are gyrotropic => eliminating any non-diagonal terms in the pressure tensor
+
+To further simplify, we employ a dimensionless system by normalizing the variables with their asymptotic values:
+
+- magnetic field by $B_{\text{ref}} = B_z$
+
+- density by $n_{\text{ref}} = n(∞)$
+
+---
+
+## After all the simplifications
+
+Conservation of fluid mass integrates to a constant parameter $Γ_α = n_α u_{αz}$;
+
+Gauss's law gives another constant parameter $B_{z} = \text{const}$;
+
+The momentum equations for each ion species are then given by:
 
 $$
 \begin{aligned}
@@ -89,12 +157,12 @@ $${#eq-momentum}
 Ampere’s law connects the fields and the flow components and note that electron motion is along the field lines $\vect{u_e} = Γ_e \vect{B} / (n_e B_z)$ :
 
 $$
-d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x+\Gamma_e B_x / B_z
-$${#eq-Jx}
+d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x + Γ_e B_x / B_z
+$$ {#eq-Jx}
 
 $$
-d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y-\Gamma_e B_y / B_z
-$${#eq-Jy}
+d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y - Γ_e B_y / B_z
+$$ {#eq-Jy}
 
 ---
 
@@ -132,6 +200,7 @@ $$
 
 ---
 
+<!-- 
 ::: {#def-1}
 Express the quantities of the second ion species relative to the first species
 
@@ -147,8 +216,8 @@ Notes
 
 - $Γ_e = (1 + λ_z λ_n) Λ_1 =  Λ_z  Γ_1$. 
 - $Λ_z$ is constant while $Λ_x, Λ_y$ are not.
-
-:::
+::: 
+-->
 
 ::: {#def-2}
 Force-free condition let us express the magnetic field and velocity in terms of the angle $θ$:
@@ -164,8 +233,6 @@ $$
 
 ---
 
-$C_1=0$ immediately implies $θ = θ_1 + k \pi$ and $Λ_x=Λ_y$. #TODO: Prove $C_1=0$ is like a boundary condition not a equation.
-
 The first momentum equation (@eq-momentum) after substituting the above expression becomes:
 
 $$
@@ -174,37 +241,35 @@ $$
 
 $$
 \Rightarrow 
-θ_α' = - \frac{n_α B_z}{Γ_α} \pm \frac{B_0}{u_α}
+θ_α' = - \frac{n_α B_z}{Γ_α} + \frac{B_0}{u_α}
 $${#eq-theta1}
 
 - Note that $θ_α, n_α$ are dependent variables, and $u_α, B_0, B_z, Γ_α$ are constants determined by the system.
 - **So given the profile of $n_α$, we could solve the above equation to get the profile of $θ_α$, thus the profile of $u_α$.**
-- The derivative of $θ$ goes to zero at infinity, gives us a relation between $u_1$ and $B_0$:
+- The derivative of $θ$ goes to zero at infinity, gives us a relation between $u_α$ and $B_0$:
 
   $$
-  u_1 = \pm \frac{B_0 Γ_1}{B_z n_1(\infty)}
+  u_α = \pm \frac{B_0 Γ_α}{B_z n_α(\infty)}
   $${#eq-u1}
 
 The Ampere's law (@eq-Jy) become:
 
 $$
-- B_0 \sin θ θ' = Λ_y n_1 u_1 \sin θ_1 - Λ_z Γ_1 B_0 \sin θ / B_z
+- B_0 \sin θ θ' = \sum n_α u_{α} \sin θ_α - Γ_e B_0 \sin θ / B_z
 $$
 
 $$
 \Rightarrow 
-θ' = \mp \frac{Λ_y n_1 u_1 }{B_0} + \frac{Λ_z Γ_1}{B_z}
+θ' = - \frac{ \sum n_α u_{α} }{B_0} + \frac{Γ_e}{B_z}
 $${#eq-theta}
 
-By equating the above two equations, we could get a relation between $n_1$ and $Λ_y$:
+The above equation relates the rotation angle $θ$ to the plasma bulk velocity $n u \equiv \sum n_α u_{α}$. By equating the above two equations of $θ'$, we could get a equation relating the plasma bulk velocity to one specific species:  
 
 $$
-Λ_y = Λ_y(n_1) = -\frac{B_0 \left(-n_1 u_1 B_z^2+B_0 \Gamma _1 B_z-\Gamma _1^2 u_1 \Lambda _z\right)}{\Gamma _1 n_1 u_1^2 B_z}
+n u = B_0 \left(\frac{Γ_e}{B_z}+\frac{n_α B_z}{Γ_α}-\frac{B_0}{u_α}\right)
 $$
 
-### Solutions
-
-Normalize the density by $n_1(z=\infty) = 1$ and the magnetic field by $B_z = 1$.
+## Solutions
 
 The system $S$ could be fully determined by $λ_n, λ_z, B_0$ parameters, provided $n(z)$ profiles.
 
@@ -212,19 +277,62 @@ $$
 S=S(z; n(z); λ_n, λ_z, B_0)
 $$
 
-Assuming density profile $n_1(z) \to \frac{c}{\left(\frac{z}{\delta }\right)^2+1}+1$
+Assuming density profile
 
-We have 
+$$
+n_1(z) \to n_1(∞) +  \frac{κ Γ_1}{1+(z/L)^2}
+$$
+
+Solving the @eq-theta1-asym analytically, we have the rotation angle profile as
+
+$$
+\theta (z)\to \frac{\pi}{2} - \kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)
+$$
+
+---
+
+## Beutiful moment - solutions
+
+:::: {.columns}
+
+::: column
+In dimensionless form
 
 $$
 \begin{aligned}
-\varphi (z) &\to \frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\frac{z}{\delta }\right)}{2 \Gamma _1}
+& B_x(z) = B_0 \sin \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \\
-B_x &\to B_0 \cos \left(\frac{\pi  \Gamma _1-2 c \delta  \tan ^{-1}\left(\frac{z}{\delta }\right)}{2 \Gamma _1}\right)
+& B_y(z) = B_0 \cos \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+& n(z) = n(\infty ) + \frac{\kappa ∑_α Γ_α}{1+(z/L)^2}
+\\
+& J_x(z) = \frac{\kappa B_0 B_z}{1+(z/L)^2} \sin \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+& J_y(z) = \frac{\kappa B_0 B_z}{1+(z/L)^2} \cos \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \end{aligned}
 $$
+:::
 
+::: column
+In physical units
 
+$$
+\begin{aligned}
+& B_x(z) = B_0 \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+& B_y(z) = B_0 \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+& n(z) = n_{\infty } + \frac{\kappa}{V_A} \frac{∑_α Γ_α}{1+(z/L)^2}
+\\
+& J_x(z) = \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\\
+& J_y(z) = \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
+\end{aligned}
+$$
+:::
+::::
+
+---
 
 For the simplest case $λ_n = 1, λ_z = - 1$, from @eq-asym1, we have $Γ_1 = - B_z / \sqrt{2}$.
 
@@ -234,46 +342,9 @@ Given $c = 1/\sqrt{2}$, we have $B_y \to 0$ as $z \to \infty$. Profiles are plot
 
 ![](figures/profiles.jpg)
 
-![](figures/J_profiles.jpg)
+![](figures/J_profiles_sym.svg)
 
 The multi-fluid effect is clearly demonstrated by $Λ_y - 1$.
-
-```mathematica
-Manipulate[
- Block[{B0 = B0i, c = ci},
-  p1 = Plot[
-    Evaluate[{n[z], Bx[z], By[z], u1x[z], u1y[z]} /. sols //. rulesn],
-    {z, -zmax, zmax},
-    PlotLegends -> {n, Subscript[B, x], Subscript[B, y], Subscript[u, x], Subscript[u, y]}
-  ];
-  Export["figures/profiles.jpg", p1];
-  p1
-  ],
- 
- {{ci, 1/Sqrt[2]}, 0, 2},
- {{B0i, 2}, 0.5, 2},
- {{zmax, 10}, 5, 30}
- ]
-
-Manipulate[
- Block[{B0 = B0i, c = ci, Λz = Λz0},
-  p = Plot[
-    Evaluate[{Λy - 1, Jxi, Jx, Jyi, Jy} /. sols //. 
-      rulesn],
-    {z, -zmax, zmax},
-    PlotLegends -> {Subscript[Λ, y] - 1, Subscript[J, 
-      x, i], Subscript[J, x], Subscript[J, y, i], Subscript[J, y]}, 
-    PlotRange -> All];
-  Export["figures/J_profiles.jpg", p];
-  p
-  ],
-
- {{ci, 1/Sqrt[2]}, 0, 2},
- {{B0i, 2}, 0.5, 2},
- {Λz0, 0, 1},
- {{zmax, 10}, 5, 30}
-]
-```
 
 For the same asymptotic magnetic field, it is interesting to see how the plasma profiles change with different system parameters.
 
@@ -283,47 +354,41 @@ $$
 
 Here we set $B_y(z=\infty) = 1/2 B_y(z=0)$ and $B_0 = 2 B_z$, and fix $λ_{z,∞} = -1$. By varying $λ_{n,∞}$, we find that the magnetic field profiles are exactly the same, while plasma velocity profiles vary. We normalize the plasma velocity by asympotic Alfvén velocity $v_{A,∞} = B_0 / \sqrt{n}$, and the profiles are plotted below @fig-uxnorm. It could be seen that for $λ_{n,∞} = 1$, we have zero bulk velocity change across the current sheet in the asymptotic limit.
 
+---
 
-::: {.column-screen-inset}
-::: {#fig-profiles layout-nrow="1" }
+## Symmetric case
 
-![Magnetic field, ion density, and ion bulk velocity for $λ_{n,∞}=1$ and $λ_{z,∞}=-1$.](figures/profiles_ratio=0.5.svg){#fig-profiles_ratio}
+![](figures/profiles_sym.svg){#fig-profilesEx1}
 
-![Normalized Plasma Velocity $U_x$ Profiles for Different $λ_{n,∞}$.](figures/UxNorm.svg){#fig-uxnorm}
+![](figures/J_profiles_sym.svg){#fig-jprofilesEx1}
 
-![Normalized Plasma Velocity $U_y$ Profiles for Different $λ_{n,∞}$.](figures/UyNorm.svg){#fig-uynorm}
+(a). Magnetic field, ion density, and ion bulk velocity for $n_1 = n_2, u_1 = -u_2$ and $δ_1=1, c_1=1, B_0 = 2$. (b). Current density profiles for the same case.
 
-:::
-:::
+## Asymmetric case
 
+![](figures/profiles_n1Inf=0.6.svg)
 
-![](figures/vRatios.svg)
+![](figures/J_profiles_n1Inf=0.6.svg)
 
-
-
-## Different normalization
-
-Normalized the quantities of the ion species
-
-$$
-n_α := λ_{αn} n_e
-\\
-u_{αx} := λ_{αu} B_z / \sqrt{n_{e,\infty}}
-\\
-u_{αy} := λ_{αu} B_z / \sqrt{n_{e,\infty}}
-\\
-u_{αz} := λ_{αu} B_z / \sqrt{n_{e,\infty}}
-$$
-
-$$
-θ' = \mp \frac{Λ_u}{B_0} + Γ_e
-$$
-
-```mathematica
-conf = {ratio -> 1/2}
-TextString[conf]
-<!-- Convert a dict-like configuration to a string -->
-saveName[c_] := StringJoin[ToString /@ c]
-```
+Same as @fig-profiles, but for two ion species with same bulk velocity but different densities $n_1(∞) = 0.6$ and $B_y(z=\infty) = 1/2 B_0$.
 
 
+---
+
+![Plasma velocity $U_x$ profiles normalized by aysmpotic Alfvén velocity for different $n_1(∞)$.](figures/UxNormB0.svg){#fig-uxnorm}
+
+![Plasma velocity $U_y$ profiles normalized by aysmpotic Alfvén velocity for different $n_1(∞)$.](figures/UyNormB0.svg){#fig-uynorm}
+
+---
+
+![Plasma velocity $U_x$ profiles normalized by $v_{A,x}$ for different $n_1(∞)$.](figures/UxNormBx.svg){#fig-uxNormBx}
+
+![Plasma velocity $U_y$ profiles normalized by $v_{A,y}$ for different $n_1(∞)$.](figures/UyNormBy.svg){#fig-uyNormBy}
+
+---
+
+![](figures/vRatios.svg){#fig-vRatiosEx1}
+
+![](figures/vRatiosEx2.svg){#fig-vRatiosEx2}
+
+Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of $u_{1,z} = - u_{2,z}$ (a) and $u_{1,z} = - 2 u_{2,z}$ (b).
