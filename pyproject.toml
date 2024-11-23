@@ -24,3 +24,4 @@ matplotlib = "*"
 beforerr = { path = "../../src/beforerr_dev", editable = true }
 discontinuitypy = { path = "../discontinuitypy", editable = true, extras = ["plot"] }
 space_analysis = { path = "../../src/space-analysis.py", editable = true, extras = ["io"] }
+psp = { path = "../psp_conjunction", editable = true }
