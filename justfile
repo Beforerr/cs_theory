@@ -4,7 +4,7 @@ import 'files/overleaf.just'
 default:
   just --list
 
-ensure-env:
+ensure-env: clone-overleaf
   rsync --update --recursive ~/projects/share/quarto/ ./
   pixi install
 

@@ -1,6 +1,6 @@
 overleaf_repo := x'https://git@git.overleaf.com/${OVERLEAF_ID:-}'
 
-clone_overleaf:
+clone-overleaf:
   git clone {{overleaf_repo}} overleaf
 
 update-overleaf: sync-overleaf
