@@ -18,4 +18,5 @@ poster path="presentations/AGU24.qmd":
   rm {{without_extension(path)}}.html
 
 aas-process:
+  sed -i '' 's/\\includegraphics\[keepaspectratio\]/\\plotone/g' overleaf/article.tex
   sed -i '' 's/\\includegraphics/\\plotone/g' overleaf/article.tex
