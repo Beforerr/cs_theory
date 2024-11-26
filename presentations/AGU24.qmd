@@ -14,18 +14,32 @@ affiliation:
   - num: 1
     address: Department of Earth, Planetary, and Space Sciences, University of California, Los Angeles
 output: "posterdown::posterdown_betterland"
+main_textsize: 120px
+main_findings:
+  - We developed a multi-fluid model for 1-D quasineutral force-free current sheet equilibria
+  - Our model explains the sub-Alfvénic velocity jumps observed in solar wind discontinuities through the interaction of interpenetrating ion beams
 ---
 
 ## Introduction & Motivation
 
-'Discontinuities' are discontinuous spatial changes in plasma
-parameters/characteristics and magnetic fields.
+Solar wind discontinuities are characterized by intense, large-amplitude current sheets that exhibit complex kinetic properties beyond classical MHD models. While these discontinuities show Alfvénic properties with correlated plasma and magnetic field variations, spacecraft observations reveal that plasma velocity jumps are often significantly smaller than Alfvén velocity jumps. This discrepancy cannot be explained by plasma pressure anisotropy alone, suggesting the need for kinetic mechanisms in describing the stress balance within discontinuities.
 
+![Three examples of current sheets observed by Parker Solar Probe (PSP), ARTEMIS and Wind spacecraft with sub-Alfvenic flow velocity.](../figures/fig_examples.svg)
 
 ## Method
 
+We developed a multi-fluid model that:
+
+- Assumes 1-D quasineutral force-free current sheet equilibria
+
+- Incorporates multiple ion species with different bulk velocities
+
+- Uses asymptotic boundary conditions from observations
+
 
 ## Results
+
+Our model yields analytical solutions for the magnetic field, current density, and plasma parameters:
 
 $$
 \begin{aligned}
@@ -41,28 +55,8 @@ $$
 \end{aligned}
 $$
 
-::: {#fig-profiles layout-ncol="2" }
-![](../figures/profiles_sym.svg){#fig-profilesEx1}
+where $B_0$: asymptotic field magnitude, $n_{\infty}$: asymptotic density, $V_A$: Alfvén speed, $\kappa$: density enhancement factor, $L$: current sheet width, $d_i = c/ω_{pi}$: ion inertial length, $Γ_α$: species mass flux
 
-![](../figures/J_profiles_sym.svg){#fig-jprofilesEx1}
+Asymmetric case: Profiles for two ion species with same bulk velocity but different densities ($n_1(∞) = 0.6$) and $B_y(z=\infty) = 1/2 B_0$.
 
-(a). Magnetic field, ion density, and ion bulk velocity for $n_1 = n_2, u_1 = -u_2$ and $L=1, κ=1, B_0 = 2$. (b). Current density profiles for the same case.
-:::
-
-
-::: {#fig-profilesEx2 layout-ncol="2" }
-![](../figures/profiles_n1Inf=0.6.svg)
-
-![](../figures/J_profiles_n1Inf=0.6.svg)
-
-Same as @fig-profiles, but for two ion species with same bulk velocity but different densities $n_1(∞) = 0.6$ and $B_y(z=\infty) = 1/2 B_0$.
-:::
-
-
-::: {#fig-vRatios layout-nrow="1" }
-![](../figures/vRatios.svg){#fig-vRatiosEx1}
-
-![](../figures/vRatiosEx2.svg){#fig-vRatiosEx2}
-
-Asymptotic velocity for each species, bulk velocity and normalized one by Alfvén velocity for the case of $u_{1,z} = - u_{2,z}$ (a) and $u_{1,z} = - 2 u_{2,z}$ (b).
-:::
+Velocity ratios analysis: (a) Symmetric case with $u_{1,z} = - u_{2,z}$ showing zero normalized velocity at $n_1(∞) = 0.5$. (b) Asymmetric case with $u_{1,z} = - 2u_{2,z}$ showing zero normalized velocity at $n_1(∞) = 1/3$, demonstrating how ion population asymmetries affect the bulk flow characteristics.
