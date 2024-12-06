@@ -41,6 +41,7 @@ We developed a multi-fluid model that:
 
 Our model yields analytical solutions for the magnetic field, current density, and plasma parameters:
 
+<span style="color: #FADE7C">
 $$
 \begin{aligned}
 & B_x(z) = B_0 \sin \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
@@ -54,6 +55,7 @@ $$
 & J_y(z) = \frac{\kappa B_0}{\mu_0 d_i}\frac{1}{1+(z/L)^2} \cos \left(\frac{\kappa L}{d_i} \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \end{aligned}
 $$
+</span>
 
 where $B_0$: asymptotic field magnitude, $n_{\infty}$: asymptotic density, $V_A$: Alfvén speed, $\kappa$: density enhancement factor, $L$: current sheet width, $d_i = c/ω_{pi}$: ion inertial length, $Γ_α$: species mass flux
 
