@@ -215,11 +215,13 @@ To simplify the analysis, it is useful to employ a dimensionless system by norma
 
 # Results
 
-The multifluid model developed above is used here to study a specific example and the effects of model parameters: assume a density profile for one species taking the form of a Lorentzian function with a background density.
+The multifluid model developed above is used here to study a specific example and the effects of model parameters. We assume a density profile for the first ion species ($n_1$) that takes the form of a Lorentzian function with a background density:
 
 $$
 n_1(z) \to n_1(∞) +  \frac{κ Γ_1}{1+(z/L)^2}
 $$
+
+where $n_1(∞)$ is the asymptotic (background) density far from the current sheet, $κ$ is a dimensionless parameter controlling the peak density enhancement, and $L$ is the characteristic width of the current sheet.
 
 Solving the @eq-theta1-asym analytically, we have the rotation angle profile as
 
