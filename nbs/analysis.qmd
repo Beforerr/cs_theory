@@ -1,0 +1,22 @@
+
+```{julia}
+using Unitful
+using Unitful: Mass, BField, Velocity, μ0, q, mp
+
+v = 1u"m/s"
+B = 1u"nT"
+n = 1u"m^-3"
+Γ = n * v
+L = 1u"m"
+
+@info dimension(q * B / mp / v)
+@info dimension(μ0 * q * n * v / B)
+@info dimension(n * v)
+@info dimension(B^2 / μ0 / v / mp)
+
+@info dimension(B^2 / μ0 / mp / Γ / v)
+
+@info dimension(q * L * B / mp / v)
+
+@info dimension(q * B^2 / μ0 / mp / v)
+```
