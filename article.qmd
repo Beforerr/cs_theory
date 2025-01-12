@@ -43,11 +43,11 @@ abstract: "Solar wind plasma flow is characterized by intense, large-amplitude c
 
 # Introduction
 
-- Observation features of solar wind discontinuities
+<!-- - Observation features of solar wind discontinuities
 - Importance of solar wind discontinuities
 - The necessity of kinetic models to describe solar wind discontinuities
 - Current theoretical models of solar wind discontinuities and their limitations
-  - Harris current sheet @harrisPlasmaSheathSeparating1962
+  - Harris current sheet @harrisPlasmaSheathSeparating1962 -->
 
 <!-- Observations of magnetic discontinuities exhibit Alfvenic properties, with the plasma velocity variation correlating well with magnetic field components variations. However, the amplitude of the plasma velocity jump is often significantly smaller than the Alfvén velocity jump, indicating a more complicated picture than the classical MHD model of rotational discontinuities. @fig-examples show observations of  magnetic discontinuities in different regions of the heliosphere, PSP within 0.2 AU, Wind upstream of the Earth's bow shock, and ARTEMIS in the Earth's magnetotail.  Previously, this discrepancy has been interpreted as a possible contribution of anisotropy that decreases the Alfvén velocity jump, or a discontinuity non-stationarity due to residual magnetic energy, or an ion nonadiabatic interaction with intense (thin) discontinuities that shapes the nongyrotropic ion distribution to include a nondiagonal term of the pressure tensor, with a cross-discontinuity gradient decreasing the Alfvén velocity jump @artemyevIonNongyrotropySolar2020.
 
@@ -107,18 +107,18 @@ $$
 \end{aligned}
 $$ {#eq-momentum}
 
-Ampere’s law connects the fields and the flow components
+Ampere's law connects the fields and the flow components
 
 $$
-d B_y / d z = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n u_x + Γ_e B_x / B_z
+\frac{1}{μ_0} \frac{d B_y}{d z}  = - J_x = - \sum_α n_α u_{α x} + n_e u_{e x} = -n U_x + Γ_e B_x / B_z
 $$ {#eq-Jx}
 
 $$
-d B_x / d z = J_y = \sum_α n_α u_{α y} - n_e u_{e y} = n u_y - Γ_e B_y / B_z
+\frac{1}{μ_0} \frac{d B_x}{d z} = J_y = \sum_α q_α n_α u_{α y} - e n_e u_{e y} = e (n U_y - Γ_e \frac{B_y}{B_z})
 $$ {#eq-Jy}
 
 $$
-0 = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n u_z - Γ_e
+0 = J_z = \sum_α n_α u_{α z} - n_e u_{e z} = n U_z - Γ_e
 $$ {#eq-Jz}
 
 And the Gauss's law for magnetism gives another constant parameter $B_{z} = \text{const}$.
@@ -156,34 +156,35 @@ __#TODO#__ Here we consider the case where $θ_α = θ$ for all species, but the
 The first momentum equation (@eq-momentum) after substituting the above expression becomes:
 
 $$
-- u_α \sin θ_α θ_α' = n_α u_α \sin θ_α B_z / Γ_α - B_0 \sin θ
+- u_α \sin θ_α θ_α' = \frac{e}{m_α} (n_α u_α \sin θ_α B_z / Γ_α - B_0 \sin θ)
 $$
 
 $$
 \Rightarrow 
-θ_α' = - \frac{n_α B_z}{Γ_α} + \frac{B_0}{u_α}
+θ' = \frac{e}{m_α} \left(\frac{B_0}{u_α} - \frac{n_α B_z}{Γ_α}\right)
 $${#eq-theta1}
+where $'=d/dz$.
 
-Note that $θ_α, n_α$ are dependent variables, and $u_α, B_0, B_z, Γ_α$ are constants pre-determined by the system. So given the profile of $n_α$ and the boundary condition, we could solve the above equation to get the profile of $θ_α$, thus the profile of $u_α$.
+Note that $θ, n_α$ are dependent variables, and $u_α, B_0, B_z, Γ_α$ are constants pre-determined by the system. So for a given profile of $n_α$ and the boundary condition, we could solve the above equation to get the profile of $θ$.
 
 The Ampere's law (@eq-Jy) after substitution becomes:
 
 $$
-- B_0 \sin θ θ' = \sum n_α u_{α} \sin θ_α - Γ_e B_0 \sin θ / B_z
+- B_0 \sin θ θ' = μ_0 e \left(\sum n_α u_{α} \sin θ_α - Γ_e  \sin θ \frac{B_0}{B_z}\right)
 $$
 
 $$
 \Rightarrow 
-θ' = - \frac{ \sum n_α u_{α} }{B_0} + \frac{Γ_e}{B_z}
+θ' = μ_0 e \left(\frac{Γ_e}{B_z} - \frac{ \sum n_α u_{α} }{B_0}\right)
 $${#eq-theta}
 
 The above equation relates the rotation angle $θ$ to the plasma bulk velocity $n u \equiv \sum n_α u_{α}$. By equating the above two equations of $θ'$, we could get a equation relating the plasma bulk velocity to one specific species:  
 
 $$
-n u = B_0 \left(\frac{Γ_e}{B_z}+\frac{n_α B_z}{Γ_α}-\frac{B_0}{u_α}\right)
+n U = B_0 \left(\frac{Γ_e}{B_z}+\frac{1}{μ_0 m_α}\left(\frac{n_α B_z}{Γ_α}-\frac{B_0}{u_α}\right)\right)
 $$
 
-In the asymptotic region, as all variables approach constant values, the derivatives must vanish. For @eq-theta1, this means $θ_α(∞)' = 0 = - \frac{n_α(∞) B_z}{Γ_α} + \frac{B_0}{u_α}$. This relates the velocity of each species to the asymptotic density. Rewriting the @eq-theta1 in terms of asymptotic values, we have:
+In the asymptotic region, as all variables approach constant values, the derivatives must vanish. For @eq-theta1, this means $0 = - \frac{n_α(∞) B_z}{Γ_α} + \frac{B_0}{u_α}$. This relates the velocity of each species to the asymptotic density. Rewriting the @eq-theta1 in terms of asymptotic values, we have:
 
 $$
 θ_α' = \frac{B_z}{Γ_α} (n_α - n_α(∞))
@@ -244,6 +245,14 @@ J_x(z) &= \frac{\kappa B_0 B_z}{1+(z/L)^2} \sin \left(\kappa  L B_z \tan ^{-1}\l
 J_y(z) &= \frac{\kappa B_0 B_z}{1+(z/L)^2} \cos \left(\kappa  L B_z \tan ^{-1}\left(\frac{z}{L}\right)\right)
 \end{aligned}
 $$
+where $\sum_α Γ_α=\sum_α n_α(∞)u_{z,α}(∞)$ and $i$ represents either $x$ or $y$. Using the relation that $Δn_α / Δn = Γ_α / \sum_α Γ_α$ and Equation~\ref{eq-asym1}, $\sum_α Γ_α$ can be reformulated into a form that does not involve $u_{z,α}(∞)$, which is often challenging to measure. This alternative expression is given by:
+
+$$
+\sum_α Γ_α = \sqrt{ \frac{B_z^2}{μ_0 m_p} \frac{{Δn}^2}{\sum_α {Δn_α}^2/ n_α(∞)} }
+$$
+
+For the simplest situation where we have two populations of ions of the same density but with oppositely directed bulk velocity, i.e., \(n_1 = n_2, u_1 = -u_2\), the system could be determined given $\frac{\sum_α Γ_α}{Δn}$, \(L\), and \(B_0\). The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($L=d_i, \sum_α Γ_α= Δn V_A, B_0 = 2 B_z$) is plotted below Figure~\ref{fig-profiles}. The specific profiles are chosen to have zero electron current across the current sheet and zero \(B_y\) in the asymptotic limit (far away from the current sheet), corresponding to a $180^\circ$ rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
+
 
 For the simplest situation where we have two group of ions of the same density but opposite bulk velocity, i.e., $n_1 = n_2, u_1 = -u_2$, the system could be determined given $κ$, $L$, and $B_0$. The system profile of magnetic field, plasma density, and plasma velocity for one specific case ($L=1, κ=1, B_0 = 2$) is plotted below @fig-profiles. The specific profiles are chosen to have zero electron current across the current sheet and zero $B_y$ in the asymptotic limit, corresponding to a 180° rotation of the magnetic field across the current sheet. However, in general, we would expect the electron current to be non-zero.
 
