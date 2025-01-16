@@ -1,4 +1,9 @@
 
+
+$$
+θ(z) = \frac{\pi }{2} - \frac{e Δn_1 L B_z \tan ^{-1}\left(z/L\right)}{m_p Γ_1}
+$$
+
 ```{julia}
 using Unitful
 using Unitful: Mass, BField, Velocity, μ0, q, mp
@@ -19,4 +24,7 @@ L = 1u"m"
 @info dimension(q * L * B / mp / v)
 
 @info dimension(q * B^2 / μ0 / mp / v)
+
+@info "θ" dimension(q * n * L * B / mp / Γ)
+@info "θ simplified" dimension(q * L * sqrt(μ0 * n / mp))
 ```
