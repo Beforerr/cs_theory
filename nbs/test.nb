@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1445640,      26586]
-NotebookOptionsPosition[   1433062,      26378]
-NotebookOutlinePosition[   1433545,      26397]
-CellTagsIndexPosition[   1433502,      26394]
+NotebookDataLength[   1546800,      28516]
+NotebookOptionsPosition[   1527585,      28228]
+NotebookOutlinePosition[   1528275,      28253]
+CellTagsIndexPosition[   1528189,      28248]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -138,21 +138,24 @@ Cell[BoxData[{
      RowBox[{"\[Delta]1", ">", "0"}], ",", 
      RowBox[{"L", ">", "0"}], ",", 
      RowBox[{"mp", ">", "0"}], ",", 
-     RowBox[{"qe", ">", "0"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"qe", ">", "0"}], ",", 
+     RowBox[{"B0", "\[Element]", "Reals"}], ",", 
+     RowBox[{"Bz", "\[Element]", "Reals"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"notationRules", "=", 
    RowBox[{"Join", "[", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{
-       RowBox[{"B0", "->", 
-        SubscriptBox["B", "0"]}], ",", 
-       RowBox[{"Bx", "->", 
-        SubscriptBox["B", "x"]}], ",", 
-       RowBox[{"By", "->", 
-        SubscriptBox["B", "y"]}], ",", 
-       RowBox[{"Bz", "->", 
-        SubscriptBox["B", "z"]}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"B0", "->", "\"\<\!\(\*SubscriptBox[\(B\), \(0\)]\)\>\""}], 
+       ",", 
+       RowBox[{"Bx", "->", "\"\<\!\(\*SubscriptBox[\(B\), \(x\)]\)\>\""}], 
+       ",", 
+       RowBox[{"By", "->", "\"\<\!\(\*SubscriptBox[\(B\), \(y\)]\)\>\""}], 
+       ",", 
+       RowBox[{"Bz", "->", "\"\<\!\(\*SubscriptBox[\(B\), \(z\)]\)\>\""}]}], 
+      "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{"{", 
       RowBox[{
        RowBox[{
@@ -177,7 +180,12 @@ Cell[BoxData[{
         SubscriptBox["U", "x"]}], ",", 
        RowBox[{"uy", "->", 
         SubscriptBox["U", "y"]}], ",", 
+       RowBox[{"Uz", "->", 
+        SubscriptBox["U", "z"]}], ",", 
        RowBox[{"uu", "->", "U"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"qe", "->", 
+       SubscriptBox["q", "e"]}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{"{", 
       RowBox[{
        RowBox[{"Jx", "->", 
@@ -305,7 +313,7 @@ Cell[BoxData[{
    3.936885629506898*^9, 3.936885636268444*^9}, {3.936885706506547*^9, 
    3.936885721091812*^9}, {3.936886026225836*^9, 3.936886050607661*^9}, {
    3.936886095435704*^9, 3.936886121196567*^9}, {3.936886632002956*^9, 
-   3.936886634451005*^9}, {3.9368869862798605`*^9, 3.93688699041669*^9}, {
+   3.936886634451005*^9}, {3.9368869862798595`*^9, 3.93688699041669*^9}, {
    3.936887335913177*^9, 3.936887359426189*^9}, {3.944579905169337*^9, 
    3.944579911505311*^9}, {3.94458034644176*^9, 3.944580390380916*^9}, {
    3.944581445480266*^9, 3.944581451368984*^9}, {3.944585095304338*^9, 
@@ -313,9 +321,11 @@ Cell[BoxData[{
    3.944678251939719*^9}, {3.944678337068454*^9, 3.944678400791589*^9}, {
    3.944851851516813*^9, 3.944851852125203*^9}, {3.944859094194323*^9, 
    3.944859098139049*^9}, {3.946045920580091*^9, 3.946045924116205*^9}, 
-   3.946382598029221*^9},
+   3.946382598029221*^9, {3.960541850543003*^9, 3.960541858576336*^9}, {
+   3.960596431010551*^9, 3.9605964680293407`*^9}, {3.960597333263492*^9, 
+   3.96059734781772*^9}, {3.960599642986125*^9, 3.9605996545151978`*^9}},
  CellLabel->
-  "In[183]:=",ExpressionUUID->"b199f06f-6e82-4b7d-840d-c04ada34a17a"]
+  "In[529]:=",ExpressionUUID->"b199f06f-6e82-4b7d-840d-c04ada34a17a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -379,8 +389,29 @@ Cell[BoxData[{
        RowBox[{
         SubscriptBox["ni", "i"], ",", 
         RowBox[{"{", 
-         RowBox[{"i", ",", "num"}], "}"}]}], "]"}]}]}], "\[IndentingNewLine]",
-     "}"}]}], ";"}], "\[IndentingNewLine]", 
+         RowBox[{"i", ",", "num"}], "}"}]}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      SubscriptBox["uz", "i_"], ":>", 
+      FractionBox[
+       SubscriptBox["\[CapitalGamma]", "i"], 
+       SubscriptBox["ni", "i"]]}], ",", 
+     RowBox[{
+      SubscriptBox["upara", "i_"], ":>", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["\|01d414i", "i"], ".", "\|01d401"}], "/", "Bnorm"}]}], 
+     ",", 
+     RowBox[{
+      SubscriptBox["uperp", "i_"], ":>", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{
+         SubscriptBox["\|01d414i", "i"], ".", 
+         SubscriptBox["\|01d414i", "i"]}], "-", 
+        SuperscriptBox[
+         SubscriptBox["upara", "i"], "2"]}]]}]}], "\[IndentingNewLine]", 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"forceFreeConds", "=", 
    RowBox[{"{", "\[IndentingNewLine]", 
@@ -393,7 +424,27 @@ Cell[BoxData[{
       RowBox[{"B0", " ", 
        RowBox[{"Sin", " ", "[", 
         RowBox[{"\[Theta]", "[", "z", "]"}], "]"}]}]}], ",", 
-     "\[IndentingNewLine]", 
+     RowBox[{"\|01d401", "->", 
+      RowBox[{"{", 
+       RowBox[{"Bx", ",", "By", ",", "Bz"}], "}"}]}], ",", 
+     RowBox[{"Bnorm", "->", 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox["Bz", "2"], "+", 
+        SuperscriptBox["B0", "2"]}]]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      SubscriptBox["\|01d414i", "i_"], ":>", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         SubscriptBox["ui", "i"], 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Theta]", "[", "z", "]"}], "]"}]}], ",", 
+        RowBox[{
+         SubscriptBox["ui", "i"], 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Theta]", "[", "z", "]"}], "]"}]}], ",", 
+        SubscriptBox["uz", "1"]}], "}"}]}], ",", "\[IndentingNewLine]", 
      RowBox[{"Jxi", "->", 
       RowBox[{"nu", "  ", "qe", " ", 
        RowBox[{"Cos", " ", "[", 
@@ -500,12 +551,19 @@ Cell[BoxData[{
    3.9460506692615023`*^9, 3.946050669489923*^9}, {3.946377843166627*^9, 
    3.94637784623377*^9}, {3.9463779515648947`*^9, 3.946377953934979*^9}, {
    3.9463780183491783`*^9, 3.946378023136753*^9}, {3.946378093599384*^9, 
-   3.9463780994046383`*^9}, {3.953035278486228*^9, 3.953035311296618*^9}, {
+   3.946378099404638*^9}, {3.953035278486228*^9, 3.953035311296618*^9}, {
    3.953035385476892*^9, 3.953035398002191*^9}, {3.953035608994928*^9, 
    3.95303560933987*^9}, {3.953037435015272*^9, 3.953037441121222*^9}, 
-   3.953037602679141*^9},
+   3.953037602679141*^9, {3.9605977406805267`*^9, 3.960597745946204*^9}, {
+   3.9605979096151*^9, 3.960597985201251*^9}, {3.960598021445818*^9, 
+   3.960598032774242*^9}, {3.960598093195269*^9, 3.960598094512719*^9}, {
+   3.9605982163269777`*^9, 3.960598218523801*^9}, {3.960598310505416*^9, 
+   3.960598310838831*^9}, {3.9605983789395*^9, 3.960598379294837*^9}, {
+   3.960598666355927*^9, 3.960598686312388*^9}, {3.960598724702239*^9, 
+   3.960598766985146*^9}, {3.9605989041295013`*^9, 3.9605989361961737`*^9}, {
+   3.960599172174061*^9, 3.960599179906498*^9}},
  CellLabel->
-  "In[193]:=",ExpressionUUID->"2a549da3-f222-4fa3-b368-545cb805d6b5"],
+  "In[532]:=",ExpressionUUID->"2a549da3-f222-4fa3-b368-545cb805d6b5"],
 
 Cell[BoxData[
  RowBox[{
@@ -583,9 +641,10 @@ Cell[BoxData[
   3.936830836925593*^9}, {3.936831672689754*^9, 3.936831689265726*^9}, {
   3.93686837116336*^9, 3.936868417269576*^9}, {3.936869215664726*^9, 
   3.936869216555049*^9}, {3.944606631150854*^9, 3.944606662579155*^9}, {
-  3.9530357105251513`*^9, 3.953035710543758*^9}},
+  3.9530357105251513`*^9, 3.953035710543758*^9}, {3.9605977850723553`*^9, 
+  3.960597814950721*^9}},
  CellLabel->
-  "In[198]:=",ExpressionUUID->"76f43c40-1b32-4194-9353-d99797c636ac"],
+  "In[537]:=",ExpressionUUID->"76f43c40-1b32-4194-9353-d99797c636ac"],
 
 Cell[BoxData[{
  RowBox[{
@@ -693,7 +752,7 @@ Cell[BoxData[{
    3.9446722482651258`*^9, 3.944672295254547*^9}, {3.944677609051703*^9, 
    3.944677692346282*^9}},
  CellLabel->
-  "In[203]:=",ExpressionUUID->"1589de5a-f673-450d-9fe5-baabdbfccd22"],
+  "In[507]:=",ExpressionUUID->"1589de5a-f673-450d-9fe5-baabdbfccd22"],
 
 Cell[CellGroupData[{
 
@@ -704,12 +763,12 @@ Cell[BoxData[
  CellChangeTimes->{{3.9321536317939463`*^9, 3.932153632440535*^9}, {
    3.932153820486062*^9, 3.9321538222577*^9}, {3.932153869971055*^9, 
    3.932153879727054*^9}, 3.932153987006063*^9, {3.93686861053444*^9, 
-   3.9368686264695625`*^9}, {3.936869130932081*^9, 3.93686913370628*^9}, {
+   3.9368686264695616`*^9}, {3.936869130932081*^9, 3.93686913370628*^9}, {
    3.936871377619649*^9, 3.936871386237462*^9}, {3.936874338079128*^9, 
    3.936874338592985*^9}, {3.936874684124094*^9, 3.936874684980631*^9}, {
    3.944579960430005*^9, 3.944579969475945*^9}},
  CellLabel->
-  "In[206]:=",ExpressionUUID->"66aa9e67-d228-4cbf-ab24-6a1245626211"],
+  "In[510]:=",ExpressionUUID->"66aa9e67-d228-4cbf-ab24-6a1245626211"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -736,10 +795,10 @@ Cell[BoxData[
      RowBox[{
       FractionBox["\[Pi]", "2"], "-", 
       FractionBox[
-       RowBox[{"L", " ", "\[Kappa]", " ", 
+       RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", "L",
+         " ", "\[Kappa]", " ", 
         RowBox[{"ArcTan", "[", 
          FractionBox["z", "L"], "]"}], " ", 
-        SubscriptBox["B", "z"], " ", 
         SubscriptBox["q", "1"]}], 
        RowBox[{
         SubscriptBox["m", "1"], " ", 
@@ -769,10 +828,12 @@ Cell[BoxData[
    3.944677658265912*^9, 3.9446776832865467`*^9}, 3.944851862744029*^9, 
    3.944859109417807*^9, 3.946047004437721*^9, 3.946047147070661*^9, 
    3.946377859776394*^9, 3.946377962885151*^9, 3.946378030026803*^9, 
-   3.946378104771158*^9, 3.946382651725614*^9, 3.9530346739277563`*^9, 
-   3.953035406928109*^9, 3.953037618001389*^9},
+   3.946378104771158*^9, 3.946382651725614*^9, 3.953034673927757*^9, 
+   3.953035406928109*^9, 3.953037618001389*^9, 3.960541771657583*^9, 
+   3.960598182115395*^9, 3.96059827019786*^9, 3.9605983201246634`*^9, 
+   3.960599209456682*^9},
  CellLabel->
-  "Out[206]=",ExpressionUUID->"95c413f9-ff91-4e79-a0bd-a70f98b484ee"]
+  "Out[510]=",ExpressionUUID->"c4373735-e0d3-4fec-93f5-d90fd26ea7ac"]
 }, Open  ]]
 }, Open  ]],
 
@@ -798,12 +859,8 @@ Cell[BoxData[{
      RowBox[{
       SubscriptBox["q", "i_"], ":>", "qe"}], ",", 
      RowBox[{
-      SubscriptBox["m", "i_"], ":>", "mp"}], ",", 
-     RowBox[{
-      SubscriptBox["uz", "i_"], ":>", 
-      FractionBox[
-       SubscriptBox["\[CapitalGamma]", "i"], 
-       SubscriptBox["ni", "i"]]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+      SubscriptBox["m", "i_"], ":>", "mp"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"defs", "=", 
@@ -844,16 +901,17 @@ Cell[BoxData[{
    3.936875501892872*^9, 3.936875524053061*^9}, {3.936880219307747*^9, 
    3.936880222473959*^9}, {3.944859003514122*^9, 3.944859053976982*^9}, {
    3.94638283233497*^9, 3.946382840927702*^9}, {3.9530353192526083`*^9, 
-   3.953035372910784*^9}, {3.9530360187852297`*^9, 3.9530360214710407`*^9}},
+   3.953035372910784*^9}, {3.9530360187852297`*^9, 3.9530360214710407`*^9}, {
+   3.960597905070677*^9, 3.9605979054931393`*^9}},
  CellLabel->
-  "In[207]:=",ExpressionUUID->"c3655045-6f3f-4d14-990a-2a1eccaa95eb"]
+  "In[542]:=",ExpressionUUID->"c3655045-6f3f-4d14-990a-2a1eccaa95eb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell["Second  Equations", "Subsection",
- CellChangeTimes->{{3.932058412842803*^9, 
-  3.932058420355667*^9}},ExpressionUUID->"94e86d32-31ed-4278-8c61-\
+ CellChangeTimes->{{3.932058412842803*^9, 3.932058420355667*^9}, 
+   3.960598279634716*^9},ExpressionUUID->"94e86d32-31ed-4278-8c61-\
 c5d63b570184"],
 
 Cell[CellGroupData[{
@@ -903,11 +961,10 @@ Cell[BoxData[{
    3.944677712023767*^9, 3.944677712356708*^9}, {3.9463829757010603`*^9, 
    3.946382976778873*^9}},
  CellLabel->
-  "In[211]:=",ExpressionUUID->"38d7991d-37e8-4693-81e5-37b2d05052a2"],
+  "In[395]:=",ExpressionUUID->"38d7991d-37e8-4693-81e5-37b2d05052a2"],
 
 Cell[BoxData[
- RowBox[{
-  SubscriptBox["B", "0"], " ", 
+ RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
   RowBox[{"(", 
    RowBox[{
     FractionBox[
@@ -915,20 +972,20 @@ Cell[BoxData[
       SubscriptBox["q", "1"], " ", 
       RowBox[{"(", 
        RowBox[{
-        RowBox[{
-         SubscriptBox["B", "z"], " ", 
+        RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
          SubscriptBox["n", "1"], " ", 
          SubscriptBox["u", "1"]}], "-", 
-        RowBox[{
-         SubscriptBox["B", "0"], " ", 
+        RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
          SubscriptBox["\[CapitalGamma]", "1"]}]}], ")"}]}], 
-     RowBox[{"qe", " ", "\[Mu]", " ", 
+     RowBox[{"\[Mu]", " ", 
       SubscriptBox["m", "1"], " ", 
+      SubscriptBox["q", "e"], " ", 
       SubscriptBox["u", "1"], " ", 
       SubscriptBox["\[CapitalGamma]", "1"]}]], "+", 
     FractionBox[
-     SubscriptBox["\[CapitalGamma]", "e"], 
-     SubscriptBox["B", "z"]]}], ")"}]}]], "Output",
+     SubscriptBox["\[CapitalGamma]", 
+      "e"], "\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>"]}], 
+   ")"}]}]], "Output",
  CellChangeTimes->{
   3.932058579186617*^9, 3.932062023434912*^9, 3.932062197647434*^9, 
    3.9320623411306477`*^9, 3.932062407233306*^9, {3.9320627770710287`*^9, 
@@ -955,9 +1012,11 @@ Cell[BoxData[
    3.946047007938595*^9, 3.946047150312927*^9, 3.946050709168449*^9, 
    3.946377868112267*^9, 3.946377966152555*^9, 3.94637810901157*^9, 
    3.94638267218404*^9, 3.946382844517002*^9, 3.946382978296051*^9, 
-   3.953034680332467*^9, 3.953035415058198*^9, 3.953037623193355*^9},
+   3.953034680332467*^9, 3.953035415058198*^9, 3.953037623193355*^9, 
+   3.9605417851504583`*^9, 3.960541865158976*^9, 3.9605981891121407`*^9, 
+   3.9605982407988777`*^9, 3.9605982823953953`*^9, 3.9605983268646803`*^9},
  CellLabel->
-  "Out[213]=",ExpressionUUID->"c72646fe-584c-4ebc-8469-4f7b0029d90f"]
+  "Out[397]=",ExpressionUUID->"6d1843e6-efad-487b-8334-0775b7432c9e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -993,8 +1052,12 @@ Cell[BoxData[{
   RowBox[{"vars", "=", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{
-      SubscriptBox["B", "x"], "->", "Bx"}], ",", 
+     RowBox[{Cell[TextData[Cell[BoxData[
+       FormBox[
+        SubscriptBox["B", "x"], TraditionalForm]],
+       FormatType->TraditionalForm,ExpressionUUID->
+       "54ff3b10-2126-402a-a028-ab90d11adef2"]],ExpressionUUID->
+       "01370ff0-7d22-4277-94bb-7debefcf1b4c"], "->", "Bx"}], ",", 
      RowBox[{
       SubscriptBox["B", "y"], "->", "By"}], ",", 
      RowBox[{"\"\<n\>\"", "->", "n"}], ",", 
@@ -1029,9 +1092,9 @@ Cell[BoxData[{
    3.953035446245344*^9, 3.953035451586546*^9}, {3.953035594670891*^9, 
    3.95303559594983*^9}, {3.95303607815482*^9, 3.953036106474269*^9}, {
    3.953036157625721*^9, 3.953036158043847*^9}, {3.953036455539287*^9, 
-   3.9530364570734177`*^9}},
+   3.953036457073418*^9}, {3.960598339126358*^9, 3.96059835028976*^9}},
  CellLabel->
-  "In[215]:=",ExpressionUUID->"e38a9551-ccea-42a4-9519-c447df23f60f"],
+  "In[546]:=",ExpressionUUID->"e38a9551-ccea-42a4-9519-c447df23f60f"],
 
 Cell[CellGroupData[{
 
@@ -1058,37 +1121,48 @@ Cell[BoxData[{
    3.944606901261597*^9, 3.9446069088438997`*^9}, {3.944672508982348*^9, 
    3.944672510929305*^9}},
  CellLabel->
-  "In[219]:=",ExpressionUUID->"7e45d335-c912-4a4d-8cf7-183d578a2304"],
+  "In[549]:=",ExpressionUUID->"7e45d335-c912-4a4d-8cf7-183d578a2304"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    RowBox[{
-    SubscriptBox["B", "x"], "\[Rule]", 
-    RowBox[{
+    InterpretationBox[Cell[BoxData[Cell[BoxData[
+       FormBox[
+        SubscriptBox["B", "x"], TraditionalForm]],ExpressionUUID->
+       "84f2ae80-cd93-483e-9c1b-cc65d91694ee"]],ExpressionUUID->
+      "47ef2793-1411-4a73-a955-899f331bc195"],
+     TextCell[
+      RawBoxes[
+       Cell[
+        BoxData[
+         FormBox[
+          SubscriptBox["B", "x"], TraditionalForm]], FormatType -> 
+        TraditionalForm]]]], "\[Rule]", 
+    RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
      RowBox[{"Sin", "[", 
       FractionBox[
-       RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+       RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", "L",
+         " ", "\[Kappa]", " ", 
         RowBox[{"ArcTan", "[", 
          FractionBox["z", "L"], "]"}], " ", 
-        SubscriptBox["B", "z"]}], 
+        SubscriptBox["q", "e"]}], 
        RowBox[{
         SubscriptBox["m", "p"], " ", 
-        SubscriptBox["V", "ref"]}]], "]"}], " ", 
-     SubscriptBox["B", "0"]}]}], ",", 
+        SubscriptBox["V", "ref"]}]], "]"}]}]}], ",", 
    RowBox[{
     SubscriptBox["B", "y"], "\[Rule]", 
-    RowBox[{
+    RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
      RowBox[{"Cos", "[", 
       FractionBox[
-       RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+       RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", "L",
+         " ", "\[Kappa]", " ", 
         RowBox[{"ArcTan", "[", 
          FractionBox["z", "L"], "]"}], " ", 
-        SubscriptBox["B", "z"]}], 
+        SubscriptBox["q", "e"]}], 
        RowBox[{
         SubscriptBox["m", "p"], " ", 
-        SubscriptBox["V", "ref"]}]], "]"}], " ", 
-     SubscriptBox["B", "0"]}]}], ",", 
+        SubscriptBox["V", "ref"]}]], "]"}]}]}], ",", 
    RowBox[{"\<\"n\"\>", "\[Rule]", 
     RowBox[{
      SubscriptBox["n", "\[Infinity]"], "+", 
@@ -1107,19 +1181,20 @@ Cell[BoxData[
    RowBox[{
     SubscriptBox["J", "x"], "\[Rule]", 
     FractionBox[
-     RowBox[{
-      SuperscriptBox["L", "2"], " ", "qe", " ", "\[Kappa]", " ", 
+     RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", 
+      " ", "\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+      SuperscriptBox["L", "2"], " ", "\[Kappa]", " ", 
       RowBox[{"Sin", "[", 
        FractionBox[
-        RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+        RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+         "L", " ", "\[Kappa]", " ", 
          RowBox[{"ArcTan", "[", 
           FractionBox["z", "L"], "]"}], " ", 
-         SubscriptBox["B", "z"]}], 
+         SubscriptBox["q", "e"]}], 
         RowBox[{
          SubscriptBox["m", "p"], " ", 
          SubscriptBox["V", "ref"]}]], "]"}], " ", 
-      SubscriptBox["B", "0"], " ", 
-      SubscriptBox["B", "z"]}], 
+      SubscriptBox["q", "e"]}], 
      RowBox[{
       RowBox[{
        SuperscriptBox["L", "2"], " ", "\[Mu]", " ", 
@@ -1132,19 +1207,20 @@ Cell[BoxData[
    RowBox[{
     SubscriptBox["J", "y"], "\[Rule]", 
     FractionBox[
-     RowBox[{
-      SuperscriptBox["L", "2"], " ", "qe", " ", "\[Kappa]", " ", 
+     RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", 
+      " ", "\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+      SuperscriptBox["L", "2"], " ", "\[Kappa]", " ", 
       RowBox[{"Cos", "[", 
        FractionBox[
-        RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+        RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+         "L", " ", "\[Kappa]", " ", 
          RowBox[{"ArcTan", "[", 
           FractionBox["z", "L"], "]"}], " ", 
-         SubscriptBox["B", "z"]}], 
+         SubscriptBox["q", "e"]}], 
         RowBox[{
          SubscriptBox["m", "p"], " ", 
          SubscriptBox["V", "ref"]}]], "]"}], " ", 
-      SubscriptBox["B", "0"], " ", 
-      SubscriptBox["B", "z"]}], 
+      SubscriptBox["q", "e"]}], 
      RowBox[{
       RowBox[{
        SuperscriptBox["L", "2"], " ", "\[Mu]", " ", 
@@ -1157,22 +1233,23 @@ Cell[BoxData[
    RowBox[{
     SubscriptBox["U", "x"], "\[Rule]", 
     FractionBox[
-     RowBox[{
+     RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
       RowBox[{"Sin", "[", 
        FractionBox[
-        RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+        RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+         "L", " ", "\[Kappa]", " ", 
          RowBox[{"ArcTan", "[", 
           FractionBox["z", "L"], "]"}], " ", 
-         SubscriptBox["B", "z"]}], 
+         SubscriptBox["q", "e"]}], 
         RowBox[{
          SubscriptBox["m", "p"], " ", 
          SubscriptBox["V", "ref"]}]], "]"}], " ", 
-      SubscriptBox["B", "0"], " ", 
       RowBox[{"(", 
        RowBox[{
         RowBox[{
-         SuperscriptBox["L", "2"], " ", "\[Kappa]", " ", 
-         SubsuperscriptBox["B", "z", "2"]}], "+", 
+         SuperscriptBox["\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", 
+          "2"], " ", 
+         SuperscriptBox["L", "2"], " ", "\[Kappa]"}], "+", 
         RowBox[{
          RowBox[{"(", 
           RowBox[{
@@ -1183,8 +1260,8 @@ Cell[BoxData[
          RowBox[{
           UnderscriptBox["\[Sum]", "\[Alpha]"], 
           SubscriptBox["\[CapitalGamma]", "\[Alpha]"]}]}]}], ")"}]}], 
-     RowBox[{"\[Mu]", " ", 
-      SubscriptBox["B", "z"], " ", 
+     RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+      "\[Mu]", " ", 
       SubscriptBox["m", "p"], " ", 
       RowBox[{"(", 
        RowBox[{
@@ -1204,22 +1281,23 @@ Cell[BoxData[
    RowBox[{
     SubscriptBox["U", "y"], "\[Rule]", 
     FractionBox[
-     RowBox[{
+     RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
       RowBox[{"Cos", "[", 
        FractionBox[
-        RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+        RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+         "L", " ", "\[Kappa]", " ", 
          RowBox[{"ArcTan", "[", 
           FractionBox["z", "L"], "]"}], " ", 
-         SubscriptBox["B", "z"]}], 
+         SubscriptBox["q", "e"]}], 
         RowBox[{
          SubscriptBox["m", "p"], " ", 
          SubscriptBox["V", "ref"]}]], "]"}], " ", 
-      SubscriptBox["B", "0"], " ", 
       RowBox[{"(", 
        RowBox[{
         RowBox[{
-         SuperscriptBox["L", "2"], " ", "\[Kappa]", " ", 
-         SubsuperscriptBox["B", "z", "2"]}], "+", 
+         SuperscriptBox["\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", 
+          "2"], " ", 
+         SuperscriptBox["L", "2"], " ", "\[Kappa]"}], "+", 
         RowBox[{
          RowBox[{"(", 
           RowBox[{
@@ -1230,8 +1308,8 @@ Cell[BoxData[
          RowBox[{
           UnderscriptBox["\[Sum]", "\[Alpha]"], 
           SubscriptBox["\[CapitalGamma]", "\[Alpha]"]}]}]}], ")"}]}], 
-     RowBox[{"\[Mu]", " ", 
-      SubscriptBox["B", "z"], " ", 
+     RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+      "\[Mu]", " ", 
       SubscriptBox["m", "p"], " ", 
       RowBox[{"(", 
        RowBox[{
@@ -1277,53 +1355,60 @@ Cell[BoxData[
      RowBox[{"x", ",", "e"}]], "\[Rule]", 
     RowBox[{"-", 
      FractionBox[
-      RowBox[{"qe", " ", 
+      RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
        RowBox[{"Sin", "[", 
         FractionBox[
-         RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+         RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+          "L", " ", "\[Kappa]", " ", 
           RowBox[{"ArcTan", "[", 
            FractionBox["z", "L"], "]"}], " ", 
-          SubscriptBox["B", "z"]}], 
+          SubscriptBox["q", "e"]}], 
          RowBox[{
           SubscriptBox["m", "p"], " ", 
           SubscriptBox["V", "ref"]}]], "]"}], " ", 
-       SubscriptBox["B", "0"], " ", 
+       SubscriptBox["q", "e"], " ", 
        RowBox[{
         UnderscriptBox["\[Sum]", "\[Alpha]"], 
-        SubscriptBox["\[CapitalGamma]", "\[Alpha]"]}]}], 
-      SubscriptBox["B", "z"]]}]}], ",", 
+        SubscriptBox["\[CapitalGamma]", 
+         "\[Alpha]"]}]}], "\<\"\\!\\(\\*SubscriptBox[\\(B\\), \
+\\(z\\)]\\)\"\>"]}]}], ",", 
    RowBox[{
     SubscriptBox["J", 
      RowBox[{"y", ",", "e"}]], "\[Rule]", 
     RowBox[{"-", 
      FractionBox[
-      RowBox[{"qe", " ", 
+      RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(0\\)]\\)\"\>", " ", 
        RowBox[{"Cos", "[", 
         FractionBox[
-         RowBox[{"L", " ", "qe", " ", "\[Kappa]", " ", 
+         RowBox[{"\<\"\\!\\(\\*SubscriptBox[\\(B\\), \\(z\\)]\\)\"\>", " ", 
+          "L", " ", "\[Kappa]", " ", 
           RowBox[{"ArcTan", "[", 
            FractionBox["z", "L"], "]"}], " ", 
-          SubscriptBox["B", "z"]}], 
+          SubscriptBox["q", "e"]}], 
          RowBox[{
           SubscriptBox["m", "p"], " ", 
           SubscriptBox["V", "ref"]}]], "]"}], " ", 
-       SubscriptBox["B", "0"], " ", 
+       SubscriptBox["q", "e"], " ", 
        RowBox[{
         UnderscriptBox["\[Sum]", "\[Alpha]"], 
-        SubscriptBox["\[CapitalGamma]", "\[Alpha]"]}]}], 
-      SubscriptBox["B", "z"]]}]}]}], "}"}]], "Output",
+        SubscriptBox["\[CapitalGamma]", 
+         "\[Alpha]"]}]}], "\<\"\\!\\(\\*SubscriptBox[\\(B\\), \
+\\(z\\)]\\)\"\>"]}]}]}], "}"}]], "Output",
  CellChangeTimes->{
   3.944581459181582*^9, 3.94460258820087*^9, 3.944602846957341*^9, {
    3.944603444202475*^9, 3.944603459263186*^9}, {3.944603557160691*^9, 
-   3.9446035667923136`*^9}, 3.94460668034699*^9, {3.94460682201355*^9, 
+   3.944603566792314*^9}, 3.94460668034699*^9, {3.94460682201355*^9, 
    3.944606853007977*^9}, 3.944606909562744*^9, 3.944672231137549*^9, 
    3.944672414388679*^9, 3.944677721489622*^9, 3.944859117732331*^9, 
    3.946044953670753*^9, 3.946044992652936*^9, 3.946045941368367*^9, 
-   3.9460470124113708`*^9, 3.9460507148403587`*^9, 3.9463781312100267`*^9, {
+   3.946047012411371*^9, 3.9460507148403587`*^9, 3.9463781312100267`*^9, {
    3.953036061157668*^9, 3.953036089763014*^9}, 3.953037464772278*^9, 
-   3.95303763020462*^9},
+   3.95303763020462*^9, 3.960541894210832*^9, 3.960595381433669*^9, {
+   3.9605981329145317`*^9, 3.960598193609373*^9}, {3.960598228395329*^9, 
+   3.960598243863929*^9}, 3.960598285852645*^9, {3.960598332963737*^9, 
+   3.960598353580245*^9}, 3.9605996702599487`*^9},
  CellLabel->
-  "Out[220]=",ExpressionUUID->"70d37dc9-7bf6-423b-ba5b-6ae6cbb49082"]
+  "Out[550]=",ExpressionUUID->"d5230f43-714f-46f7-b595-cc393cce40eb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1416,7 +1501,18 @@ Cell[BoxData[{
           RowBox[{"Uz", ",", 
            SubscriptBox["uz", "1"], ",", 
            SubscriptBox["uz", "2"]}], "}"}], ",", "tempRules", ",", "zmaxi"}],
-         "]"}]}], "]"}], ";", "\[IndentingNewLine]", "ps"}]}], 
+         "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"ps", ",", 
+       RowBox[{"profilePlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           SubscriptBox["upara", "1"], ",", 
+           SubscriptBox["uperp", "1"], ",", 
+           SubscriptBox["upara", "2"], ",", 
+           SubscriptBox["uperp", "2"]}], "}"}], ",", "tempRules", ",", 
+         "zmaxi"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", "ps"}]}], 
    "\[IndentingNewLine]", "]"}]}]}], "Input",
  CellChangeTimes->{{3.930689333938477*^9, 3.930689409141484*^9}, 
    3.932058659140524*^9, 3.932058708238681*^9, {3.932125305275728*^9, 
@@ -1429,17 +1525,20 @@ Cell[BoxData[{
    3.944682034775847*^9}, {3.944691253514652*^9, 3.944691259628437*^9}, {
    3.944692641053369*^9, 3.9446926478979692`*^9}, 3.944693411146806*^9, {
    3.944693489591876*^9, 3.944693493698054*^9}, {3.944693536985671*^9, 
-   3.9446935391665177`*^9}, {3.946046635955049*^9, 3.946046697413682*^9}, {
+   3.944693539166518*^9}, {3.946046635955049*^9, 3.946046697413682*^9}, {
    3.946046799544746*^9, 3.946046803685694*^9}, {3.946046840142957*^9, 
    3.946046841797939*^9}, {3.9460473659464083`*^9, 3.946047366971386*^9}, {
    3.94605112805585*^9, 3.946051128217587*^9}, {3.953037255855255*^9, 
-   3.953037261399281*^9}, {3.953037322633836*^9, 3.9530373446112537`*^9}, {
-   3.9530373762769957`*^9, 3.953037397955018*^9}, {3.9530375106139193`*^9, 
-   3.9530375157398663`*^9}, {3.953037711867372*^9, 3.953037768971178*^9}, {
+   3.953037261399281*^9}, {3.953037322633836*^9, 3.953037344611254*^9}, {
+   3.953037376276996*^9, 3.953037397955018*^9}, {3.9530375106139197`*^9, 
+   3.9530375157398667`*^9}, {3.953037711867372*^9, 3.953037768971178*^9}, {
    3.95303781569468*^9, 3.953037880255808*^9}, {3.953037924855378*^9, 
-   3.953037953298669*^9}},
+   3.953037953298669*^9}, {3.960598793658854*^9, 3.96059883196126*^9}, {
+   3.960598969131426*^9, 3.960598972796177*^9}, {3.9605990132861633`*^9, 
+   3.9605990315596952`*^9}, {3.9605992302265387`*^9, 
+   3.9605992316345377`*^9}, {3.96059927792533*^9, 3.960599280921406*^9}},
  CellLabel->
-  "In[237]:=",ExpressionUUID->"fd68e04e-9551-4b7c-a3df-afa656cd67b0"],
+  "In[555]:=",ExpressionUUID->"fd68e04e-9551-4b7c-a3df-afa656cd67b0"],
 
 Cell[CellGroupData[{
 
@@ -1547,15 +1646,15 @@ Cell[BoxData[
    3.941554486449537*^9}, {3.9446935899948587`*^9, 3.944693629440311*^9}, {
    3.953036463674637*^9, 3.953036510985785*^9}, {3.953037353933619*^9, 
    3.953037363157257*^9}, {3.9530381071252537`*^9, 3.953038147782838*^9}, {
-   3.9530381885060987`*^9, 3.953038212988352*^9}},
+   3.953038188506099*^9, 3.953038212988352*^9}},
  CellLabel->
-  "In[249]:=",ExpressionUUID->"1b600b6f-1c13-43a5-93b8-c2a840bc13c2"],
+  "In[560]:=",ExpressionUUID->"1b600b6f-1c13-43a5-93b8-c2a840bc13c2"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
    DynamicModuleBox[{$CellContext`B0i$$ = 2, $CellContext`Li$$ = 
-    1, $CellContext`n1Inf$$ = 0.5, $CellContext`zmaxi$$ = 
+    1, $CellContext`n1Inf$$ = 0.581, $CellContext`zmaxi$$ = 
     10, $CellContext`\[Kappa]i$$ = 0.5, $CellContext`\[Lambda]zInfi$$ = -1, 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
@@ -1569,7 +1668,7 @@ Cell[BoxData[
        Hold[$CellContext`Li$$], 1}, 1, 10, ControlType -> Manipulator}, {{
        Hold[$CellContext`B0i$$], 2}, 0.5, 2, ControlType -> Manipulator}, {{
        Hold[$CellContext`zmaxi$$], 10}, 5, 30, ControlType -> Manipulator}}, 
-    Typeset`size$$ = {1286., {89.5, 95.5}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {978.5, {268., 95.5}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
@@ -1591,7 +1690,7 @@ $CellContext`Li$$, $CellContext`zmaxi$$],
           1, 10}, {{$CellContext`B0i$$, 2}, 0.5, 
          2}, {{$CellContext`zmaxi$$, 10}, 5, 30}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{1340., {233., 240.}},
+     ImageSizeCache->{1547., {322., 329.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1614,7 +1713,7 @@ $CellContext`Li$$, $CellContext`zmaxi$$],
    3.930614687962134*^9, 3.930614703745384*^9}, 3.930655982997089*^9, {
    3.930689427062109*^9, 3.930689448418345*^9}, 3.930689521454782*^9, {
    3.9306895850172987`*^9, 3.930689611482253*^9}, 3.932058618453911*^9, {
-   3.9320586492891407`*^9, 3.932058686482353*^9}, 3.9320620417872267`*^9, {
+   3.9320586492891397`*^9, 3.932058686482353*^9}, 3.9320620417872267`*^9, {
    3.932122852335184*^9, 3.932122864223753*^9}, {3.9321231497796507`*^9, 
    3.9321231557564898`*^9}, 3.9321232853979*^9, {3.932123461806432*^9, 
    3.932123523231488*^9}, 3.93212359874685*^9, 3.932123678357294*^9, {
@@ -1652,20 +1751,24 @@ $CellContext`Li$$, $CellContext`zmaxi$$],
    3.944678480153038*^9, 3.944678562955117*^9, 3.9446785934079943`*^9, 
    3.944678715159679*^9, 3.944678855597206*^9, 3.944679070471099*^9, {
    3.944693632832448*^9, 3.944693641903015*^9}, 3.946044958930684*^9, {
-   3.946045875465476*^9, 3.946045882618941*^9}, 3.9460466405547643`*^9, {
+   3.946045875465476*^9, 3.946045882618941*^9}, 3.946046640554764*^9, {
    3.946046678140622*^9, 3.946046699717118*^9}, 3.946047016270459*^9, 
    3.946047161289521*^9, {3.946047307329143*^9, 3.946047329794338*^9}, 
    3.946047370133342*^9, 3.946050729761709*^9, 3.946051130475005*^9, 
-   3.946051245090905*^9, 3.9530346963976507`*^9, 3.953036110196889*^9, 
-   3.953036160709322*^9, {3.953036466648898*^9, 3.9530365119462023`*^9}, {
+   3.946051245090905*^9, 3.953034696397651*^9, 3.953036110196889*^9, 
+   3.953036160709322*^9, {3.953036466648898*^9, 3.9530365119462028`*^9}, {
    3.9530373462818832`*^9, 3.9530373994717197`*^9}, {3.9530374532691317`*^9, 
    3.953037480444064*^9}, 3.953037517936679*^9, {3.953037642176754*^9, 
    3.953037660975891*^9}, {3.953037844135277*^9, 3.953037853795129*^9}, 
-   3.9530378840217323`*^9, {3.953037927951455*^9, 3.953037954874494*^9}, 
+   3.953037884021733*^9, {3.953037927951455*^9, 3.953037954874494*^9}, 
    3.953038003440949*^9, {3.953038103939673*^9, 3.953038148229383*^9}, {
-   3.953038190066928*^9, 3.9530382135378857`*^9}, 3.953038252352973*^9},
+   3.953038190066928*^9, 3.953038213537885*^9}, 3.953038252352973*^9, 
+   3.96059878775033*^9, 3.9605989647782593`*^9, 3.9605992340401382`*^9, 
+   3.960599284057626*^9, {3.9605994808564262`*^9, 3.960599521921155*^9}, 
+   3.960599674335834*^9, 3.960599723012752*^9, {3.9605998594524508`*^9, 
+   3.9605998994677887`*^9}, 3.960599930439776*^9, 3.96060082998707*^9},
  CellLabel->
-  "Out[249]=",ExpressionUUID->"a2dd4e65-2829-4fdd-82fd-e29cca83501a"]
+  "Out[560]=",ExpressionUUID->"b9bb44b9-1030-49ce-84d5-a0b97a1440f8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -7031,7 +7134,7 @@ fZbwf/936P//7/4HAzcL5Q==
    3.944691329280287*^9, 3.944691372752716*^9, 3.9446914712136097`*^9, {
    3.94469256048925*^9, 3.9446926048981123`*^9}, {3.944692652936467*^9, 
    3.9446926810216217`*^9}, 3.944693407473947*^9, {3.94469350746532*^9, 
-   3.944693570028488*^9}, 3.9446936582626143`*^9, 3.946044976947853*^9, 
+   3.944693570028488*^9}, 3.944693658262615*^9, 3.946044976947853*^9, 
    3.9460460844640923`*^9, 3.946046715435032*^9, 3.9460468454627237`*^9, 
    3.94604720316234*^9, 3.946047251783624*^9, 3.946047309243347*^9, 
    3.946047339410299*^9, {3.9460473720814657`*^9, 3.946047384960009*^9}, 
@@ -7122,6 +7225,497 @@ Cell[BoxData[
   "During evaluation of \
 In[86]:=",ExpressionUUID->"821347bc-f177-4069-93a7-2c6dedad461e"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Velocity  distribution   (illustrative)", "Subsection",
+ CellChangeTimes->{{3.960724830322775*^9, 3.960724848881422*^9}, {
+  3.960857776630547*^9, 
+  3.9608577794369297`*^9}},ExpressionUUID->"534489de-6694-489e-81bd-\
+8f1194c57887"],
+
+Cell["Pressure  is  conserved. p=nkT, ", "Text",
+ CellChangeTimes->{{3.960857780708026*^9, 3.960857787267239*^9}, {
+  3.960857969366537*^9, 
+  3.960857976213271*^9}},ExpressionUUID->"3897c6d9-5bc6-4d88-91ef-\
+57fc5dd895d3"],
+
+Cell[BoxData["Range"], "Input",
+ CellChangeTimes->{{3.9608895161012697`*^9, 3.960889519688694*^9}, {
+  3.960889890948256*^9, 
+  3.960889893287099*^9}},ExpressionUUID->"05d06139-c0dd-4110-9c7f-\
+2877bc99cfc0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"distPlot", "[", 
+   RowBox[{
+    RowBox[{"n1Inf_", ":", "0.5"}], ",", 
+    RowBox[{"\[Lambda]zInfi_", ":", 
+     RowBox[{"-", "1"}]}], ",", 
+    RowBox[{"\[Kappa]i_", ":", "1"}], ",", 
+    RowBox[{"B0i_", ":", "2"}], ",", 
+    RowBox[{"Li_", ":", "1"}], ",", 
+    RowBox[{"zmaxi_", ":", "10"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"tempRules", ",", "tempRules0", ",", "tempRules1"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"tempRules", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"B0", "->", "B0i"}], ",", 
+          RowBox[{
+           SubscriptBox["\[Lambda]zInf", "2"], "->", "\[Lambda]zInfi"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           SubscriptBox["niInf", "1"], "->", "n1Inf"}], ",", 
+          RowBox[{"\[Kappa]", "->", "\[Kappa]i"}], ",", 
+          RowBox[{"L", "->", "Li"}]}], "\[IndentingNewLine]", "}"}], ",", 
+        "conds", ",", "sols"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"tempRules0", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{"tempRules", ",", 
+        RowBox[{"{", 
+         RowBox[{"z", "->", "0"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tempRules1", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{"tempRules", ",", 
+        RowBox[{"{", 
+         RowBox[{"z", "->", "5"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      SubscriptBox["T", "1"], "=", 
+      RowBox[{
+       RowBox[{"(", 
+        FractionBox["1", 
+         SubscriptBox["ni", "1"]], ")"}], "//.", "tempRules0"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      SubscriptBox["T", "2"], "=", 
+      RowBox[{
+       RowBox[{"(", 
+        FractionBox["1", 
+         SubscriptBox["ni", "2"]], ")"}], "//.", "tempRules0"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"f1", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          SubscriptBox["ni", "1"], 
+          SubscriptBox["T", "1"]], 
+         RowBox[{"Exp", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vpara", "-", 
+                SubscriptBox["upara", "1"]}], ")"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vperp", "-", 
+                SubscriptBox["uperp", "1"]}], ")"}], "2"]}], 
+            SubscriptBox["T", "1"]]}], "]"}]}], ")"}], "//.", 
+       "tempRules0"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"f2", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          SubscriptBox["ni", "2"], 
+          SubscriptBox["T", "2"]], 
+         RowBox[{"Exp", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vpara", "-", 
+                SubscriptBox["upara", "2"]}], ")"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vperp", "-", 
+                SubscriptBox["uperp", "2"]}], ")"}], "2"]}], 
+            SubscriptBox["T", "2"]]}], "]"}]}], ")"}], "//.", 
+       "tempRules0"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"f11", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          SubscriptBox["ni", "1"], 
+          SubscriptBox["T", "1"]], 
+         RowBox[{"Exp", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vpara", "-", 
+                SubscriptBox["upara", "1"]}], ")"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vperp", "-", 
+                SubscriptBox["uperp", "1"]}], ")"}], "2"]}], 
+            SubscriptBox["T", "1"]]}], "]"}]}], ")"}], "//.", 
+       "tempRules1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"f21", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          SubscriptBox["ni", "2"], 
+          SubscriptBox["T", "2"]], 
+         RowBox[{"Exp", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vpara", "-", 
+                SubscriptBox["upara", "2"]}], ")"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"vperp", "-", 
+                SubscriptBox["uperp", "2"]}], ")"}], "2"]}], 
+            SubscriptBox["T", "2"]]}], "]"}]}], ")"}], "//.", 
+       "tempRules1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Echo", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           SubscriptBox["ni", "1"], ",", 
+           SubscriptBox["T", "1"], ",", 
+           SubscriptBox["upara", "1"], ",", 
+           SubscriptBox["uperp", "1"]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           SubscriptBox["ni", "2"], ",", 
+           SubscriptBox["T", "2"], ",", 
+           SubscriptBox["upara", "2"], ",", 
+           SubscriptBox["uperp", "2"]}], "}"}]}], "}"}], "//.", 
+       "tempRules0"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"DensityPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{"f1", "+", "f2"}], "]"}], ",", 
+         RowBox[{"Log", "[", 
+          RowBox[{"f11", "+", "f21"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"vpara", ",", 
+         RowBox[{"-", "5"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"vperp", ",", 
+         RowBox[{"-", "2"}], ",", "4"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"PlotLegends", "\[Rule]", "Automatic"}], ",", 
+       RowBox[{"PlotLayout", "->", "\"\<Row\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "15"}], ",", "1"}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"MeshFunctions", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"#3", "&"}], ",", 
+          RowBox[{"#3", "&"}]}], "}"}]}], ",", 
+       RowBox[{"Mesh", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"Range", "[", 
+          RowBox[{
+           RowBox[{"-", "10"}], ",", "1", ",", "0.5"}], "]"}], "}"}]}]}], 
+      "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Circle", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             SubscriptBox["upara", "1"], ",", 
+             SubscriptBox["uperp", "1"]}], "}"}], "//.", "tempRules0"}], ",", 
+          
+          RowBox[{"Abs", "[", 
+           RowBox[{
+            SubscriptBox["upara", "1"], "//.", "tempRules0"}], "]"}]}], "]"}],
+         ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               SubscriptBox["upara", "1"], ",", 
+               SubscriptBox["uperp", "1"]}], "}"}], "//.", "tempRules1"}], 
+            ",", 
+            RowBox[{
+             SqrtBox[
+              FractionBox[
+               SubscriptBox["T", "1"], 
+               SubscriptBox["ni", "1"]]], "//.", "tempRules1"}]}], "]"}]}], 
+         "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"Dashed", ",", 
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               SubscriptBox["upara", "2"], ",", 
+               SubscriptBox["uperp", "2"]}], "}"}], "//.", "tempRules0"}], 
+            ",", 
+            RowBox[{"Abs", "[", 
+             RowBox[{
+              SubscriptBox["upara", "2"], "//.", "tempRules0"}], "]"}]}], 
+           "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Dashed", ",", 
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               SubscriptBox["upara", "2"], ",", 
+               SubscriptBox["uperp", "2"]}], "}"}], "//.", "tempRules1"}], 
+            ",", 
+            RowBox[{
+             SqrtBox[
+              FractionBox[
+               SubscriptBox["T", "2"], 
+               SubscriptBox["ni", "2"]]], "//.", "tempRules1"}]}], "]"}]}], 
+         "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+      RowBox[{"Frame", "->", "True"}], ",", 
+      RowBox[{"FrameLabel", "->", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\!\(\*SubscriptBox[\(V\), \(para\)]\)\>\"", ",", 
+         "\"\<\!\(\*SubscriptBox[\(V\), \(perp\)]\)\>\""}], "}"}]}]}], 
+     "\[IndentingNewLine]", "]"}], "*)"}], "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"p", "=", 
+    RowBox[{"distPlot", "[", 
+     RowBox[{
+     "n1Inf", ",", "\[Lambda]zInfi", ",", "\[Kappa]i", ",", "B0i", ",", "Li", 
+      ",", "zmaxi"}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n1Inf", ",", "0.5"}], "}"}], " ", ",", "0", ",", "1"}], "}"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Lambda]zInfi", ",", 
+       RowBox[{"-", "1"}]}], "}"}], " ", ",", 
+     RowBox[{"-", "2"}], ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Kappa]i", ",", "0.5"}], "}"}], ",", "0", ",", "2"}], "}"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Li", ",", "1"}], "}"}], ",", "1", ",", "10"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"B0i", ",", "2"}], "}"}], ",", "0.5", ",", "2"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"zmaxi", ",", "10"}], "}"}], ",", "5", ",", "30"}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.9607248996300983`*^9, 3.9607250065673122`*^9}, {
+   3.960725082468914*^9, 3.9607251736551523`*^9}, {3.960725212346776*^9, 
+   3.9607255663349133`*^9}, {3.960725676011643*^9, 3.960725722884035*^9}, {
+   3.960725788668188*^9, 3.960725806833802*^9}, {3.9607258727043257`*^9, 
+   3.960725931111162*^9}, {3.960857593817657*^9, 3.960857601072742*^9}, 
+   3.9608576365162153`*^9, {3.96085786073451*^9, 3.96085786929988*^9}, {
+   3.960858007679038*^9, 3.960858179937791*^9}, {3.9608582791154623`*^9, 
+   3.960858315037928*^9}, {3.960858351152314*^9, 3.960858373213966*^9}, {
+   3.960858463061275*^9, 3.960858513774509*^9}, {3.96085856584138*^9, 
+   3.960858566021905*^9}, {3.960858598133979*^9, 3.9608585983326397`*^9}, {
+   3.960858761000926*^9, 3.9608588195322247`*^9}, {3.960858854430325*^9, 
+   3.960858876690536*^9}, {3.960858915645063*^9, 3.9608590382245703`*^9}, {
+   3.960888886214559*^9, 3.960888909754738*^9}, {3.9608889424177647`*^9, 
+   3.960888976193742*^9}, {3.960889029739444*^9, 3.9608890806574163`*^9}, {
+   3.9608891340096807`*^9, 3.960889213107761*^9}, {3.960889492011816*^9, 
+   3.960889493235227*^9}, {3.960889551496915*^9, 3.960889556617558*^9}, {
+   3.9608896215884647`*^9, 3.960889688074079*^9}, {3.960889736017305*^9, 
+   3.960889770938016*^9}, {3.960889808867866*^9, 3.9608898236367483`*^9}, {
+   3.960889857090796*^9, 3.960889918293524*^9}, {3.960889952921047*^9, 
+   3.960889954809682*^9}, {3.960889998391643*^9, 3.960890004289221*^9}, {
+   3.960890043279669*^9, 3.96089004603437*^9}, {3.960890194417341*^9, 
+   3.9608901951367197`*^9}, {3.9608902603064613`*^9, 3.960890279342024*^9}, {
+   3.960890390137515*^9, 3.960890391058329*^9}, {3.96094334657682*^9, 
+   3.960943367201942*^9}},
+ CellLabel->
+  "In[711]:=",ExpressionUUID->"9eb00240-4855-46a5-8383-3d58ae4ae321"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`B0i$$ = 2, $CellContext`Li$$ = 
+    1, $CellContext`n1Inf$$ = 0.5, $CellContext`zmaxi$$ = 
+    10, $CellContext`\[Kappa]i$$ = 0.5, $CellContext`\[Lambda]zInfi$$ = -1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n1Inf$$], 0.5}, 0, 1, ControlType -> Manipulator}, {{
+      
+       Hold[$CellContext`\[Lambda]zInfi$$], -1}, -2, 0, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`\[Kappa]i$$], 0.5}, 0, 2, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`Li$$], 1}, 1, 10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`B0i$$], 2}, 0.5, 2, ControlType -> Manipulator}, {{
+       Hold[$CellContext`zmaxi$$], 10}, 5, 30, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {832., {193., 199.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`B0i$$ = 2, $CellContext`Li$$ = 
+        1, $CellContext`n1Inf$$ = 0.5, $CellContext`zmaxi$$ = 
+        10, $CellContext`\[Kappa]i$$ = 
+        0.5, $CellContext`\[Lambda]zInfi$$ = -1}, "ControllerVariables" :> {},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       Beforerr`p = $CellContext`distPlot[$CellContext`n1Inf$$, $CellContext`\
+\[Lambda]zInfi$$, $CellContext`\[Kappa]i$$, $CellContext`B0i$$, \
+$CellContext`Li$$, $CellContext`zmaxi$$]), 
+      "Specifications" :> {{{$CellContext`n1Inf$$, 0.5}, 0, 
+         1}, {{$CellContext`\[Lambda]zInfi$$, -1}, -2, 
+         0}, {{$CellContext`\[Kappa]i$$, 0.5}, 0, 2}, {{$CellContext`Li$$, 1},
+          1, 10}, {{$CellContext`B0i$$, 2}, 0.5, 
+         2}, {{$CellContext`zmaxi$$, 10}, 5, 30}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{886., {336., 343.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.960943354067216*^9, 3.9609433684582*^9}},
+ CellLabel->
+  "Out[712]=",ExpressionUUID->"7cebed93-014c-408b-9c44-8c3eabce0188"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.25`", ",", "4.`", ",", 
+     RowBox[{"-", "2.6832815729997477`"}], ",", "0.8944271909999157`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.75`", ",", "1.3333333333333333`", ",", "0.8944271909999154`", ",", 
+     "2.6832815729997477`"}], "}"}]}], "}"}]], "Echo",
+ CellChangeTimes->{
+  3.960943369030792*^9},ExpressionUUID->"27ce7395-692b-48e2-9b37-\
+f01d70526557"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.25`", ",", "4.`", ",", 
+     RowBox[{"-", "2.6832815729997477`"}], ",", "0.8944271909999157`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.75`", ",", "1.3333333333333333`", ",", "0.8944271909999154`", ",", 
+     "2.6832815729997477`"}], "}"}]}], "}"}]], "Echo",
+ CellChangeTimes->{
+  3.960943372332529*^9},ExpressionUUID->"e79880d9-9925-4b3a-91e0-\
+d45186f949ef"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.25`", ",", "4.`", ",", 
+     RowBox[{"-", "2.6832815729997477`"}], ",", "0.8944271909999157`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.75`", ",", "1.3333333333333333`", ",", "0.8944271909999154`", ",", 
+     "2.6832815729997477`"}], "}"}]}], "}"}]], "Echo",
+ CellChangeTimes->{
+  3.960943404849372*^9},ExpressionUUID->"146a5a8a-1cab-4e57-9bbf-\
+46595d8d7412"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"safeSave", "[", 
+   RowBox[{"\"\<VelDist\>\"", ",", "p"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.960943377084662*^9, 3.960943400322006*^9}},
+ CellLabel->
+  "In[714]:=",ExpressionUUID->"815a449f-effd-4dda-ab7a-a3d80b996f9a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved to: \"\>", 
+   "\[InvisibleSpace]", "\<\"../figures/VelDist.svg\"\>"}],
+  SequenceForm["Saved to: ", "../figures/VelDist.svg"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.960943402851915*^9},
+ CellLabel->
+  "During evaluation of \
+In[714]:=",ExpressionUUID->"8a18e986-4aa9-4443-8752-11f1962fb822"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved to: \"\>", 
+   "\[InvisibleSpace]", "\<\"../figures/VelDist.pdf\"\>"}],
+  SequenceForm["Saved to: ", "../figures/VelDist.pdf"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9609434047482853`*^9},
+ CellLabel->
+  "During evaluation of \
+In[714]:=",ExpressionUUID->"94b2dbb5-01f5-446e-a0e2-13ff232eda81"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -7200,7 +7794,7 @@ Reduce for complete solution information.\"", 2, 93, 109,
    28622466954483841447, "Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{{3.946047915284289*^9, 3.946047921313347*^9}, 
-   3.9460512723822827`*^9},
+   3.946051272382283*^9},
  CellLabel->
   "During evaluation of \
 In[89]:=",ExpressionUUID->"abb21f7a-98fb-4076-b23f-1669f58fa5ca"],
@@ -7456,7 +8050,7 @@ RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
 table, and so cannot be used for replacing.\"", 2, 140, 7, 
    22182327461532141020, "Local"},
   "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9530361862664757`*^9},
+ CellChangeTimes->{3.953036186266476*^9},
  CellLabel->"",ExpressionUUID->"893e4015-4cee-44bd-9516-2042ab8c7a9f"],
 
 Cell[BoxData[
@@ -7489,7 +8083,7 @@ RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
 table, and so cannot be used for replacing.\"", 2, 140, 8, 
    22182327461532141020, "Local"},
   "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9530361863032084`*^9},
+ CellChangeTimes->{3.953036186303208*^9},
  CellLabel->"",ExpressionUUID->"6fca7af8-a47d-4931-8282-c23cc316c732"],
 
 Cell[BoxData[
@@ -7776,7 +8370,1246 @@ Cell[BoxData[
 this calculation.\"", 2, 241, 28, 22182327461532141020, "Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{3.953038016549491*^9},
- CellLabel->"",ExpressionUUID->"49cd534d-5b1c-4147-a568-d86a88113047"]
+ CellLabel->"",ExpressionUUID->"49cd534d-5b1c-4147-a568-d86a88113047"],
+
+Cell["\<\
+Last::normal: Nonatomic expression expected at position 1 in Last[condRule2].\
+\
+\>", "Message", "MSG",
+ CellChangeTimes->{3.960541744023932*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"57accb44-f7b5-4204-80d4-dedecdea04f8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 47, 1, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595040294022*^9},
+ CellLabel->"",ExpressionUUID->"0d86de05-909d-47a6-8c39-2af5f1cc3f5f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 47, 2, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595040318479*^9},
+ CellLabel->"",ExpressionUUID->"49c3e39f-2149-4646-9f52-bba126c45c4e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 47, 3, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595040404449*^9},
+ CellLabel->"",ExpressionUUID->"4d14b30e-39cb-4693-96bd-13bda09da03f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 47, 4, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595040411367*^9},
+ CellLabel->"",ExpressionUUID->"317f80b8-3f1a-4ebf-ac1c-c5b38dbf3189"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 47, 5, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9605950404146843`*^9},
+ CellLabel->"",ExpressionUUID->"60c3226f-b5eb-4c9f-b8b2-1e13ea225e7d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 85, 6, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595883279169*^9},
+ CellLabel->"",ExpressionUUID->"0e705f5c-4f11-4757-960b-4b493ff385d7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 85, 7, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.96059588332788*^9},
+ CellLabel->"",ExpressionUUID->"b4401569-2c01-4827-9391-6fc204587baa"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 85, 8, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595883350679*^9},
+ CellLabel->"",ExpressionUUID->"1e4e110d-bd07-4fdd-a31b-3bfbb155711c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 85, 9, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595883355418*^9},
+ CellLabel->"",ExpressionUUID->"d8b276e6-40ba-40a3-8894-102d5ec94a74"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 85, 10, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960595883358357*^9},
+ CellLabel->"",ExpressionUUID->"5e39845e-ea74-4044-aba0-5cf1143cdb02"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 129, 11, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960596828364955*^9},
+ CellLabel->"",ExpressionUUID->"43256211-d06a-49ac-a2d9-588a46681b8e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 129, 12, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9605968284072933`*^9},
+ CellLabel->"",ExpressionUUID->"255d281f-eda7-4e7c-beeb-39bbdadb991f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 129, 13, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960596828426972*^9},
+ CellLabel->"",ExpressionUUID->"13c517e2-a014-4605-9095-a173a23f3b33"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"31\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 129, 14, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960596828430791*^9},
+ CellLabel->"",ExpressionUUID->"cfda3794-dbef-498f-acc6-5a8f1f81f2ed"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 129, 15, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960596828433514*^9},
+ CellLabel->"",ExpressionUUID->"4d7b3594-48ca-439b-b8e4-3fc7224d576f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 456, 25, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960598878792*^9},
+ CellLabel->"",ExpressionUUID->"b7750edb-dc3f-4393-9186-918793e8b45f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"34\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 456, 26, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960598878797255*^9},
+ CellLabel->"",ExpressionUUID->"498fd050-33b3-4e47-b3d3-0f69c655bcd6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"34\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 456, 27, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960598878816897*^9},
+ CellLabel->"",ExpressionUUID->"c2728931-c109-4d3f-aa86-8864f328f781"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"34\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 456, 28, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960598878822101*^9},
+ CellLabel->"",ExpressionUUID->"ca855845-199e-4785-8cc1-c355c54844ee"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 456, 29, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960598878824985*^9},
+ CellLabel->"",ExpressionUUID->"ef43d261-8c4b-40cc-80fa-7b4691827fd6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 561, 30, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9607248246549053`*^9},
+ CellLabel->"",ExpressionUUID->"5d87f371-f16c-4165-8686-60d1df81a954"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 561, 31, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9607248247131567`*^9},
+ CellLabel->"",ExpressionUUID->"99651241-d7ca-4790-ad19-81aa9c21014d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 561, 32, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960724824771628*^9},
+ CellLabel->"",ExpressionUUID->"b560b4c5-9b4c-42e7-8fa4-4768659a3fc8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 561, 33, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960724824780311*^9},
+ CellLabel->"",ExpressionUUID->"ecedf6a0-7718-49b4-8764-bf937a92701b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 561, 34, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960724824784997*^9},
+ CellLabel->"",ExpressionUUID->"378d1667-9d78-432a-9692-bf382d42335e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 616, 38, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9608583768319693`*^9},
+ CellLabel->"",ExpressionUUID->"5385b409-9ab8-48a3-aec6-8fbe6d984bac"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 616, 39, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9608583768807993`*^9},
+ CellLabel->"",ExpressionUUID->"8fe9ce2c-df6b-4944-94b5-43e9b9a21e0a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 616, 40, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960858376901702*^9},
+ CellLabel->"",ExpressionUUID->"29f92758-a741-4a28-bb0c-d7a3d984d039"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 616, 41, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960858376906412*^9},
+ CellLabel->"",ExpressionUUID->"795caeae-c529-4b2c-85e2-e53dc8f1af21"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 616, 42, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.96085837690969*^9},
+ CellLabel->"",ExpressionUUID->"66894ee2-7028-4697-b7b4-7150962e8101"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 660, 48, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9608892235617113`*^9},
+ CellLabel->"",ExpressionUUID->"5d52879d-b7c4-47f2-b277-0a2472194f05"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 660, 49, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960889223622848*^9},
+ CellLabel->"",ExpressionUUID->"b36b96f0-3567-4d6d-9d5e-e843192bc9aa"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 660, 50, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960889223645837*^9},
+ CellLabel->"",ExpressionUUID->"8059c9df-1ae6-4c04-8636-089d5e5fb2de"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 660, 51, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960889223652924*^9},
+ CellLabel->"",ExpressionUUID->"5ef5e771-f3ad-42e8-8ee5-eb02d9f84ab5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 660, 52, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960889223656186*^9},
+ CellLabel->"",ExpressionUUID->"e3e9cfd4-5af2-4789-a3c4-1f646686a1e1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 688, 55, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9608898176471148`*^9},
+ CellLabel->"",ExpressionUUID->"8a3c9123-9e99-4d53-9012-14fe17849f5c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 688, 56, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9608898178204393`*^9},
+ CellLabel->"",ExpressionUUID->"18404779-6ab2-4df2-8d84-bbba72f52035"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 688, 57, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9608898178630047`*^9},
+ CellLabel->"",ExpressionUUID->"9fdd2c02-d9e1-441a-943b-d6c3d597e892"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 688, 58, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960889817868288*^9},
+ CellLabel->"",ExpressionUUID->"a0c287ad-5838-4c3d-8131-e1a92f49c5bd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 688, 59, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960889817871681*^9},
+ CellLabel->"",ExpressionUUID->"02ecfaa3-f99b-42f7-bb01-401cce8a76d2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 708, 64, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943271019822*^9},
+ CellLabel->"",ExpressionUUID->"f6eafeda-6e21-4991-ad7d-704f243fb519"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 708, 65, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9609432710807953`*^9},
+ CellLabel->"",ExpressionUUID->"2db750c6-a4aa-4326-a5bc-87e395e7e594"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 708, 66, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943271105838*^9},
+ CellLabel->"",ExpressionUUID->"bdf5794c-7504-4a04-aba2-b5335d300afb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 708, 67, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943271111787*^9},
+ CellLabel->"",ExpressionUUID->"66573549-b204-4c31-a805-05a0d87e4ffd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 708, 68, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.96094327111617*^9},
+ CellLabel->"",ExpressionUUID->"03e58675-98be-45bf-a95d-22b2d59a9886"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Last", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"Last\\\", \\\"[\\\", \
+\\\"condRule2\\\", \\\"]\\\"}]\\).\"", 2, 714, 69, 22231519578565552522, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943375549934*^9},
+ CellLabel->"",ExpressionUUID->"5c5a6221-a536-4b2e-b1df-a88b4f6d18d0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 714, 70, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943375559271*^9},
+ CellLabel->"",ExpressionUUID->"54d9e089-0370-476a-828d-5ede615d044f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"Bx\\\", \\\" \\\", \\\"qe\\\", \
+\\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\
+\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"By\\\", \\\" \\\", \\\"qe\\\", \\\" \\\", \\\"\
+\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \\\",\\\", RowBox[{\\\"ux\\\", \\\"\
+\[Rule]\\\", FractionBox[\\\"Jxi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \\\"\[Rule]\\\", FractionBox[\
+\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", \
+RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 714, 71, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943375584158*^9},
+ CellLabel->"",ExpressionUUID->"352d32ed-f317-4c0e-a9b3-fdd9e2cd9fb7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceRepeated", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Jx\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"Jxe\\\", \\\"+\\\", \\\"Jxi\\\"}]}], \\\",\\\", \
+RowBox[{\\\"Jy\\\", \\\"\[Rule]\\\", RowBox[{\\\"Jye\\\", \\\"+\\\", \
+\\\"Jyi\\\"}]}], \\\",\\\", RowBox[{\\\"Jxe\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"Bx\\\", \\\
+\" \\\", \\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"Jye\\\", \\\"\[Rule]\\\", RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"By\\\", \\\" \\\", \
+\\\"qe\\\", \\\" \\\", \\\"\[CapitalGamma]e\\\"}], \\\"Bz\\\"]}]}], \
+\\\",\\\", RowBox[{\\\"ux\\\", \\\"\[Rule]\\\", FractionBox[\\\"Jxi\\\", \
+RowBox[{\\\"n\\\", \\\" \\\", \\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uy\\\", \
+\\\"\[Rule]\\\", FractionBox[\\\"Jyi\\\", RowBox[{\\\"n\\\", \\\" \\\", \
+\\\"qe\\\"}]]}], \\\",\\\", RowBox[{\\\"uu\\\", \\\"\[Rule]\\\", \
+SqrtBox[RowBox[{SuperscriptBox[\\\"ux\\\", \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[\\\"uy\\\", \\\"2\\\"]}]]}], \\\",\\\", RowBox[{\\\"\
+\[CapitalGamma]e\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"Uz\\\", \\\"\[Rule]\\\", FractionBox[RowBox[{SubscriptBox[\\\"\
+\[CapitalGamma]\\\", \\\"1\\\"], \\\"+\\\", \
+SubscriptBox[\\\"\[CapitalGamma]\\\", \\\"2\\\"]}], \\\"n\\\"]}], \\\",\\\", \
+RowBox[{\\\"n\\\", \\\"\[Rule]\\\", RowBox[{SubscriptBox[\\\"ni\\\", \
+\\\"1\\\"], \\\"+\\\", SubscriptBox[\\\"ni\\\", \\\"2\\\"]}]}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"36\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"", 2, 714, 72, 
+   22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943375590547*^9},
+ CellLabel->"",ExpressionUUID->"bd197fdc-e25e-4f20-920d-5b6822ef898e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceRepeated\\\", \\\
+\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"", 2, 714, 73, 22231519578565552522, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.960943375596291*^9},
+ CellLabel->"",ExpressionUUID->"8efe1297-7a31-4358-aae6-3db83dd0028a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -26371,7 +28204,24 @@ Cell[BoxData[
        MultilineFunction->None], "[", "z", "]"}]}], "\[Equal]", "0"}]}], 
   "}"}]], "Output",
  CellChangeTimes->{3.9266894808959723`*^9, 3.932057868019189*^9},
- CellLabel->"Out[18]=",ExpressionUUID->"7c60ec94-e777-4f93-a408-87eeafb47b5d"]
+ CellLabel->"Out[18]=",ExpressionUUID->"7c60ec94-e777-4f93-a408-87eeafb47b5d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.25`", ",", "4.`", ",", 
+     RowBox[{"-", "2.6832815729997477`"}], ",", "0.8944271909999157`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.75`", ",", "1.3333333333333333`", ",", "0.8944271909999154`", ",", 
+     "2.6832815729997477`"}], "}"}]}], "}"}]], "Echo",
+ CellContext->"Notebook$$18$541741`",
+ CellChangeTimes->{3.960943269958935*^9},
+ CellTags->
+  "PredictiveInterface",ExpressionUUID->"c1165b4c-2869-4393-ad2a-\
+de24369ab802"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -26389,10 +28239,16 @@ ExpressionUUID->"e4394968-4120-430b-9412-4643b14d6f31"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{}
+CellTagsIndex->{
+ "PredictiveInterface"->{
+  Cell[1527025, 28208, 520, 15, 30, "Echo",ExpressionUUID->"c1165b4c-2869-4393-ad2a-de24369ab802",
+   CellTags->"PredictiveInterface"]}
+ }
 *)
 (*CellTagsIndex
-CellTagsIndex->{}
+CellTagsIndex->{
+ {"PredictiveInterface", 1528029, 28242}
+ }
 *)
 (*NotebookFileOutline
 Notebook[{
@@ -26407,184 +28263,258 @@ Cell[CellGroupData[{
 Cell[4427, 116, 212, 4, 71, "Chapter",ExpressionUUID->"0d93b1b6-a57d-4a11-990b-18ee832da89c"],
 Cell[CellGroupData[{
 Cell[4664, 124, 181, 3, 67, "Subsection",ExpressionUUID->"c435e265-92ae-4979-8825-0090d1c7cf78"],
-Cell[4848, 129, 7775, 188, 621, "Input",ExpressionUUID->"b199f06f-6e82-4b7d-840d-c04ada34a17a"]
+Cell[4848, 129, 8339, 198, 647, "Input",ExpressionUUID->"b199f06f-6e82-4b7d-840d-c04ada34a17a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12660, 322, 160, 2, 67, "Subsection",ExpressionUUID->"4b9c2bd5-1064-4255-9437-a0a0a62958e8"],
-Cell[12823, 326, 8939, 181, 510, "Input",ExpressionUUID->"2a549da3-f222-4fa3-b368-545cb805d6b5"],
-Cell[21765, 509, 2914, 78, 345, "Input",ExpressionUUID->"76f43c40-1b32-4194-9353-d99797c636ac"],
-Cell[24682, 589, 5365, 106, 143, "Input",ExpressionUUID->"1589de5a-f673-450d-9fe5-baabdbfccd22"],
+Cell[13224, 332, 160, 2, 67, "Subsection",ExpressionUUID->"4b9c2bd5-1064-4255-9437-a0a0a62958e8"],
+Cell[13387, 336, 10827, 229, 612, "Input",ExpressionUUID->"2a549da3-f222-4fa3-b368-545cb805d6b5"],
+Cell[24217, 567, 2965, 79, 345, "Input",ExpressionUUID->"76f43c40-1b32-4194-9353-d99797c636ac"],
+Cell[27185, 648, 5365, 106, 143, "Input",ExpressionUUID->"1589de5a-f673-450d-9fe5-baabdbfccd22"],
 Cell[CellGroupData[{
-Cell[30072, 699, 676, 12, 37, "Input",ExpressionUUID->"66aa9e67-d228-4cbf-ab24-6a1245626211"],
-Cell[30751, 713, 3012, 61, 84, "Output",ExpressionUUID->"95c413f9-ff91-4e79-a0bd-a70f98b484ee"]
+Cell[32575, 758, 676, 12, 37, "Input",ExpressionUUID->"66aa9e67-d228-4cbf-ab24-6a1245626211"],
+Cell[33254, 772, 3159, 63, 84, "Output",ExpressionUUID->"c4373735-e0d3-4fec-93f5-d90fd26ea7ac"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[33812, 780, 217, 4, 67, "Subsection",ExpressionUUID->"7653d3c9-9593-45a1-9477-b6f0dec17f0e"],
-Cell[34032, 786, 2501, 62, 176, "Input",ExpressionUUID->"c3655045-6f3f-4d14-990a-2a1eccaa95eb"]
+Cell[36462, 841, 217, 4, 67, "Subsection",ExpressionUUID->"7653d3c9-9593-45a1-9477-b6f0dec17f0e"],
+Cell[36682, 847, 2397, 59, 154, "Input",ExpressionUUID->"c3655045-6f3f-4d14-990a-2a1eccaa95eb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36570, 853, 165, 3, 67, "Subsection",ExpressionUUID->"94e86d32-31ed-4278-8c61-c5d63b570184"],
+Cell[39116, 911, 188, 3, 67, "Subsection",ExpressionUUID->"94e86d32-31ed-4278-8c61-c5d63b570184"],
 Cell[CellGroupData[{
-Cell[36760, 860, 1659, 45, 141, "Input",ExpressionUUID->"38d7991d-37e8-4693-81e5-37b2d05052a2"],
-Cell[38422, 907, 2668, 52, 62, "Output",ExpressionUUID->"c72646fe-584c-4ebc-8469-4f7b0029d90f"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[41151, 966, 152, 3, 86, "Chapter",ExpressionUUID->"f566a44d-0174-4add-b028-5f057074d8f8"],
-Cell[41306, 971, 326, 7, 44, "Text",ExpressionUUID->"463a046d-1c57-4657-b5eb-1916bf06fd21"],
-Cell[41635, 980, 2336, 53, 92, "Input",ExpressionUUID->"e38a9551-ccea-42a4-9519-c447df23f60f"],
-Cell[CellGroupData[{
-Cell[43996, 1037, 1211, 23, 64, "Input",ExpressionUUID->"7e45d335-c912-4a4d-8cf7-183d578a2304"],
-Cell[45210, 1062, 9168, 263, 266, "Output",ExpressionUUID->"70d37dc9-7bf6-423b-ba5b-6ae6cbb49082"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[54415, 1330, 185, 3, 84, "Section",ExpressionUUID->"8c348df2-e6e7-4d19-80c7-a95e0f8d0579"],
-Cell[54603, 1335, 4668, 106, 454, "Input",ExpressionUUID->"fd68e04e-9551-4b7c-a3df-afa656cd67b0"],
-Cell[CellGroupData[{
-Cell[59296, 1445, 6205, 106, 246, "Input",ExpressionUUID->"1b600b6f-1c13-43a5-93b8-c2a840bc13c2"],
-Cell[65504, 1553, 7181, 114, 496, "Output",ExpressionUUID->"a2dd4e65-2829-4fdd-82fd-e29cca83501a"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[72722, 1672, 695, 15, 64, "Input",ExpressionUUID->"b63b9ce0-8570-4327-9fdb-cde7ef13547d"],
-Cell[73420, 1689, 309787, 5351, 178, "Output",ExpressionUUID->"fa75aeac-7522-4623-acdf-361f6f9542f0"],
-Cell[CellGroupData[{
-Cell[383232, 7044, 1000, 18, 29, "Print",ExpressionUUID->"4ede60f9-ff15-48cf-a6c3-c0486c53185d"],
-Cell[384235, 7064, 1000, 18, 29, "Print",ExpressionUUID->"bae80984-f94f-4224-bf33-6702192e8590"],
-Cell[385238, 7084, 1002, 18, 29, "Print",ExpressionUUID->"7eebbe2d-67d5-4d9c-ad7c-98fe1d2f777a"],
-Cell[386243, 7104, 1002, 18, 29, "Print",ExpressionUUID->"821347bc-f177-4069-93a7-2c6dedad461e"]
+Cell[39329, 918, 1659, 45, 141, "Input",ExpressionUUID->"38d7991d-37e8-4693-81e5-37b2d05052a2"],
+Cell[40991, 965, 2945, 53, 63, "Output",ExpressionUUID->"6d1843e6-efad-487b-8334-0775b7432c9e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[387306, 7129, 153, 3, 84, "Section",ExpressionUUID->"4c2cd7d8-8dd7-47e1-bab8-5337637424b5"],
+Cell[43997, 1025, 152, 3, 86, "Chapter",ExpressionUUID->"f566a44d-0174-4add-b028-5f057074d8f8"],
+Cell[44152, 1030, 326, 7, 44, "Text",ExpressionUUID->"463a046d-1c57-4657-b5eb-1916bf06fd21"],
+Cell[44481, 1039, 2608, 57, 92, "Input",ExpressionUUID->"e38a9551-ccea-42a4-9519-c447df23f60f"],
 Cell[CellGroupData[{
-Cell[387484, 7136, 197, 3, 67, "Subsection",ExpressionUUID->"ae51786b-0fae-4288-bf0b-3e6dfb682abe"],
-Cell[CellGroupData[{
-Cell[387706, 7143, 2133, 48, 168, "Input",ExpressionUUID->"24cab136-578f-4395-942a-d80d6bb89fd7"],
-Cell[389842, 7193, 505, 12, 35, "Message",ExpressionUUID->"abb21f7a-98fb-4076-b23f-1669f58fa5ca"],
-Cell[390350, 7207, 1149, 22, 58, "Output",ExpressionUUID->"3d5e5dbb-a295-4cb4-bef0-de528a5b5f06"]
-}, Open  ]],
-Cell[391514, 7232, 2052, 38, 116, "Input",ExpressionUUID->"5d090603-f97e-4044-aa8b-b11e93e0e1be"],
-Cell[CellGroupData[{
-Cell[393591, 7274, 2760, 67, 402, "Input",ExpressionUUID->"b594968e-51c9-4d08-a3a8-a7fcac69c90f"],
-Cell[396354, 7343, 3879, 72, 401, "Output",ExpressionUUID->"4fe37c09-2fd1-4ffb-bcb3-9ba163454c6d"],
-Cell[400236, 7417, 418, 9, 35, "Message",ExpressionUUID->"bac53811-5c58-4a2f-8dfb-f97878276905"],
-Cell[400657, 7428, 1973, 31, 73, "Message",ExpressionUUID->"893e4015-4cee-44bd-9516-2042ab8c7a9f"],
-Cell[402633, 7461, 1973, 31, 73, "Message",ExpressionUUID->"6fca7af8-a47d-4931-8282-c23cc316c732"],
-Cell[404609, 7494, 2019, 31, 73, "Message",ExpressionUUID->"052c79cf-9e00-46aa-9b1c-3587810b7561"],
-Cell[406631, 7527, 427, 8, 35, "Message",ExpressionUUID->"e5971871-e3d7-4d8d-8850-7eae3202a33f"],
-Cell[407061, 7537, 418, 9, 35, "Message",ExpressionUUID->"89a7b5b5-b953-4c74-bfd1-d6d8e2545095"],
-Cell[407482, 7548, 1972, 31, 73, "Message",ExpressionUUID->"1de202b2-677e-4495-abb4-fd24a8306df4"],
-Cell[409457, 7581, 1972, 31, 73, "Message",ExpressionUUID->"750c34d2-7822-4016-8e7d-464e29b10f02"],
-Cell[411432, 7614, 2020, 31, 73, "Message",ExpressionUUID->"57370264-f466-4afb-a2af-54514a41166e"],
-Cell[413455, 7647, 426, 8, 35, "Message",ExpressionUUID->"de2e717b-982f-4a1e-b811-87dcbf7a4cfb"],
-Cell[413884, 7657, 419, 9, 35, "Message",ExpressionUUID->"a5159773-7ebd-4674-9607-5d9a71e8257a"],
-Cell[414306, 7668, 2024, 32, 73, "Message",ExpressionUUID->"90e9ac74-b404-43cc-80de-b526b69455c7"],
-Cell[416333, 7702, 2024, 32, 73, "Message",ExpressionUUID->"0a8ef9c2-e8ad-4428-b88a-a8a5d6ccabe8"],
-Cell[418360, 7736, 2072, 32, 73, "Message",ExpressionUUID->"b7651572-e31b-44f1-816d-63355738a131"],
-Cell[420435, 7770, 427, 8, 35, "Message",ExpressionUUID->"49cd534d-5b1c-4147-a568-d86a88113047"]
+Cell[47114, 1100, 1211, 23, 64, "Input",ExpressionUUID->"7e45d335-c912-4a4d-8cf7-183d578a2304"],
+Cell[48328, 1125, 10842, 285, 266, "Output",ExpressionUUID->"d5230f43-714f-46f7-b595-cc393cce40eb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[420899, 7783, 367, 8, 37, "Input",ExpressionUUID->"0ad1d3b9-3763-4919-8ead-8bf457491a74"],
+Cell[59207, 1415, 185, 3, 84, "Section",ExpressionUUID->"8c348df2-e6e7-4d19-80c7-a95e0f8d0579"],
+Cell[59395, 1420, 5334, 120, 480, "Input",ExpressionUUID->"fd68e04e-9551-4b7c-a3df-afa656cd67b0"],
 Cell[CellGroupData[{
-Cell[421291, 7795, 441, 10, 29, "Print",ExpressionUUID->"b8323a12-95f0-4cd7-8664-8950307d9f4c"],
-Cell[421735, 7807, 441, 10, 29, "Print",ExpressionUUID->"5622fb04-b5f6-49cb-a13d-b2d71b833016"],
-Cell[422179, 7819, 445, 10, 29, "Print",ExpressionUUID->"4ac8b706-0cd4-48be-bfca-2b81aee6f4f4"],
-Cell[422627, 7831, 445, 10, 29, "Print",ExpressionUUID->"faa7ba7f-93bb-44d5-b271-6efa02b1a8c8"]
+Cell[64754, 1544, 6203, 106, 246, "Input",ExpressionUUID->"1b600b6f-1c13-43a5-93b8-c2a840bc13c2"],
+Cell[70960, 1652, 7467, 118, 674, "Output",ExpressionUUID->"b9bb44b9-1030-49ce-84d5-a0b97a1440f8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78464, 1775, 695, 15, 64, "Input",ExpressionUUID->"b63b9ce0-8570-4327-9fdb-cde7ef13547d"],
+Cell[79162, 1792, 309785, 5351, 178, "Output",ExpressionUUID->"fa75aeac-7522-4623-acdf-361f6f9542f0"],
+Cell[CellGroupData[{
+Cell[388972, 7147, 1000, 18, 29, "Print",ExpressionUUID->"4ede60f9-ff15-48cf-a6c3-c0486c53185d"],
+Cell[389975, 7167, 1000, 18, 29, "Print",ExpressionUUID->"bae80984-f94f-4224-bf33-6702192e8590"],
+Cell[390978, 7187, 1002, 18, 29, "Print",ExpressionUUID->"7eebbe2d-67d5-4d9c-ad7c-98fe1d2f777a"],
+Cell[391983, 7207, 1002, 18, 29, "Print",ExpressionUUID->"821347bc-f177-4069-93a7-2c6dedad461e"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[423121, 7847, 6106, 111, 286, "Input",ExpressionUUID->"9bf0bb4c-07a5-422b-9998-b3e6f094b725"],
-Cell[429230, 7960, 832553, 14670, 411, "Output",ExpressionUUID->"7ce4042c-416c-447a-993b-7a77ca9bc917"]
-}, Open  ]],
+Cell[393034, 7231, 238, 4, 67, "Subsection",ExpressionUUID->"534489de-6694-489e-81bd-8f1194c57887"],
+Cell[393275, 7237, 223, 4, 44, "Text",ExpressionUUID->"3897c6d9-5bc6-4d88-91ef-57fc5dd895d3"],
+Cell[393501, 7243, 208, 4, 37, "Input",ExpressionUUID->"05d06139-c0dd-4110-9c7f-2877bc99cfc0"],
 Cell[CellGroupData[{
-Cell[1261820, 22635, 1097, 27, 113, "Input",ExpressionUUID->"a664264f-1ae7-4cc7-a5f5-02d4119656b5"],
+Cell[393734, 7251, 12213, 325, 1225, "Input",ExpressionUUID->"9eb00240-4855-46a5-8383-3d58ae4ae321"],
+Cell[405950, 7578, 2780, 54, 702, "Output",ExpressionUUID->"7cebed93-014c-408b-9c44-8c3eabce0188"],
 Cell[CellGroupData[{
-Cell[1262942, 22666, 516, 11, 28, "Print",ExpressionUUID->"ae5d3f40-b1dc-4ce6-8f01-2afa314c5e9e"],
-Cell[1263461, 22679, 516, 11, 28, "Print",ExpressionUUID->"3bd745e0-2dbe-41af-978e-d0ec06310957"],
-Cell[1263980, 22692, 516, 11, 28, "Print",ExpressionUUID->"08aad295-b835-4bdf-9012-449c8372d1ed"],
-Cell[1264499, 22705, 518, 11, 28, "Print",ExpressionUUID->"f5dfb611-4f38-42b0-b088-c4537f17848b"],
-Cell[1265020, 22718, 516, 11, 28, "Print",ExpressionUUID->"3bae0c57-63a4-411e-9023-5575f82fa1c4"],
-Cell[1265539, 22731, 516, 11, 28, "Print",ExpressionUUID->"d695624e-baa6-44e9-9b52-42c18d8f3533"],
-Cell[1266058, 22744, 518, 11, 28, "Print",ExpressionUUID->"e87de682-a06e-4fc0-8d3b-319534ef41d4"],
-Cell[1266579, 22757, 518, 11, 28, "Print",ExpressionUUID->"fd7be509-f3bc-457a-92f4-99d2a13455a3"]
-}, Open  ]]
+Cell[408755, 7636, 448, 13, 30, "Echo",ExpressionUUID->"27ce7395-692b-48e2-9b37-f01d70526557"],
+Cell[409206, 7651, 448, 13, 30, "Echo",ExpressionUUID->"e79880d9-9925-4b3a-91e0-d45186f949ef"],
+Cell[409657, 7666, 448, 13, 30, "Echo",ExpressionUUID->"146a5a8a-1cab-4e57-9bbf-46595d8d7412"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1267158, 22775, 168, 3, 66, "Subsection",ExpressionUUID->"62bc765f-794f-450b-8319-d5191b32ced5"],
-Cell[1267329, 22780, 5026, 100, 292, "Input",ExpressionUUID->"d21bfd2c-fc64-45ea-bdbc-363a3ccb1028"],
+Cell[410154, 7685, 266, 6, 37, "Input",ExpressionUUID->"815a449f-effd-4dda-ab7a-a3d80b996f9a"],
 Cell[CellGroupData[{
-Cell[1272380, 22884, 874, 21, 113, "Input",ExpressionUUID->"096c77a6-e13d-410d-81b0-a369d1b0c5f1"],
-Cell[1273257, 22907, 38550, 755, 271, "Output",ExpressionUUID->"5bc41bfa-252a-4783-b30d-20e99ddf827c"],
-Cell[1311810, 23664, 43872, 840, 277, "Output",ExpressionUUID->"5835f2f6-5098-4718-8c02-37851ec263a9"],
-Cell[CellGroupData[{
-Cell[1355707, 24508, 409, 10, 28, "Print",ExpressionUUID->"2cf9919d-7239-4794-83cf-3c56c8f8e12c"],
-Cell[1356119, 24520, 408, 10, 28, "Print",ExpressionUUID->"dbedd53f-96cf-487c-ad5c-12ec5d283f53"],
-Cell[1356530, 24532, 415, 10, 28, "Print",ExpressionUUID->"03c5a9b5-65a7-4baf-be39-7df42d8af953"],
-Cell[1356948, 24544, 415, 10, 28, "Print",ExpressionUUID->"1181538e-c2b4-467c-98de-8d11ab61f036"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1357412, 24560, 447, 11, 62, "Input",ExpressionUUID->"cc9528d6-0e04-4475-be11-143b3406e257"],
-Cell[CellGroupData[{
-Cell[1357884, 24575, 398, 9, 28, "Print",ExpressionUUID->"bf2ed3e3-124e-42e5-885c-e76236f2f127"],
-Cell[1358285, 24586, 398, 9, 28, "Print",ExpressionUUID->"d82642fe-7435-4c0c-9bdb-2bfa065cda5a"],
-Cell[1358686, 24597, 404, 9, 28, "Print",ExpressionUUID->"e90360ca-49ae-439e-a135-92473096be76"],
-Cell[1359093, 24608, 404, 9, 28, "Print",ExpressionUUID->"9642a4a7-ab6d-4818-988b-5ed1fd5f1a85"]
-}, Open  ]]
+Cell[410445, 7695, 360, 9, 29, "Print",ExpressionUUID->"8a18e986-4aa9-4443-8752-11f1962fb822"],
+Cell[410808, 7706, 362, 9, 29, "Print",ExpressionUUID->"94b2dbb5-01f5-446e-a0e2-13ff232eda81"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1359582, 24626, 159, 3, 84, "Chapter",ExpressionUUID->"6cb841f2-3194-41b0-acd6-41d1e6009309"],
-Cell[1359744, 24631, 6828, 175, 572, "Input",ExpressionUUID->"62ccb5da-23a7-46a7-8120-ad83400f5f9f"],
+Cell[411243, 7723, 153, 3, 84, "Section",ExpressionUUID->"4c2cd7d8-8dd7-47e1-bab8-5337637424b5"],
 Cell[CellGroupData[{
-Cell[1366597, 24810, 160, 3, 66, "Subsection",ExpressionUUID->"9d2b1915-254b-4a49-95ed-45f8b26f9b28"],
-Cell[1366760, 24815, 547, 17, 56, "Input",ExpressionUUID->"1a536fd0-b58f-4cd9-9168-7d6e2a75bd82"]
+Cell[411421, 7730, 197, 3, 67, "Subsection",ExpressionUUID->"ae51786b-0fae-4288-bf0b-3e6dfb682abe"],
+Cell[CellGroupData[{
+Cell[411643, 7737, 2133, 48, 168, "Input",ExpressionUUID->"24cab136-578f-4395-942a-d80d6bb89fd7"],
+Cell[413779, 7787, 503, 12, 35, "Message",ExpressionUUID->"abb21f7a-98fb-4076-b23f-1669f58fa5ca"],
+Cell[414285, 7801, 1149, 22, 58, "Output",ExpressionUUID->"3d5e5dbb-a295-4cb4-bef0-de528a5b5f06"]
+}, Open  ]],
+Cell[415449, 7826, 2052, 38, 116, "Input",ExpressionUUID->"5d090603-f97e-4044-aa8b-b11e93e0e1be"],
+Cell[CellGroupData[{
+Cell[417526, 7868, 2760, 67, 402, "Input",ExpressionUUID->"b594968e-51c9-4d08-a3a8-a7fcac69c90f"],
+Cell[420289, 7937, 3879, 72, 401, "Output",ExpressionUUID->"4fe37c09-2fd1-4ffb-bcb3-9ba163454c6d"],
+Cell[424171, 8011, 418, 9, 35, "Message",ExpressionUUID->"bac53811-5c58-4a2f-8dfb-f97878276905"],
+Cell[424592, 8022, 1971, 31, 73, "Message",ExpressionUUID->"893e4015-4cee-44bd-9516-2042ab8c7a9f"],
+Cell[426566, 8055, 1971, 31, 73, "Message",ExpressionUUID->"6fca7af8-a47d-4931-8282-c23cc316c732"],
+Cell[428540, 8088, 2019, 31, 73, "Message",ExpressionUUID->"052c79cf-9e00-46aa-9b1c-3587810b7561"],
+Cell[430562, 8121, 427, 8, 35, "Message",ExpressionUUID->"e5971871-e3d7-4d8d-8850-7eae3202a33f"],
+Cell[430992, 8131, 418, 9, 35, "Message",ExpressionUUID->"89a7b5b5-b953-4c74-bfd1-d6d8e2545095"],
+Cell[431413, 8142, 1972, 31, 73, "Message",ExpressionUUID->"1de202b2-677e-4495-abb4-fd24a8306df4"],
+Cell[433388, 8175, 1972, 31, 73, "Message",ExpressionUUID->"750c34d2-7822-4016-8e7d-464e29b10f02"],
+Cell[435363, 8208, 2020, 31, 73, "Message",ExpressionUUID->"57370264-f466-4afb-a2af-54514a41166e"],
+Cell[437386, 8241, 426, 8, 35, "Message",ExpressionUUID->"de2e717b-982f-4a1e-b811-87dcbf7a4cfb"],
+Cell[437815, 8251, 419, 9, 35, "Message",ExpressionUUID->"a5159773-7ebd-4674-9607-5d9a71e8257a"],
+Cell[438237, 8262, 2024, 32, 73, "Message",ExpressionUUID->"90e9ac74-b404-43cc-80de-b526b69455c7"],
+Cell[440264, 8296, 2024, 32, 73, "Message",ExpressionUUID->"0a8ef9c2-e8ad-4428-b88a-a8a5d6ccabe8"],
+Cell[442291, 8330, 2072, 32, 73, "Message",ExpressionUUID->"b7651572-e31b-44f1-816d-63355738a131"],
+Cell[444366, 8364, 427, 8, 35, "Message",ExpressionUUID->"49cd534d-5b1c-4147-a568-d86a88113047"],
+Cell[444796, 8374, 259, 7, 27, "Message",ExpressionUUID->"57accb44-f7b5-4204-80d4-dedecdea04f8"],
+Cell[445058, 8383, 417, 9, 35, "Message",ExpressionUUID->"0d86de05-909d-47a6-8c39-2af5f1cc3f5f"],
+Cell[445478, 8394, 2022, 32, 73, "Message",ExpressionUUID->"49c3e39f-2149-4646-9f52-bba126c45c4e"],
+Cell[447503, 8428, 2022, 32, 73, "Message",ExpressionUUID->"4d14b30e-39cb-4693-96bd-13bda09da03f"],
+Cell[449528, 8462, 2070, 32, 73, "Message",ExpressionUUID->"317f80b8-3f1a-4ebf-ac1c-c5b38dbf3189"],
+Cell[451601, 8496, 427, 8, 35, "Message",ExpressionUUID->"60c3226f-b5eb-4c9f-b8b2-1e13ea225e7d"],
+Cell[452031, 8506, 417, 9, 35, "Message",ExpressionUUID->"0e705f5c-4f11-4757-960b-4b493ff385d7"],
+Cell[452451, 8517, 2021, 32, 73, "Message",ExpressionUUID->"b4401569-2c01-4827-9391-6fc204587baa"],
+Cell[454475, 8551, 2022, 32, 73, "Message",ExpressionUUID->"1e4e110d-bd07-4fdd-a31b-3bfbb155711c"],
+Cell[456500, 8585, 2070, 32, 73, "Message",ExpressionUUID->"d8b276e6-40ba-40a3-8894-102d5ec94a74"],
+Cell[458573, 8619, 426, 8, 35, "Message",ExpressionUUID->"5e39845e-ea74-4044-aba0-5cf1143cdb02"],
+Cell[459002, 8629, 419, 9, 35, "Message",ExpressionUUID->"43256211-d06a-49ac-a2d9-588a46681b8e"],
+Cell[459424, 8640, 2026, 32, 73, "Message",ExpressionUUID->"255d281f-eda7-4e7c-beeb-39bbdadb991f"],
+Cell[461453, 8674, 2024, 32, 73, "Message",ExpressionUUID->"13c517e2-a014-4605-9095-a173a23f3b33"],
+Cell[463480, 8708, 2072, 32, 73, "Message",ExpressionUUID->"cfda3794-dbef-498f-acc6-5a8f1f81f2ed"],
+Cell[465555, 8742, 427, 8, 35, "Message",ExpressionUUID->"4d7b3594-48ca-439b-b8e4-3fc7224d576f"],
+Cell[465985, 8752, 416, 9, 35, "Message",ExpressionUUID->"b7750edb-dc3f-4393-9186-918793e8b45f"],
+Cell[466404, 8763, 2024, 32, 73, "Message",ExpressionUUID->"498fd050-33b3-4e47-b3d3-0f69c655bcd6"],
+Cell[468431, 8797, 2024, 32, 73, "Message",ExpressionUUID->"c2728931-c109-4d3f-aa86-8864f328f781"],
+Cell[470458, 8831, 2072, 32, 73, "Message",ExpressionUUID->"ca855845-199e-4785-8cc1-c355c54844ee"],
+Cell[472533, 8865, 427, 8, 35, "Message",ExpressionUUID->"ef43d261-8c4b-40cc-80fa-7b4691827fd6"],
+Cell[472963, 8875, 421, 9, 35, "Message",ExpressionUUID->"5d87f371-f16c-4165-8686-60d1df81a954"],
+Cell[473387, 8886, 2026, 32, 73, "Message",ExpressionUUID->"99651241-d7ca-4790-ad19-81aa9c21014d"],
+Cell[475416, 8920, 2024, 32, 73, "Message",ExpressionUUID->"b560b4c5-9b4c-42e7-8fa4-4768659a3fc8"],
+Cell[477443, 8954, 2072, 32, 73, "Message",ExpressionUUID->"ecedf6a0-7718-49b4-8764-bf937a92701b"],
+Cell[479518, 8988, 427, 8, 35, "Message",ExpressionUUID->"378d1667-9d78-432a-9692-bf382d42335e"],
+Cell[479948, 8998, 421, 9, 35, "Message",ExpressionUUID->"5385b409-9ab8-48a3-aec6-8fbe6d984bac"],
+Cell[480372, 9009, 2026, 32, 73, "Message",ExpressionUUID->"8fe9ce2c-df6b-4944-94b5-43e9b9a21e0a"],
+Cell[482401, 9043, 2024, 32, 73, "Message",ExpressionUUID->"29f92758-a741-4a28-bb0c-d7a3d984d039"],
+Cell[484428, 9077, 2072, 32, 73, "Message",ExpressionUUID->"795caeae-c529-4b2c-85e2-e53dc8f1af21"],
+Cell[486503, 9111, 426, 8, 35, "Message",ExpressionUUID->"66894ee2-7028-4697-b7b4-7150962e8101"],
+Cell[486932, 9121, 421, 9, 35, "Message",ExpressionUUID->"5d52879d-b7c4-47f2-b277-0a2472194f05"],
+Cell[487356, 9132, 2024, 32, 73, "Message",ExpressionUUID->"b36b96f0-3567-4d6d-9d5e-e843192bc9aa"],
+Cell[489383, 9166, 2024, 32, 73, "Message",ExpressionUUID->"8059c9df-1ae6-4c04-8636-089d5e5fb2de"],
+Cell[491410, 9200, 2072, 32, 73, "Message",ExpressionUUID->"5ef5e771-f3ad-42e8-8ee5-eb02d9f84ab5"],
+Cell[493485, 9234, 427, 8, 35, "Message",ExpressionUUID->"e3e9cfd4-5af2-4789-a3c4-1f646686a1e1"],
+Cell[493915, 9244, 421, 9, 35, "Message",ExpressionUUID->"8a3c9123-9e99-4d53-9012-14fe17849f5c"],
+Cell[494339, 9255, 2026, 32, 73, "Message",ExpressionUUID->"18404779-6ab2-4df2-8d84-bbba72f52035"],
+Cell[496368, 9289, 2026, 32, 73, "Message",ExpressionUUID->"9fdd2c02-d9e1-441a-943b-d6c3d597e892"],
+Cell[498397, 9323, 2072, 32, 73, "Message",ExpressionUUID->"a0c287ad-5838-4c3d-8131-e1a92f49c5bd"],
+Cell[500472, 9357, 427, 8, 35, "Message",ExpressionUUID->"02ecfaa3-f99b-42f7-bb01-401cce8a76d2"],
+Cell[500902, 9367, 419, 9, 35, "Message",ExpressionUUID->"f6eafeda-6e21-4991-ad7d-704f243fb519"],
+Cell[501324, 9378, 2026, 32, 73, "Message",ExpressionUUID->"2db750c6-a4aa-4326-a5bc-87e395e7e594"],
+Cell[503353, 9412, 2024, 32, 73, "Message",ExpressionUUID->"bdf5794c-7504-4a04-aba2-b5335d300afb"],
+Cell[505380, 9446, 2072, 32, 73, "Message",ExpressionUUID->"66573549-b204-4c31-a805-05a0d87e4ffd"],
+Cell[507455, 9480, 426, 8, 35, "Message",ExpressionUUID->"03e58675-98be-45bf-a95d-22b2d59a9886"],
+Cell[507884, 9490, 419, 9, 35, "Message",ExpressionUUID->"5c5a6221-a536-4b2e-b1df-a88b4f6d18d0"],
+Cell[508306, 9501, 2024, 32, 73, "Message",ExpressionUUID->"54d9e089-0370-476a-828d-5ede615d044f"],
+Cell[510333, 9535, 2024, 32, 72, "Message",ExpressionUUID->"352d32ed-f317-4c0e-a9b3-fdd9e2cd9fb7"],
+Cell[512360, 9569, 2072, 32, 72, "Message",ExpressionUUID->"bd197fdc-e25e-4f20-920d-5b6822ef898e"],
+Cell[514435, 9603, 427, 8, 35, "Message",ExpressionUUID->"8efe1297-7a31-4358-aae6-3db83dd0028a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[514899, 9616, 367, 8, 37, "Input",ExpressionUUID->"0ad1d3b9-3763-4919-8ead-8bf457491a74"],
+Cell[CellGroupData[{
+Cell[515291, 9628, 441, 10, 29, "Print",ExpressionUUID->"b8323a12-95f0-4cd7-8664-8950307d9f4c"],
+Cell[515735, 9640, 441, 10, 29, "Print",ExpressionUUID->"5622fb04-b5f6-49cb-a13d-b2d71b833016"],
+Cell[516179, 9652, 445, 10, 29, "Print",ExpressionUUID->"4ac8b706-0cd4-48be-bfca-2b81aee6f4f4"],
+Cell[516627, 9664, 445, 10, 29, "Print",ExpressionUUID->"faa7ba7f-93bb-44d5-b271-6efa02b1a8c8"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1367356, 24838, 166, 3, 84, "Chapter",ExpressionUUID->"b91212b5-711b-44eb-9bb9-e2de20c7b817"],
-Cell[CellGroupData[{
-Cell[1367547, 24845, 4981, 143, 579, "Input",ExpressionUUID->"4c498066-f545-4811-9adf-77b4d301731f"],
-Cell[1372531, 24990, 2301, 69, 42, "Output",ExpressionUUID->"66dd7892-98cc-4ea7-97cb-76b79339a331"]
+Cell[517121, 9680, 6106, 111, 286, "Input",ExpressionUUID->"9bf0bb4c-07a5-422b-9998-b3e6f094b725"],
+Cell[523230, 9793, 832553, 14670, 426, "Output",ExpressionUUID->"7ce4042c-416c-447a-993b-7a77ca9bc917"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1374869, 25064, 1294, 34, 91, "Input",ExpressionUUID->"694ab814-227c-41df-9b4e-f08ee7d2bd06"],
-Cell[1376166, 25100, 883, 26, 43, "Output",ExpressionUUID->"1c4b23b3-10a3-4358-8dd2-2b2241bfa581"]
-}, Open  ]],
+Cell[1355820, 24468, 1097, 27, 116, "Input",ExpressionUUID->"a664264f-1ae7-4cc7-a5f5-02d4119656b5"],
 Cell[CellGroupData[{
-Cell[1377086, 25131, 1531, 47, 89, "Input",ExpressionUUID->"c63cd622-427c-4a5b-bab9-3a649e60ce73"],
-Cell[1378620, 25180, 1749, 55, 66, "Output",ExpressionUUID->"a7de02e7-928a-4268-9902-6bb5c65ff447"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1380406, 25240, 2422, 70, 212, "Input",ExpressionUUID->"fda4d05c-c76e-4ead-a9f0-82f59a5584e1"],
-Cell[1382831, 25312, 951, 23, 62, "Output",ExpressionUUID->"08a282bc-aa65-443a-aeba-628f003f9bd1"]
-}, Open  ]],
-Cell[1383797, 25338, 885, 22, 113, "Input",ExpressionUUID->"6314739b-08e5-4c39-a913-6ae9340e9c0d"],
-Cell[CellGroupData[{
-Cell[1384707, 25364, 256, 8, 36, "Input",ExpressionUUID->"1522252d-3ecf-4f06-9ff1-e860622845a0"],
-Cell[1384966, 25374, 1064, 34, 65, "Output",ExpressionUUID->"ac162921-c56e-4c95-b78c-dd3e6d66ff0a"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1386067, 25413, 2027, 52, 139, "Input",ExpressionUUID->"9fe91eef-844f-486a-baef-41b53a3b7e9a"],
-Cell[1388097, 25467, 504, 10, 41, "Output",ExpressionUUID->"2a920695-f798-4e4f-ad7c-462a055d9102"],
-Cell[1388604, 25479, 36996, 682, 296, "Output",ExpressionUUID->"fe7213bc-a60f-4cb5-be6c-3c0d72fa938d"]
+Cell[1356942, 24499, 516, 11, 29, "Print",ExpressionUUID->"ae5d3f40-b1dc-4ce6-8f01-2afa314c5e9e"],
+Cell[1357461, 24512, 516, 11, 29, "Print",ExpressionUUID->"3bd745e0-2dbe-41af-978e-d0ec06310957"],
+Cell[1357980, 24525, 516, 11, 29, "Print",ExpressionUUID->"08aad295-b835-4bdf-9012-449c8372d1ed"],
+Cell[1358499, 24538, 518, 11, 29, "Print",ExpressionUUID->"f5dfb611-4f38-42b0-b088-c4537f17848b"],
+Cell[1359020, 24551, 516, 11, 29, "Print",ExpressionUUID->"3bae0c57-63a4-411e-9023-5575f82fa1c4"],
+Cell[1359539, 24564, 516, 11, 29, "Print",ExpressionUUID->"d695624e-baa6-44e9-9b52-42c18d8f3533"],
+Cell[1360058, 24577, 518, 11, 29, "Print",ExpressionUUID->"e87de682-a06e-4fc0-8d3b-319534ef41d4"],
+Cell[1360579, 24590, 518, 11, 29, "Print",ExpressionUUID->"fd7be509-f3bc-457a-92f4-99d2a13455a3"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1425649, 26167, 150, 3, 84, "Chapter",ExpressionUUID->"0f5f76ad-82eb-474f-bbad-8721033d8b03"],
+Cell[1361158, 24608, 168, 3, 67, "Subsection",ExpressionUUID->"62bc765f-794f-450b-8319-d5191b32ced5"],
+Cell[1361329, 24613, 5026, 100, 298, "Input",ExpressionUUID->"d21bfd2c-fc64-45ea-bdbc-363a3ccb1028"],
 Cell[CellGroupData[{
-Cell[1425824, 26174, 2807, 77, 317, "Input",ExpressionUUID->"549f496f-76ba-4d63-a25b-2680c40e9015"],
-Cell[1428634, 26253, 1741, 45, 41, "Output",ExpressionUUID->"d6da4d42-db5e-4608-a103-1ab0800a93d4"]
+Cell[1366380, 24717, 874, 21, 116, "Input",ExpressionUUID->"096c77a6-e13d-410d-81b0-a369d1b0c5f1"],
+Cell[1367257, 24740, 38550, 755, 275, "Output",ExpressionUUID->"5bc41bfa-252a-4783-b30d-20e99ddf827c"],
+Cell[1405810, 25497, 43872, 840, 281, "Output",ExpressionUUID->"5835f2f6-5098-4718-8c02-37851ec263a9"],
+Cell[CellGroupData[{
+Cell[1449707, 26341, 409, 10, 29, "Print",ExpressionUUID->"2cf9919d-7239-4794-83cf-3c56c8f8e12c"],
+Cell[1450119, 26353, 408, 10, 29, "Print",ExpressionUUID->"dbedd53f-96cf-487c-ad5c-12ec5d283f53"],
+Cell[1450530, 26365, 415, 10, 29, "Print",ExpressionUUID->"03c5a9b5-65a7-4baf-be39-7df42d8af953"],
+Cell[1450948, 26377, 415, 10, 29, "Print",ExpressionUUID->"1181538e-c2b4-467c-98de-8d11ab61f036"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1430412, 26303, 1636, 41, 87, "Input",ExpressionUUID->"892f2791-b517-45ab-ade3-afadc073175d"],
-Cell[1432051, 26346, 971, 27, 41, "Output",ExpressionUUID->"7c60ec94-e777-4f93-a408-87eeafb47b5d"]
+Cell[1451412, 26393, 447, 11, 64, "Input",ExpressionUUID->"cc9528d6-0e04-4475-be11-143b3406e257"],
+Cell[CellGroupData[{
+Cell[1451884, 26408, 398, 9, 29, "Print",ExpressionUUID->"bf2ed3e3-124e-42e5-885c-e76236f2f127"],
+Cell[1452285, 26419, 398, 9, 29, "Print",ExpressionUUID->"d82642fe-7435-4c0c-9bdb-2bfa065cda5a"],
+Cell[1452686, 26430, 404, 9, 29, "Print",ExpressionUUID->"e90360ca-49ae-439e-a135-92473096be76"],
+Cell[1453093, 26441, 404, 9, 29, "Print",ExpressionUUID->"9642a4a7-ab6d-4818-988b-5ed1fd5f1a85"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1453582, 26459, 159, 3, 86, "Chapter",ExpressionUUID->"6cb841f2-3194-41b0-acd6-41d1e6009309"],
+Cell[1453744, 26464, 6828, 175, 584, "Input",ExpressionUUID->"62ccb5da-23a7-46a7-8120-ad83400f5f9f"],
+Cell[CellGroupData[{
+Cell[1460597, 26643, 160, 3, 67, "Subsection",ExpressionUUID->"9d2b1915-254b-4a49-95ed-45f8b26f9b28"],
+Cell[1460760, 26648, 547, 17, 60, "Input",ExpressionUUID->"1a536fd0-b58f-4cd9-9168-7d6e2a75bd82"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1461356, 26671, 166, 3, 86, "Chapter",ExpressionUUID->"b91212b5-711b-44eb-9bb9-e2de20c7b817"],
+Cell[CellGroupData[{
+Cell[1461547, 26678, 4981, 143, 602, "Input",ExpressionUUID->"4c498066-f545-4811-9adf-77b4d301731f"],
+Cell[1466531, 26823, 2301, 69, 45, "Output",ExpressionUUID->"66dd7892-98cc-4ea7-97cb-76b79339a331"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1468869, 26897, 1294, 34, 96, "Input",ExpressionUUID->"694ab814-227c-41df-9b4e-f08ee7d2bd06"],
+Cell[1470166, 26933, 883, 26, 46, "Output",ExpressionUUID->"1c4b23b3-10a3-4358-8dd2-2b2241bfa581"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1471086, 26964, 1531, 47, 97, "Input",ExpressionUUID->"c63cd622-427c-4a5b-bab9-3a649e60ce73"],
+Cell[1472620, 27013, 1749, 55, 71, "Output",ExpressionUUID->"a7de02e7-928a-4268-9902-6bb5c65ff447"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1474406, 27073, 2422, 70, 228, "Input",ExpressionUUID->"fda4d05c-c76e-4ead-a9f0-82f59a5584e1"],
+Cell[1476831, 27145, 951, 23, 67, "Output",ExpressionUUID->"08a282bc-aa65-443a-aeba-628f003f9bd1"]
+}, Open  ]],
+Cell[1477797, 27171, 885, 22, 116, "Input",ExpressionUUID->"6314739b-08e5-4c39-a913-6ae9340e9c0d"],
+Cell[CellGroupData[{
+Cell[1478707, 27197, 256, 8, 37, "Input",ExpressionUUID->"1522252d-3ecf-4f06-9ff1-e860622845a0"],
+Cell[1478966, 27207, 1064, 34, 73, "Output",ExpressionUUID->"ac162921-c56e-4c95-b78c-dd3e6d66ff0a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1480067, 27246, 2027, 52, 150, "Input",ExpressionUUID->"9fe91eef-844f-486a-baef-41b53a3b7e9a"],
+Cell[1482097, 27300, 504, 10, 42, "Output",ExpressionUUID->"2a920695-f798-4e4f-ad7c-462a055d9102"],
+Cell[1482604, 27312, 36996, 682, 298, "Output",ExpressionUUID->"fe7213bc-a60f-4cb5-be6c-3c0d72fa938d"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1519649, 28000, 150, 3, 86, "Chapter",ExpressionUUID->"0f5f76ad-82eb-474f-bbad-8721033d8b03"],
+Cell[CellGroupData[{
+Cell[1519824, 28007, 2807, 77, 324, "Input",ExpressionUUID->"549f496f-76ba-4d63-a25b-2680c40e9015"],
+Cell[1522634, 28086, 1741, 45, 42, "Output",ExpressionUUID->"d6da4d42-db5e-4608-a103-1ab0800a93d4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1524412, 28136, 1636, 41, 90, "Input",ExpressionUUID->"892f2791-b517-45ab-ade3-afadc073175d"],
+Cell[1526051, 28179, 971, 27, 42, "Output",ExpressionUUID->"7c60ec94-e777-4f93-a408-87eeafb47b5d"],
+Cell[1527025, 28208, 520, 15, 30, "Echo",ExpressionUUID->"c1165b4c-2869-4393-ad2a-de24369ab802",
+ CellTags->"PredictiveInterface"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
