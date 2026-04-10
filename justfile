@@ -4,6 +4,9 @@ import 'files/overleaf.just'
 default:
   just --list
 
+link:
+  ln -s ~/Library/CloudStorage/Box-Box/research/multifluid_model ./private
+
 ensure-env: clone-overleaf
   rsync --update --recursive ~/projects/share/quarto/ ./
   pixi install
